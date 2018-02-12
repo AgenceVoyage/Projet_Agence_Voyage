@@ -62,6 +62,9 @@ public class Voyage implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="hotel_id", referencedColumnName="id_hotel")
 	private Hotel hotel;
+	
+	@OneToMany(mappedBy="voyage")
+	private List<Dossier> listeDossiers;
 
 	/**
 	 * constructeurs
@@ -258,6 +261,14 @@ public class Voyage implements Serializable {
 
 	public void setHotel(Hotel hotel) {
 		this.hotel = hotel;
+	}
+
+	public List<Dossier> getListeDossiers() {
+		return listeDossiers;
+	}
+
+	public void setListeDossiers(List<Dossier> listeDossiers) {
+		this.listeDossiers = listeDossiers;
 	}
 	
 	
