@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -33,12 +34,10 @@ public class Role implements Serializable{
 	private int id;
 	private String roleName;
 	
-	@ManyToOne
-	@JoinColumn(name="agent_id", referencedColumnName="id_agent")
+	@OneToMany(mappedBy="role")
 	private List<Agent> listeAgents;
 	
-	@ManyToOne
-	@JoinColumn(name="client_id", referencedColumnName="id_client")
+	@OneToMany(mappedBy="role")
 	private List<Client> listeClients;
 	
 	

@@ -8,6 +8,7 @@ import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -36,7 +37,8 @@ public class Client extends Voyageur implements Serializable {
 	@Embedded
 	private Adresse adresse;
 
-	@OneToMany(mappedBy = "client")
+	@ManyToOne
+	@JoinColumn(name="role_id",referencedColumnName="id_role")
 	private Role role;
 
 	@ManyToMany(mappedBy = "listeClients")
