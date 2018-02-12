@@ -1,6 +1,16 @@
 package fr.adaming.model;
 
 import java.io.Serializable;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 /**
  * 
@@ -12,17 +22,49 @@ import java.io.Serializable;
  * 	prixTotal : prix total du dossier n'incluant pas les frais d'assurances
  */
 
+@Entity
+@Table(name="dossiers")
 public class Dossier implements Serializable{
 
 	/**
 	 * attributs
 	 */
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_dossier")
 	private int id;
 	private String numDossier;
 	private String statut;
 	private double prixTotal;
 	
+	/**
+	 * Convertir les associations uml en java
+	 */
+
+	@ManyToMany
+	@JoinTable(name="assurance_dossier",joinColumns=@JoinColumn(name="assurance_id"),inverseJoinColumns=@JoinColumn(name="dossier_id"))
+	private List<Assurance> listeAssurances;
 	
+	@ManyToMany
+	@JoinTable(name="client_dossier",joinColumns=@JoinColumn(name="client_id"),inverseJoinColumns=@JoinColumn(name="dossier_id"))
+	private List<Client> listeClients;
+
+	public List<Assurance> getListeAssurances() {
+		return listeAssurances;
+	}
+
+	public void setListeAssurances(List<Assurance> listeAssurances) {
+		this.listeAssurances = listeAssurances;
+	}
+
+	public List<Client> getListeClients() {
+		return listeClients;
+	}
+
+	public void setListeClients(List<Client> listeClients) {
+		this.listeClients = listeClients;
+	}
+
 	/**
 	 * constructeurs
 	 */

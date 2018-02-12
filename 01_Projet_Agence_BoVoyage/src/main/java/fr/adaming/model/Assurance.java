@@ -1,6 +1,15 @@
 package fr.adaming.model;
 
 import java.io.Serializable;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 /**
  * 
@@ -10,15 +19,33 @@ import java.io.Serializable;
  * 	type : type de l'assurance (toutrisque, annulation, rapatriment ...)
  * 	prix : prix de l'assurance
  */
+@Entity
+@Table(name="assurances")
 public class Assurance implements Serializable {
 
 	/**
 	 * attributs
 	 */
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_assurance")
 	private int id;
 	private String type;
 	private double prix;
+	/**
+	 * Convertir les associations uml en java
+	 */
+	@ManyToMany(mappedBy="listeAssurances") 
+	private List<Dossier> listeDossiers;
 	
+	public List<Dossier> getListeDossiers() {
+		return listeDossiers;
+	}
+
+	public void setListeDossiers(List<Dossier> listeDossiers) {
+		this.listeDossiers = listeDossiers;
+	}
+
 	/**
 	 * constructeur
 	 */

@@ -1,6 +1,16 @@
 package fr.adaming.model;
 
 import java.io.Serializable;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 /**
  * 
@@ -9,14 +19,25 @@ import java.io.Serializable;
  * 	id : id du role 
  * 	roleName : appelation du role
  */
+@Entity
+@Table(name="roles")
 public class Role implements Serializable{
 
 	/**
 	 * attributs
 	 */
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_role")
 	private int id;
 	private String roleName;
 	
+	@ManyToOne
+	@JoinColumn(name="agent_id", referencedColumnName="id_agent")
+	private List<Agent> listeAgent;
+	
+	@OneToOne(mappedBy="role")
+	private Client client;
 	/**
 	 * constructeurs
 	 */

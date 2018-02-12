@@ -2,6 +2,15 @@ package fr.adaming.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 /**
  * 
  * @author inti0294
@@ -11,15 +20,26 @@ import java.io.Serializable;
  * 	mdp : mdp de l'agent
  *  active : boolean si l'agent est active ou non
  */
+@Entity
+@Table(name="agents")
 public class Agent implements Serializable{
 
 	/**
 	 * attributs
 	 */
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_agent")
 	private int id;
 	private String mail;
 	private String mdp;
 	private boolean active;
+	/**
+	 * Convertir les associations uml en java
+	 */
+	@OneToMany(mappedBy="agent")
+	private Role role;
+	
 	
 	/**
 	 * constructeurs
