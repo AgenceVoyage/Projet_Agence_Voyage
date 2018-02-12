@@ -1,14 +1,19 @@
 package fr.adaming.model;
+
+import java.io.Serializable;
+
+import javax.persistence.Embeddable;
+
 /**
  * 
  * @author Adaming44
  *
  */
-//@Embedable
-public class Adresse {
+@Embeddable
+public class Adresse implements Serializable {
 
 	/**
-	 * Déclaration des attributs
+	 * Déclaration des attributs 
 	 */
 	private int numero;
 	
