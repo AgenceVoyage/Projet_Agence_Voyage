@@ -115,12 +115,13 @@ public class Hotel implements Serializable {
 		this.adresse = adresse;
 	}
 
-	public List<Voyage> getVoyageList() {
-		return voyageList;
+	public List<Voyage> getListeVoyages() {
+		return listeVoyages;
 	}
 
-	public void setVoyageList(List<Voyage> voyageList) {
-		this.voyageList = voyageList;
+	public void setListeVoyages(List<Voyage> listeVoyages) {
+		this.listeVoyages = listeVoyages;
 	}
+
 
 }
