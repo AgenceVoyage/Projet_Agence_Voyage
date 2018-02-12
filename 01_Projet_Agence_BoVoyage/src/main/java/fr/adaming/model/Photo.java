@@ -2,27 +2,41 @@ package fr.adaming.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 /**
  * Classe model pour attribuer des photos à un voyage
  * @author Adaming44
  *
  */
-//@Entity
-//@Table(name=photos)
+@Entity
+@Table(name="photos")
 public class Photo implements Serializable{
 	
 	/**
 	 * attributs
 	 */
-	//@Id
-	//@GeneratedValue(strategy=)
-	//@Column(name="id_photo")
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_photo")
 	private int id;
 	
-	//@Lob
+	@Lob
 	private byte[] picture;
 	
 	private String image;
+	
+	@ManyToOne
+	@JoinColumn(name="voyage_id", referencedColumnName="id_voyage")
+	private Voyage voyage;
 
 	/**
 	 * constructeurs
@@ -70,6 +84,14 @@ public class Photo implements Serializable{
 
 	public void setImage(String image) {
 		this.image = image;
+	}
+
+	public Voyage getVoyage() {
+		return voyage;
+	}
+
+	public void setVoyage(Voyage voyage) {
+		this.voyage = voyage;
 	}
 
 }

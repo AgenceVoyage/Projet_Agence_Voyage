@@ -2,6 +2,19 @@ package fr.adaming.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * Classe model pour les voyages
@@ -9,23 +22,23 @@ import java.util.Date;
  * @author Adaming44
  *
  */
-// @Entity
-// @Table(name=voyages)
+@Entity
+@Table(name="voyages")
 public class Voyage implements Serializable {
 
 	/**
 	 * attributs
 	 */
-	// @Id
-	// @GeneratedValue(strategy=)
-	// @Column(name="id_voyage")
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_voyage")
 	private int id;
 	private String nom;
 	private String reference;
 
-	// @TemporalType(both)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date dateDepart;
-	// @TemporalType(both)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date dateArrivee;
 
 	private int nbPlaces;
@@ -38,6 +51,17 @@ public class Voyage implements Serializable {
 	private String continent;
 	private String compagnieVoyage;
 	private String prestation; // avion seul ou avion+voiture ou avion+hotel...
+	
+	@OneToMany(mappedBy="voyage")
+	private List<Photo> listePhotos;
+	
+	@ManyToOne
+	@JoinColumn(name="voiture_id", referencedColumnName="id")
+	private Voiture voiture;
+	
+	@ManyToOne
+	@JoinColumn(name="hotel_id", referencedColumnName="id")
+	private Hotel hotel;
 
 	/**
 	 * constructeurs
@@ -211,5 +235,31 @@ public class Voyage implements Serializable {
 	public void setPrestation(String prestation) {
 		this.prestation = prestation;
 	}
+
+	public List<Photo> getListePhotos() {
+		return listePhotos;
+	}
+
+	public void setListePhotos(List<Photo> listePhotos) {
+		this.listePhotos = listePhotos;
+	}
+
+	public Voiture getVoiture() {
+		return voiture;
+	}
+
+	public void setVoiture(Voiture voiture) {
+		this.voiture = voiture;
+	}
+
+	public Hotel getHotel() {
+		return hotel;
+	}
+
+	public void setHotel(Hotel hotel) {
+		this.hotel = hotel;
+	}
+	
+	
 
 }
