@@ -61,6 +61,10 @@ public class Voiture implements Serializable{
 		this.categorie = categorie;
 		this.prix = prix;
 	}
+	
+	/**
+	 * Getters et Setters
+	 */
 
 	public int getId() {
 		return id;
