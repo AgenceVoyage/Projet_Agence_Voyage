@@ -43,7 +43,7 @@ public class Hotel implements Serializable {
 		 * Déclaration des associations UML
 		 */
 		 @ManyToOne
-		 @JoinColumn(name="v_id",referencedColumnName="id")
+		 @JoinColumn(name="v_id",referencedColumnName="id_voyage")
 		 private Voyage voyage;
 		
 		/**
@@ -71,6 +71,9 @@ public class Hotel implements Serializable {
 			this.adresse = adresse;
 		}
 
+		/**
+		 * Getters et Setters
+		 */
 		public int getId() {
 			return id;
 		}
@@ -119,9 +122,6 @@ public class Hotel implements Serializable {
 			this.voyage = voyage;
 		}
 		
-		
-
-		
-		
+				
 
 }

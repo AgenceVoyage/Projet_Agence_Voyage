@@ -35,7 +35,7 @@ public class Voiture implements Serializable{
 	 * Déclaration des associations UML en Java
 	 */
 	 @ManyToOne
-	 @JoinColumn(name="v_id",referencedColumnName="id")
+	 @JoinColumn(name="v_id",referencedColumnName="id_voyage")
 	 private Voyage voyage;
 
 	/**

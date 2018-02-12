@@ -59,18 +59,20 @@ public class Adresse implements Serializable {
 	}
 
 	/**
-	 * 
-	 * @param numero
-	 * @param voirie
-	 * @param codePostal
-	 * @param ville
+	 * Les constructeurs
 	 */
+		
 	public Adresse(int numero, String voirie, int codePostal, String ville) {
 		super();
 		this.numero = numero;
 		this.voirie = voirie;
 		this.codePostal = codePostal;
 		this.ville = ville;
+	}
+
+	public Adresse() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 	
 		
