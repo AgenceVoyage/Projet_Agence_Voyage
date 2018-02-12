@@ -45,7 +45,7 @@ public class Hotel implements Serializable {
 	 * Déclaration des associations UML
 	 */
 	@OneToMany(mappedBy = "hotel")
-	private List<Voyage> voyageList;
+	private List<Voyage> listeVoyages;
 
 	/**
 	 * Les constructeurs

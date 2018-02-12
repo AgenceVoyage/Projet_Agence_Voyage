@@ -39,7 +39,7 @@ public class Voiture implements Serializable {
 	 * Déclaration des associations UML en Java
 	 */
 	@OneToMany(mappedBy = "voiture")
-	private List<Voyage> voyageList;
+	private List<Voyage> listeVoyages;
 
 	/**
 	 * Les constructeurs
