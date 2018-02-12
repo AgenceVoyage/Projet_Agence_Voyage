@@ -99,13 +99,15 @@ public class Voiture implements Serializable{
 		this.prix = prix;
 	}
 
-	public Voyage getVoyage() {
-		return voyage;
+	public List<Voyage> getVoyageList() {
+		return voyageList;
 	}
 
-	public void setVoyage(Voyage voyage) {
-		this.voyage = voyage;
+	public void setVoyageList(List<Voyage> voyageList) {
+		this.voyageList = voyageList;
 	}
+
+
 	
 
 }
