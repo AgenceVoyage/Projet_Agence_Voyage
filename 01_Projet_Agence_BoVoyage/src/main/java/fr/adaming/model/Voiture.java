@@ -1,6 +1,7 @@
 package fr.adaming.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -34,9 +36,8 @@ public class Voiture implements Serializable{
 	/**
 	 * Déclaration des associations UML en Java
 	 */
-	 @ManyToOne
-	 @JoinColumn(name="v_id",referencedColumnName="id_voyage")
-	 private Voyage voyage;
+	 @OneToMany(mappedBy="voiture")
+	 private List<Voyage> voyageList;
 
 	/**
 	 * Les constructeurs
