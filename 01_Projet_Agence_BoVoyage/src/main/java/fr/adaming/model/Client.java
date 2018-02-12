@@ -2,8 +2,13 @@ package fr.adaming.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -26,6 +31,16 @@ public class Client extends Voyageur implements Serializable {
 	private String mail;
 	private String mdp;
 	private boolean active;
+
+	@Embedded
+	private Adresse adresse;
+
+	@OneToOne
+	@JoinColumn(name = "role_id", referencedColumnName = "id_role")
+	private Role role;
+
+	@ManyToMany(mappedBy = "listeClients")
+	private List<Dossier> listeDossiers;
 
 	/**
 	 * constructeurs
