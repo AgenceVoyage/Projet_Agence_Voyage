@@ -8,6 +8,7 @@ import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -35,8 +36,7 @@ public class Client extends Voyageur implements Serializable {
 	@Embedded
 	private Adresse adresse;
 
-	@OneToOne
-	@JoinColumn(name = "role_id", referencedColumnName = "id_role")
+	@OneToMany(mappedBy = "client")
 	private Role role;
 
 	@ManyToMany(mappedBy = "listeClients")
@@ -112,6 +112,30 @@ public class Client extends Voyageur implements Serializable {
 
 	public void setActive(boolean active) {
 		this.active = active;
+	}
+
+	public Adresse getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
+	}
+
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
+	public List<Dossier> getListeDossiers() {
+		return listeDossiers;
+	}
+
+	public void setListeDossiers(List<Dossier> listeDossiers) {
+		this.listeDossiers = listeDossiers;
 	}
 
 }

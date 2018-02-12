@@ -45,6 +45,7 @@ public class Assurance implements Serializable {
 	public void setListeDossiers(List<Dossier> listeDossiers) {
 		this.listeDossiers = listeDossiers;
 	}
+	
 
 	/**
 	 * constructeur

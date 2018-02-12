@@ -35,10 +35,29 @@ public class Role implements Serializable{
 	
 	@ManyToOne
 	@JoinColumn(name="agent_id", referencedColumnName="id_agent")
-	private List<Agent> listeAgent;
+	private List<Agent> listeAgents;
 	
-	@OneToOne(mappedBy="role")
-	private Client client;
+	@ManyToOne
+	@JoinColumn(name="client_id", referencedColumnName="id_client")
+	private List<Client> listeClients;
+	
+	
+	public List<Agent> getListeAgents() {
+		return listeAgents;
+	}
+
+	public void setListeAgents(List<Agent> listeAgents) {
+		this.listeAgents = listeAgents;
+	}
+
+	public List<Client> getListeClients() {
+		return listeClients;
+	}
+
+	public void setListeClients(List<Client> listeClients) {
+		this.listeClients = listeClients;
+	}
+
 	/**
 	 * constructeurs
 	 */

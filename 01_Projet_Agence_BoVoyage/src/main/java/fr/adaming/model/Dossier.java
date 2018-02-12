@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.JoinColumn;
 
@@ -50,6 +51,11 @@ public class Dossier implements Serializable{
 	@JoinTable(name="client_dossier",joinColumns=@JoinColumn(name="client_id"),inverseJoinColumns=@JoinColumn(name="dossier_id"))
 	private List<Client> listeClients;
 
+	@ManyToOne
+	@JoinColumn(name="voyage_id", referencedColumnName="id_voyage")
+	private Voyage voyage;
+	
+	
 	public List<Assurance> getListeAssurances() {
 		return listeAssurances;
 	}
@@ -66,6 +72,15 @@ public class Dossier implements Serializable{
 		this.listeClients = listeClients;
 	}
 
+	public Voyage getVoyage() {
+		return voyage;
+	}
+
+	public void setVoyage(Voyage voyage) {
+		this.voyage = voyage;
+	}
+
+	
 	/**
 	 * constructeurs
 	 */
