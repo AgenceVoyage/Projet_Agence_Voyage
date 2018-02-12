@@ -3,14 +3,17 @@ package fr.adaming.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 /**
  * Classe model pour les clients
  * 
  * @author inti-0265
  *
  */
-// @Entity
-// @Table(name=clients)
+@Entity
+@Table(name = "clients")
 public class Client extends Voyageur implements Serializable {
 
 	private static final long serialVersionUID = 1L;

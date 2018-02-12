@@ -3,14 +3,23 @@ package fr.adaming.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 /**
  * Classe model pour les voyageurs
  * 
  * @author inti-0265
  *
  */
-// @Inheritance
-// @MappedSuperclass
+@Inheritance
+@MappedSuperclass
 public class Voyageur implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -18,11 +27,11 @@ public class Voyageur implements Serializable {
 	/**
 	 * attributs
 	 */
-	// @Id
-	// @GeneratedValue(strategy=)
-	// @Column(name="id_voyageur")
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_voyageur")
 	protected int id;
-	// @TemporalType(date)
+	@Temporal(TemporalType.DATE)
 	protected Date dateNaissance;
 	protected boolean civilite;
 	protected String nom;
