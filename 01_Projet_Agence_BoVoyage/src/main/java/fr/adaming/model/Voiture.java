@@ -3,6 +3,7 @@ package fr.adaming.model;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,13 +19,14 @@ import javax.persistence.Table;
  * 
  */
 
- @Entity
- @Table(name="voitures")
-public class Voiture implements Serializable{
+@Entity
+@Table(name = "voitures")
+public class Voiture implements Serializable {
 
 	/** Déclaration des attributs */
-	 @Id
-	 @GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_voiture")
 	private int id;
 
 	private String loueur;
@@ -36,8 +38,8 @@ public class Voiture implements Serializable{
 	/**
 	 * Déclaration des associations UML en Java
 	 */
-	 @OneToMany(mappedBy="voiture")
-	 private List<Voyage> voyageList;
+	@OneToMany(mappedBy = "voiture")
+	private List<Voyage> voyageList;
 
 	/**
 	 * Les constructeurs
@@ -62,7 +64,7 @@ public class Voiture implements Serializable{
 		this.categorie = categorie;
 		this.prix = prix;
 	}
-	
+
 	/**
 	 * Getters et Setters
 	 */
@@ -106,8 +108,5 @@ public class Voiture implements Serializable{
 	public void setVoyageList(List<Voyage> voyageList) {
 		this.voyageList = voyageList;
 	}
-
-
-	
 
 }

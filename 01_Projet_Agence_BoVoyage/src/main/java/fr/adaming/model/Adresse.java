@@ -13,14 +13,14 @@ import javax.persistence.Embeddable;
 public class Adresse implements Serializable {
 
 	/**
-	 * Déclaration des attributs 
+	 * Déclaration des attributs
 	 */
 	private int numero;
-	
+
 	private String voirie;
-	
+
 	private int codePostal;
-	
+
 	private String ville;
 
 	/**
@@ -61,7 +61,7 @@ public class Adresse implements Serializable {
 	/**
 	 * Les constructeurs
 	 */
-		
+
 	public Adresse(int numero, String voirie, int codePostal, String ville) {
 		super();
 		this.numero = numero;
@@ -74,7 +74,5 @@ public class Adresse implements Serializable {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-		
-	
+
 }
