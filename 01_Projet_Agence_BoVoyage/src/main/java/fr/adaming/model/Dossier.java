@@ -1,4 +1,7 @@
 package fr.adaming.model;
+
+import java.io.Serializable;
+
 /**
  * 
  * @author inti0294
@@ -9,7 +12,7 @@ package fr.adaming.model;
  * 	prixTotal : prix total du dossier n'incluant pas les frais d'assurances
  */
 
-public class Dossier {
+public class Dossier implements Serializable{
 
 	/**
 	 * attributs

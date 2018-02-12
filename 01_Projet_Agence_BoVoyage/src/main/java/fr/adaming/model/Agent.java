@@ -1,4 +1,7 @@
 package fr.adaming.model;
+
+import java.io.Serializable;
+
 /**
  * 
  * @author inti0294
@@ -8,7 +11,7 @@ package fr.adaming.model;
  * 	mdp : mdp de l'agent
  *  active : boolean si l'agent est active ou non
  */
-public class Agent {
+public class Agent implements Serializable{
 
 	/**
 	 * attributs

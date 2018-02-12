@@ -1,4 +1,7 @@
 package fr.adaming.model;
+
+import java.io.Serializable;
+
 /**
  * 
  * @author inti0294
@@ -6,7 +9,7 @@ package fr.adaming.model;
  * 	id : id du role 
  * 	roleName : appelation du role
  */
-public class Role {
+public class Role implements Serializable{
 
 	/**
 	 * attributs

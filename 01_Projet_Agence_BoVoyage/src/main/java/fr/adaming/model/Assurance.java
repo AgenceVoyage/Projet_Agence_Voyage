@@ -1,4 +1,7 @@
 package fr.adaming.model;
+
+import java.io.Serializable;
+
 /**
  * 
  * @author inti0294
@@ -7,7 +10,7 @@ package fr.adaming.model;
  * 	type : type de l'assurance (toutrisque, annulation, rapatriment ...)
  * 	prix : prix de l'assurance
  */
-public class Assurance {
+public class Assurance implements Serializable {
 
 	/**
 	 * attributs
