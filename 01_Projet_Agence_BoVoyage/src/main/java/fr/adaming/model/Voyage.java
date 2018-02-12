@@ -56,11 +56,11 @@ public class Voyage implements Serializable {
 	private List<Photo> listePhotos;
 	
 	@ManyToOne
-	@JoinColumn(name="voiture_id", referencedColumnName="id")
+	@JoinColumn(name="voiture_id", referencedColumnName="id_voiture")
 	private Voiture voiture;
 	
 	@ManyToOne
-	@JoinColumn(name="hotel_id", referencedColumnName="id")
+	@JoinColumn(name="hotel_id", referencedColumnName="id_hotel")
 	private Hotel hotel;
 
 	/**
