@@ -38,7 +38,9 @@
 							<h3>${v.nom}</h3>
 							<p>
 								<b>Prix : </b>${v.prixPublic}<br />
-								<b>Date de depart : </b>${v.dateDepart}</p>
+								<b>Remise : </b>${v.remise}<br/>
+								<b>Date de depart : </b>${v.dateDepart}<br />
+								<b>Date d'arrivee : </b>${v.dateArrivee}</p>
 						</div>
 					</div>
 				</div>
