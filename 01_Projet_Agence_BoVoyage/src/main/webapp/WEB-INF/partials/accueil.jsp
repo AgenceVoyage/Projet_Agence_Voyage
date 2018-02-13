@@ -8,6 +8,8 @@
   <meta charset="utf-8">
 
   <link rel="stylesheet" href="<c:url value="/resources/boostrap/bootstrap.min.css"/>"/>
+  	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ 	 <script src="<c:url value="/resources/boostrap/bootstrap.min.js"/>"></script>
 </head>
 <body>
 

@@ -10,13 +10,14 @@
 
 
 
-<form class="form-horizontal">
 
+
+ 
 <nav class="navbar navbar-inverse" style="background-color: #F8F8F8;">
   <div class="container-fluid">
     <ul class="nav navbar-nav">
       
-
+	  
       <li><a href="${pageContext.request.contextPath}/accueil">Accueil</a></li>
 			 
 			<li class="dropdown">
@@ -40,19 +41,20 @@
      		
          	 <li><a href="${pageContext.request.contextPath}/client">Connection Client</a></li>
          	 
-         	 <div>
+    			
          	 <form class="navbar-form navbar-right inline-form">
       			<div class="form-group">
         			<input type="search" class="input-sm form-control" placeholder="Recherche">
        				 <button type="submit" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-eye-open"></span> Chercher</button>
       			</div>
     		</form>
- 			</div>
+
     </ul>
   </div>
 </nav>
 
-</form>
+	
+
 
 </body>
 
