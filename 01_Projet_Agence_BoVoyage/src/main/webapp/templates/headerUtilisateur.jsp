@@ -39,7 +39,8 @@
      		 </li>
      		 
      		
-         	 <li><a href="${pageContext.request.contextPath}/client">Connection Client</a></li>
+         	 <li><a href="${pageContext.request.contextPath}/client/accueilClient">Connection Client</a></li>
+         	 <li><a href="${pageContext.request.contextPath}/agent/accueilAgent">Connection Agent</a></li>
          	 
     			
          	 <form class="navbar-form navbar-right inline-form">

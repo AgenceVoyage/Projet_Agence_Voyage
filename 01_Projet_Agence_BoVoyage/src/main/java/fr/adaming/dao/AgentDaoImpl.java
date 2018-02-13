@@ -1,34 +1,38 @@
 package fr.adaming.dao;
 
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
 import org.springframework.stereotype.Repository;
 
 import fr.adaming.model.Agent;
 
 @Repository
 public class AgentDaoImpl implements IAgentDao {
+	
+	@PersistenceContext(unitName="pu")
+	EntityManager em;
 
-	/*@Autowired
-	private SessionFactory sf;
-
-	public void setSf(SessionFactory sf) {
-		this.sf = sf;
-	}*/
+	public void setEm(EntityManager em) {
+		this.em = em;
+	}
 
 	@Override
 	public Agent getAgentByMail(String mail) {
 
-		// Recuperer la session
-		/*Session s = sf.getCurrentSession();
-		String req = "FROM Agent a WHERE a.mail=:pMail";
-		Query query = s.createQuery(req);
+		String req = "SELECT a FROM Agent WHERE a.mail=:pMail";
+
+		// Creer un bus pour envoyer la requete sql
+		Query query = em.createQuery(req, Agent.class);
+
+		// Assigner les paramètres de la requète
 		query.setParameter("pMail", mail);
 
-		return (Agent) query.uniqueResult();*/
-		return null;
+		return (Agent) query.getSingleResult();
+
 	}
 
 }
