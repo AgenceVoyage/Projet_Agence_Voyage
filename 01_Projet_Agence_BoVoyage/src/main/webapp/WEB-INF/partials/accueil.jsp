@@ -33,6 +33,7 @@
 			<div class="col-sm-3 ">
 				<div class="thumbnail">
 					<img src="..." alt="...">
+					
 					<div class="caption">
 						<h3>${v.nom}</h3>
 						<p>
