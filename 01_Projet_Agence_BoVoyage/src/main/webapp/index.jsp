@@ -9,7 +9,7 @@
 <body>
 
 	<%
-		response.sendRedirect("accueil");
+		response.sendRedirect("utilisateur/accueil");
 	%>
 
 </body>
