@@ -14,7 +14,7 @@ import fr.adaming.model.Client;
 public class ClientDaoImpl implements IClientDao {
 
 	@PersistenceContext(unitName = "pu")
-	private EntityManager em;
+	EntityManager em;
 
 	public void setEm(EntityManager em) {
 		this.em = em;

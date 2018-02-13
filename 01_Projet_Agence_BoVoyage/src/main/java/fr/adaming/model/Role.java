@@ -8,54 +8,32 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
  * 
- * @author inti0294
- * Classe Role qui a pour attribut :
- * 	id : id du role 
- * 	roleName : appelation du role
+ * @author inti0294 Classe Role qui a pour attribut : id : id du role roleName :
+ *         appelation du role
  */
 @Entity
-@Table(name="roles")
-public class Role implements Serializable{
+@Table(name = "roles")
+public class Role implements Serializable {
 
 	/**
 	 * attributs
 	 */
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id_role")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_role")
 	private int id;
 	private String roleName;
-	
-	@OneToMany(mappedBy="role")
+
+	@OneToMany(mappedBy = "role")
 	private List<Agent> listeAgents;
-	
-	@OneToMany(mappedBy="role")
+
+	@OneToMany(mappedBy = "role")
 	private List<Client> listeClients;
-	
-	
-	public List<Agent> getListeAgents() {
-		return listeAgents;
-	}
-
-	public void setListeAgents(List<Agent> listeAgents) {
-		this.listeAgents = listeAgents;
-	}
-
-	public List<Client> getListeClients() {
-		return listeClients;
-	}
-
-	public void setListeClients(List<Client> listeClients) {
-		this.listeClients = listeClients;
-	}
 
 	/**
 	 * constructeurs
@@ -77,6 +55,7 @@ public class Role implements Serializable{
 
 	/**
 	 * getters et setters
+	 * 
 	 * @return
 	 */
 	public int getId() {
@@ -94,6 +73,20 @@ public class Role implements Serializable{
 	public void setRoleName(String roleName) {
 		this.roleName = roleName;
 	}
-	
-	
+
+	public List<Agent> getListeAgents() {
+		return listeAgents;
+	}
+
+	public void setListeAgents(List<Agent> listeAgents) {
+		this.listeAgents = listeAgents;
+	}
+
+	public List<Client> getListeClients() {
+		return listeClients;
+	}
+
+	public void setListeClients(List<Client> listeClients) {
+		this.listeClients = listeClients;
+	}
 }

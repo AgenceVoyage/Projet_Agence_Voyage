@@ -9,28 +9,24 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
  * 
- * @author inti0294
- * Classe Agent qui a pour attribut :
- * 	id : id de l'agent
- * 	mail : mail de l'agent
- * 	mdp : mdp de l'agent
- *  active : boolean si l'agent est active ou non
+ * @author inti0294 Classe Agent qui a pour attribut : id : id de l'agent mail :
+ *         mail de l'agent mdp : mdp de l'agent active : boolean si l'agent est
+ *         active ou non
  */
 @Entity
-@Table(name="agents")
-public class Agent implements Serializable{
+@Table(name = "agents")
+public class Agent implements Serializable {
 
 	/**
 	 * attributs
 	 */
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id_agent")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_agent")
 	private int id;
 	private String mail;
 	private String mdp;
@@ -39,18 +35,8 @@ public class Agent implements Serializable{
 	 * Convertir les associations uml en java
 	 */
 	@ManyToOne
-	@JoinColumn(name="role_id",referencedColumnName="id_role")
+	@JoinColumn(name = "role_id", referencedColumnName = "id_role")
 	private Role role;
-	
-	
-	
-	public Role getRole() {
-		return role;
-	}
-
-	public void setRole(Role role) {
-		this.role = role;
-	}
 
 	/**
 	 * constructeurs
@@ -76,6 +62,7 @@ public class Agent implements Serializable{
 
 	/**
 	 * getters et setters
+	 * 
 	 * @return
 	 */
 	public int getId() {
@@ -109,7 +96,11 @@ public class Agent implements Serializable{
 	public void setActive(boolean active) {
 		this.active = active;
 	}
-	
-	
-	
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
 }

@@ -2,6 +2,10 @@
 	pageEncoding="ISO-8859-1"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<!-- ajouter les balises form de spring mvc -->
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +21,25 @@
 </head>
 <body>
 
+<form:form method="PUT" action="soumettreModifVoyage"
+		modelAttribute="voyageModif" cssClass="form-horizontal">
 
+		<div class="form-group">
+			<form:label path="dateArrivee" cssClass="col-sm-2 control-label">Date d'Arrivee :</form:label>
+			<div class="col-sm-5">
+				<form:input path="dateArrivee" cssClass="form-control" />
+			</div>
+		</div>
+
+
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<input type="submit" class="btn btn-success" value="Modifier" />
+			</div>
+		</div>
+
+
+	</form:form>
 
 </body>
 </html>
