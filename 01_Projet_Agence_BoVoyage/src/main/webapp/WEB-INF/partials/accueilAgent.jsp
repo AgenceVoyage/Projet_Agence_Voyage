@@ -9,5 +9,6 @@
 <body>
 <h1> JE suis dans l'accueil agent</h1>
 <a href="${pageContext.request.contextPath}/accueil"> Retour a l'accueil</a>
+<a href="${pageContext.request.contextPath}/deconnexion">Se deconnecter</a>
 </body>
 </html>

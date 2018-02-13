@@ -28,7 +28,7 @@ public class LoginController {
 	 */
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String seDeconnecter(){
-		return "login";
+		return "accueil";
 	}
 	
 	/**
