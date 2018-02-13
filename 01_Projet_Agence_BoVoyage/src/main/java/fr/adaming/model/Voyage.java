@@ -74,8 +74,8 @@ public class Voyage implements Serializable {
 	}
 
 	public Voyage(String nom, String reference, Date dateDepart, Date dateArrivee, int nbPlaces, double prixPublic,
-			double remise, double prixRemise, boolean disponible, String pays, String ville, String continent,
-			String compagnieVoyage, String prestation) {
+			double remise, String pays, String ville, String continent,
+			String compagnieVoyage) {
 		super();
 		this.nom = nom;
 		this.reference = reference;
@@ -84,18 +84,15 @@ public class Voyage implements Serializable {
 		this.nbPlaces = nbPlaces;
 		this.prixPublic = prixPublic;
 		this.remise = remise;
-		this.prixRemise = prixRemise;
-		this.disponible = disponible;
 		this.pays = pays;
 		this.ville = ville;
 		this.continent = continent;
 		this.compagnieVoyage = compagnieVoyage;
-		this.prestation = prestation;
 	}
 
 	public Voyage(int id, String nom, String reference, Date dateDepart, Date dateArrivee, int nbPlaces,
-			double prixPublic, double remise, double prixRemise, boolean disponible, String pays, String ville,
-			String continent, String compagnieVoyage, String prestation) {
+			double prixPublic, double remise, String pays, String ville,
+			String continent, String compagnieVoyage) {
 		super();
 		this.id = id;
 		this.nom = nom;
@@ -105,14 +102,13 @@ public class Voyage implements Serializable {
 		this.nbPlaces = nbPlaces;
 		this.prixPublic = prixPublic;
 		this.remise = remise;
-		this.prixRemise = prixRemise;
-		this.disponible = disponible;
 		this.pays = pays;
 		this.ville = ville;
 		this.continent = continent;
 		this.compagnieVoyage = compagnieVoyage;
-		this.prestation = prestation;
 	}
+	
+	
 
 	/**
 	 * getters et setters
