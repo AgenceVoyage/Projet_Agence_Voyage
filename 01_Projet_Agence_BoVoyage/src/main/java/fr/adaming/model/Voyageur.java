@@ -12,6 +12,8 @@ import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 /**
  * Classe model pour les voyageurs
  * 
@@ -52,6 +54,15 @@ public class Voyageur implements Serializable {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.clientResa = clientResa;
+	}
+	
+	public Voyageur(Date dateNaissance, boolean civilite, String nom, String prenom) {
+		super();
+		this.dateNaissance = dateNaissance;
+		this.civilite = civilite;
+		this.nom = nom;
+		this.prenom = prenom;
+
 	}
 
 	public Voyageur(int id, Date dateNaissance, boolean civilite, String nom, String prenom, boolean clientResa) {
