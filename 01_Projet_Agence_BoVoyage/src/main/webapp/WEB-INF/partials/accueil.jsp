@@ -28,20 +28,17 @@
 
 	</div>
 
-	<div class="col-md-offset-1">
+	<div class="form-group">
 		<c:forEach var="v" items="${voyageList}">
-			<div class="row">
-				<div class="col-sm-6 col-md-4">
-					<div class="thumbnail">
-						<img src="..." alt="...">
-						<div class="caption">
-							<h3>${v.nom}</h3>
-							<p>
-								<b>Prix : </b>${v.prixPublic}<br />
-								<b>Remise : </b>${v.remise}<br/>
-								<b>Date de depart : </b>${v.dateDepart}<br />
-								<b>Date d'arrivee : </b>${v.dateArrivee}</p>
-						</div>
+			<div class="col-sm-3 ">
+				<div class="thumbnail">
+					<img src="..." alt="...">
+					<div class="caption">
+						<h3>${v.nom}</h3>
+						<p>
+							<b>Prix : </b>${v.prixPublic}<br /> <b>Remise : </b>${v.remise}<br />
+							<b>Date de depart : </b>${v.dateDepart}<br /> <b>Date
+								d'arrivee : </b>${v.dateArrivee}</p>
 					</div>
 				</div>
 			</div>
