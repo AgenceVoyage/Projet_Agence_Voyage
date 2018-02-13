@@ -14,6 +14,8 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="<c:url value="/resources/boostrap/bootstrap.min.js"/>"></script>
+<link rel="stylesheet"
+	href="<c:url value="/resources/css/carte.css"/>" />
 </head>
 <body>
 
@@ -23,10 +25,13 @@
 
 
 		<jsp:include page="../../templates/headerUtilisateur.jsp" />
+		
+		<div style="margin-left:18%">
+		<jsp:include page="../../templates/carte.jsp" />
+		</div>
+		
+		<h1 style="color: red; text-align: center;position:relative;bottom:50px">Liste des Voyages</h1>
 
-		<h1 style="color: red; text-align: center">Liste des Voyages</h1>
-
-	</div>
 
 	<div class="form-group">
 		<c:forEach var="v" items="${voyageList}">
@@ -44,6 +49,7 @@
 				</div>
 			</div>
 		</c:forEach>
+	</div>
 	</div>
 </body>
 </html>

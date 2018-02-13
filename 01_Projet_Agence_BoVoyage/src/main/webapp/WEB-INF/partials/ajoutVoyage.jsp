@@ -1,44 +1,71 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<!DOCTYPE html >
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Ajouter Voyage</title>
+<link rel="stylesheet"
+	href="<c:url value="/resources/boostrap/bootstrap.min.css"/>" />
 </head>
 <body>
 
 
 
-		<form:form method="POST" action="soumettreAjoutVoyage" modelAttribute="vForm">
-		<table>
-			<tr>
-			<td><form:label path="compagnieVoyage">Compagnie Voyage:</form:label></td>
-			<td><form:input path="compagnieVoyage"/></td>
-			<td><form:errors path="compagnieVoyage" cssStyle="color:red"/></td>
-			</tr>
-			<tr>
-			<td><form:label path="continent">Continent:</form:label></td>
-			<td><form:input path="continent"/></td>
-			<td><form:errors path="continent" cssStyle="color:red"/></td>
-			</tr>
-			<tr>
-			<td><form:label path="nbPlaces">Nb places:</form:label></td>
-			<td><form:input path="nbPlaces"/></td>
-			<td><form:errors path="nbPlaces" cssStyle="color:red"/></td>
-			</tr>
-		
-		</table>
-		
-	
-  			
- 			<br/>
+	<div class="col-sm-7 col-lg-offset-2"
+		style="position: relative; padding-top: 30px; padding-bottom: 30px; top: 50px; border-style: solid; border-width: 1px; border-color: grey; background-color: rgba(215, 215, 215, 0.8); border-radius: 25px;">
 
-			<input type="submit" value="Ajouter Marchandise">
-		
- 
-	
-	</form:form>
+
+		<form:form method="POST" action="soumettreAjoutVoyage" modelAttribute="vForm">
+			
+			<div class="form-group">
+				<label for="compagnieVoyage" class="col-sm-3 control-label">Compagnie
+					Voyage :</label>
+				<div class="col-sm-5 ">
+					<form:input type="text" path="compagnieVoyage"  class="form-control"
+						id="idCompagnieVoyage" placeholder="Compagnie Voyage"/>
+				</div>
+			</div>
+
+			
+			<br />
+			<br />
+			<br />
+			<div class="form-group">
+				<label for="pays" class="col-sm-3 control-label">Pays :</label>
+				<div class="col-sm-5 ">
+					<form:input type="text" path="pays"  class="form-control"
+						id="idPays" placeholder="Pays"/>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="dateArrivee" class="col-sm-3 control-label">dateArrivee:</label>
+				<div class="col-sm-3">
+					<form:input type="date" path="dateArrivee" 
+						id="idDate" placeholder="Date"/>
+				</div>
+			</div>
+				
+			<br />
+			<br />
+			<br />
+			<br />
+
+
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-5">
+					<input type="submit" value="Ajouter Voyage">
+				</div>
+			</div>
+		</form:form>
+
+	</div>
+
+
 
 </body>
 </html>
+

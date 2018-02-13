@@ -15,6 +15,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.bind.annotation.InitBinder;
 
 /**
  * Classe model pour les voyages
@@ -38,7 +42,10 @@ public class Voyage implements Serializable {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dateDepart;
+	
+
 	@Temporal(TemporalType.TIMESTAMP)
+	
 	private Date dateArrivee;
 
 	private int nbPlaces;
@@ -146,7 +153,7 @@ public class Voyage implements Serializable {
 	public void setDateDepart(Date dateDepart) {
 		this.dateDepart = dateDepart;
 	}
-
+	
 	public Date getDateArrivee() {
 		return dateArrivee;
 	}
@@ -154,6 +161,7 @@ public class Voyage implements Serializable {
 	public void setDateArrivee(Date dateArrivee) {
 		this.dateArrivee = dateArrivee;
 	}
+	
 
 	public int getNbPlaces() {
 		return nbPlaces;

@@ -1,0 +1,31 @@
+
+path{
+	fill:grey;
+}
+
+
+#Afrique:hover{
+     fill:yellow;
+ }
+
+
+#AmeriqueSud:hover{
+    fill:orange;
+}
+
+#AmeriqueNord:hover{
+    fill:green;
+}
+
+
+#Europe:hover{
+    fill:purple;
+}
+
+#Groeland:hover{
+    fill:grey;
+}
+
+#Asie:hover{
+    fill:pink;
+}
