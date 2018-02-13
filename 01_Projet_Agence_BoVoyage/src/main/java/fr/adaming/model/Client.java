@@ -38,7 +38,7 @@ public class Client extends Voyageur implements Serializable {
 	private Adresse adresse;
 
 	@ManyToOne
-	@JoinColumn(name="role_id",referencedColumnName="id_role")
+	@JoinColumn(name = "role_id", referencedColumnName = "id_role")
 	private Role role;
 
 	@ManyToMany(mappedBy = "listeClients")
@@ -52,23 +52,25 @@ public class Client extends Voyageur implements Serializable {
 	}
 
 	public Client(Date dateNaissance, boolean civilite, String nom, String prenom, boolean clientResa, long numCB,
-			String tel, String mail, String mdp, boolean active) {
+			String tel, String mail, String mdp, boolean active, Adresse adresse) {
 		super(dateNaissance, civilite, nom, prenom, clientResa);
 		this.numCB = numCB;
 		this.tel = tel;
 		this.mail = mail;
 		this.mdp = mdp;
 		this.active = active;
+		this.adresse = adresse;
 	}
 
 	public Client(int id, Date dateNaissance, boolean civilite, String nom, String prenom, boolean clientResa,
-			long numCB, String tel, String mail, String mdp, boolean active) {
+			long numCB, String tel, String mail, String mdp, boolean active, Adresse adresse) {
 		super(id, dateNaissance, civilite, nom, prenom, clientResa);
 		this.numCB = numCB;
 		this.tel = tel;
 		this.mail = mail;
 		this.mdp = mdp;
 		this.active = active;
+		this.adresse = adresse;
 	}
 
 	/**
