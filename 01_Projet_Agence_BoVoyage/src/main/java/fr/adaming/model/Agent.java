@@ -38,14 +38,6 @@ public class Agent implements Serializable {
 	@JoinColumn(name = "role_id", referencedColumnName = "id_role")
 	private Role role;
 
-	public Role getRole() {
-		return role;
-	}
-
-	public void setRole(Role role) {
-		this.role = role;
-	}
-
 	/**
 	 * constructeurs
 	 */
@@ -104,5 +96,11 @@ public class Agent implements Serializable {
 	public void setActive(boolean active) {
 		this.active = active;
 	}
+	public Role getRole() {
+		return role;
+	}
 
+	public void setRole(Role role) {
+		this.role = role;
+	}
 }
