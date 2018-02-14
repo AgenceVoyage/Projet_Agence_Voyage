@@ -1,5 +1,7 @@
 package fr.adaming.dao;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -8,7 +10,9 @@ import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 
+import fr.adaming.model.Adresse;
 import fr.adaming.model.Client;
+import fr.adaming.model.Role;
 
 @Repository
 public class ClientDaoImpl implements IClientDao {
@@ -29,6 +33,7 @@ public class ClientDaoImpl implements IClientDao {
 		return (Client) query.getSingleResult();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Client> getAllClients() {
 		String req = "SELECT c FROM Client c";
@@ -44,8 +49,38 @@ public class ClientDaoImpl implements IClientDao {
 
 	@Override
 	public Client updateClient(Client c) {
-		Client cOut = em.merge(c);
-		return cOut;
+		String req = "UPDATE Client c SET c.dateNaissance=:pDate, c.civilite=:pCiv, c.nom=:pNom,"
+				+ "c.prenom=:pPrenom, c.clientResa=:pCli," + "c.numCB=:pCB, c.tel=:pTel,"
+				+ "c.mail=:pMail, c.mdp=:pMdp," + "c.active=:pAct, c.adresse.numero=:pNum, "
+				+ "c.adresse.voirie=:pVoirie, c.adresse.codePostal=:pCP," + "c.adresse.ville=:pVille, c.role=:pRole "
+				+ "c.listeDossiers=:pDossiers WHERE c.id=:pId";
+
+		// écriture d'un query
+		Query query = em.createQuery(req);
+
+		// assignation des paramètres
+		query.setParameter("pDate", c.getDateNaissance());
+		query.setParameter("pCiv", c.isCivilite());
+		query.setParameter("pNom", c.getNom());
+		query.setParameter("pPrenom", c.getPrenom());
+		query.setParameter("pCli", c.isClientResa());
+		query.setParameter("pCB", c.getNumCB());
+		query.setParameter("pTel", c.getTel());
+		query.setParameter("pMail", c.getMail());
+		query.setParameter("pMdp", c.getMdp());
+		query.setParameter("pAct", c.isActive());
+		query.setParameter("pNum", c.getAdresse().getNumero());
+		query.setParameter("pVoirie", c.getAdresse().getVoirie());
+		query.setParameter("pCP", c.getAdresse().getCodePostal());
+		query.setParameter("pVille", c.getAdresse().getVille());
+		query.setParameter("pRole", c.getRole());
+		query.setParameter("pDossiers", c.getListeDossiers());
+		query.setParameter("pId", c.getId());
+
+		// envoi de la requete
+		query.executeUpdate();
+		return c;
+
 	}
 
 	@Override

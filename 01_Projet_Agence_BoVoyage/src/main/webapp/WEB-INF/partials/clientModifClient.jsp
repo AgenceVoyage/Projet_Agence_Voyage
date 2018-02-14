@@ -8,23 +8,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Ajouter Client</title>
+<title>Modifier Client</title>
 <link rel="stylesheet"
 	href="<c:url value="/resources/boostrap/bootstrap.min.css"/>" />
 </head>
 <body>
 
-	<h1 style="color: red; text-align: center">Formulaire d'ajout</h1>
+	<h1 style="color: red; text-align: center">Formulaire de
+		modification</h1>
 
-	<form:form method="POST" action="soumettreAjout"
-		modelAttribute="clientAjout" cssClass="form-horizontal">
+	<form:form method="PUT" action="soumettreModif"
+		modelAttribute="modifClient" cssClass="form-horizontal">
 
-		<div class="form-group">
-			<form:label path="dateNaissance" cssClass="col-sm-2 control-label">Date de naissance</form:label>
-			<div class="col-sm-5">
-				<input path="dateNaissance" type="date" class="form-control" />
-			</div>
-		</div>
 		<div class="form-group">
 			<form:label path="civilite" cssClass="col-sm-2 control-label">Civilité</form:label>
 			<div class="col-sm-5">
@@ -101,7 +96,7 @@
 
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">
-				<input type="submit" class="btn btn-success" value="Ajouter" />
+				<input type="submit" class="btn btn-success" value="Modifier" />
 			</div>
 		</div>
 	</form:form>

@@ -38,9 +38,9 @@
 				<td>${c.adresse.numero}, ${c.adresse.voirie},
 					${c.adresse.codePostal} ${c.adresse.ville}</td>
 				<td><a
-					href="${pageContext.request.contextPath}/client/modiflien?pId=${c.id}">Modifier</a>
+					href="${pageContext.request.contextPath}/clients/modiflien/${c.id}">Modifier</a>
 					| <a
-					href="${pageContext.request.contextPath}/client/suprimlien/${c.id}">Supprimer</a>
+					href="${pageContext.request.contextPath}/clients/suprimlien/${c.id}">Supprimer</a>
 				</td>
 			</tr>
 		</c:forEach>

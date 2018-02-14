@@ -142,4 +142,11 @@ public class Client extends Voyageur implements Serializable {
 		this.listeDossiers = listeDossiers;
 	}
 
+	@Override
+	public String toString() {
+		return "Client [numCB=" + numCB + ", tel=" + tel + ", mail=" + mail + ", mdp=" + mdp + ", active=" + active
+				+ ", adresse=" + adresse + ", id=" + id + ", dateNaissance=" + dateNaissance + ", civilite=" + civilite
+				+ ", nom=" + nom + ", prenom=" + prenom + ", clientResa=" + clientResa + "]";
+	}
+
 }
