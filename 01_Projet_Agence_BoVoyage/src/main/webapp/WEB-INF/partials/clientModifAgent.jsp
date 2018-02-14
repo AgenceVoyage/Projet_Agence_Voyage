@@ -26,7 +26,12 @@
 				<form:input path="id" cssClass="form-control" readonly="true" />
 			</div>
 		</div>
-
+		<div class="form-group">
+			<form:label path="dateNaissance" cssClass="col-sm-2 control-label">Date de naissance</form:label>
+			<div class="col-sm-5">
+				<input path="dateNaissance" type="date" class="form-control" />
+			</div>
+		</div>
 		<div class="form-group">
 			<form:label path="civilite" cssClass="col-sm-2 control-label">Civilité</form:label>
 			<div class="col-sm-5">

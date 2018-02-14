@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import fr.adaming.model.Client;
@@ -81,8 +82,8 @@ public class ClientController {
 		}
 	}
 
-	@RequestMapping(value = "/afficheModif/{pId}", method = RequestMethod.GET)
-	public String afficheModifier(ModelMap model, @PathVariable("pId") int id) {
+	@RequestMapping(value = "/afficheModif", method = RequestMethod.GET)
+	public String afficheModifier(ModelMap model, @RequestParam("pId") int id) {
 		Client c = clientService.getClientById(id);
 		model.addAttribute("modifClientC", c);
 		return "clientModifClient";
@@ -95,8 +96,8 @@ public class ClientController {
 		return "redirect:liste";
 	}
 
-	@RequestMapping(value = "/modiflien/{pId}", method = RequestMethod.GET)
-	public String updateLien(ModelMap model, @PathVariable("pId") int id) {
+	@RequestMapping(value = "/modiflien", method = RequestMethod.GET)
+	public String updateLien(ModelMap model, @RequestParam("pId") int id) {
 		Client c = clientService.getClientById(id);
 		model.addAttribute("modifClientA", c);
 		return "clientModifAgent";

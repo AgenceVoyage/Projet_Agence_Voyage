@@ -50,11 +50,7 @@ public class ClientDaoImpl implements IClientDao {
 	@Override
 	public Client updateClient(Client c) {
 
-		String req = "UPDATE Client c SET c.dateNaissance=:pDate, c.civilite=:pCiv, c.nom=:pNom,"
-				+ "c.prenom=:pPrenom, c.clientResa=:pCli, c.numCB=:pCB, c.tel=:pTel,"
-				+ "c.mail=:pMail, c.mdp=:pMdp, c.active=:pAct, c.adresse.numero=:pNum,"
-				+ "c.adresse.voirie=:pVoirie, c.adresse.codePostal=:pCP, c.adresse.ville=:pVille"
-				+ "c.role=:pRole WHERE c.id=:pId";
+		String req = "UPDATE Client c SET c.dateNaissance=:pDate, c.civilite=:pCiv, c.nom=:pNom, c.prenom=:pPrenom, c.clientResa=:pCli, c.numCB=:pCB, c.tel=:pTel, c.mail=:pMail, c.mdp=:pMdp, c.active=:pAct, c.adresse.numero=:pNum, c.adresse.voirie=:pVoirie, c.adresse.codePostal=:pCP, c.adresse.ville=:pVille, c.role=:pRole WHERE c.id=:pId";
 		// écriture d'un query
 		Query query = em.createQuery(req);
 
