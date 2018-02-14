@@ -21,25 +21,55 @@
 </head>
 <body>
 
-<form:form method="PUT" action="soumettreModifVoyage"
-		modelAttribute="voyageModif" cssClass="form-horizontal">
+<div class="col-sm-7 col-lg-offset-2"
+		style="position: relative; padding-top: 30px; padding-bottom: 30px; top: 50px; border-style: solid; border-width: 1px; border-color: grey; background-color: rgba(215, 215, 215, 0.8); border-radius: 25px;">
 
-		<div class="form-group">
-			<form:label path="dateArrivee" cssClass="col-sm-2 control-label">Date d'Arrivee :</form:label>
-			<div class="col-sm-5">
-				<form:input path="dateArrivee" cssClass="form-control" />
+
+		<form:form method="PUT" action="soumettreModifVoyage" modelAttribute="vForm">
+			
+			<div class="form-group">
+				<label for="compagnieVoyage" class="col-sm-3 control-label">Compagnie
+					Voyage :</label>
+				<div class="col-sm-5 ">
+					<form:input type="text" path="compagnieVoyage"  class="form-control"
+						id="idCompagnieVoyage" placeholder="Compagnie Voyage"/>
+				</div>
 			</div>
-		</div>
 
-
-		<div class="form-group">
-			<div class="col-sm-offset-2 col-sm-10">
-				<input type="submit" class="btn btn-success" value="Modifier" />
+			
+			<br />
+			<br />
+			<br />
+			<div class="form-group">
+				<label for="pays" class="col-sm-3 control-label">Pays :</label>
+				<div class="col-sm-5 ">
+					<form:input type="text" path="pays"  class="form-control"
+						id="idPays" placeholder="Pays"/>
+				</div>
 			</div>
-		</div>
+			
+			<div class="form-group">
+				<label for="dateArrivee" class="col-sm-3 control-label">dateArrivee:</label>
+				<div class="col-sm-3">
+					<form:input type="datetime-local" path="dateArrivee" 
+						id="idDate" placeholder="Date"/>
+				</div>
+			</div>
+				
+			<br />
+			<br />
+			<br />
+			<br />
 
 
-	</form:form>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-5">
+					<input type="submit" value="Modifier Voyage">
+				</div>
+			</div>
+		</form:form>
+
+	</div>
 
 </body>
 </html>

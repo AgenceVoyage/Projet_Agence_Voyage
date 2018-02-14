@@ -61,6 +61,7 @@ public class VoyageDaoImplTest {
 		assertEquals(1, listOut.size());
 	}
 	
+	@Ignore
 	@Test
 	@Transactional
 	@Rollback(false)
