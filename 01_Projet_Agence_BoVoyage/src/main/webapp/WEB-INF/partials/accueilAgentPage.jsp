@@ -38,6 +38,8 @@
 			<th>Continent</th>
 			<th>Compagnie de voyage</th>
 			<th>Prix remise</th>
+			<th>ID Hotel</th>
+			<th>ID Voiture</th>
 			<th>Options</th>
 		</tr>
 		<c:forEach var="v" items="${voyageList2}">
@@ -64,6 +66,28 @@
 				<td>${v.continent}</td>
 				<td>${v.compagnieVoyage}</td>
 				<td>${v.prixRemise}</td>
+
+				<c:set var="hotel" value="${v.hotel}" />
+				<c:choose>
+					<c:when test="${not empty hotel}">
+						<td>${v.hotel.id}</td>
+					</c:when>
+					<c:otherwise>
+						<td>Non renseigne</td>
+					</c:otherwise>
+				</c:choose>
+				
+				<c:set var="voiture" value="${v.voiture}" />
+				<c:choose>
+					<c:when test="${not empty voiture}">
+						<td>${v.voiture.id}</td>
+					</c:when>
+					<c:otherwise>
+						<td>Non renseigne</td>
+					</c:otherwise>
+				</c:choose>
+				
+				
 				<td><a
 					href="${pageContext.request.contextPath}/agent/supprimeLienVoyage?pId=${v.id}">Supprimer</a>
 					| <a
