@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import fr.adaming.dao.IClientDao;
 import fr.adaming.model.Client;
+import fr.adaming.model.Role;
 
 @Service
 @Transactional
@@ -32,6 +33,8 @@ public class ClientServiceImpl implements IClientService {
 
 	@Override
 	public Client addClient(Client c) {
+		c.setActive(true);
+		c.setRole(new Role(2, "ROLE_CL"));
 		return clientDao.addClient(c);
 	}
 
