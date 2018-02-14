@@ -65,7 +65,7 @@ public class VoyageController {
 		return "ajoutPhotoVoyage";
 	}
 
-	@RequestMapping(value = "/voyage/recupPhoto", method = RequestMethod.POST)
+	@RequestMapping(value = "/voyage/recupPhotomljo", method = RequestMethod.POST)
 	public @ResponseBody String ajouterPhoto(@RequestBody Person person) throws ParseException, IOException {
 		System.out.println("Test angular:");
 
