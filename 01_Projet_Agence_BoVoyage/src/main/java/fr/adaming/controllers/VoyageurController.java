@@ -21,11 +21,11 @@ import fr.adaming.service.IVoyageurService;
 public class VoyageurController {
 	
 	@InitBinder
-    public void initBinder(WebDataBinder binder) {
-        SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
-        sdf.setLenient(true);
-        binder.registerCustomEditor(Date.class, new CustomDateEditor(sdf, true));
-    }
+	public void dataBinding(WebDataBinder binder) {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		dateFormat.setLenient(false);
+		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
+	} 
 	
 	@Autowired
 	private IVoyageurService voyageurService;
