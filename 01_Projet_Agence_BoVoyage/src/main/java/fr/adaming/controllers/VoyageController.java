@@ -1,5 +1,6 @@
 package fr.adaming.controllers;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -7,6 +8,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.context.annotation.Scope;
+import org.springframework.expression.ParseException;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -64,7 +66,7 @@ public class VoyageController {
 	}
 
 	@RequestMapping(value = "/voyage/recupPhoto", method = RequestMethod.POST)
-	public @ResponseBody String ajouterPhoto(@RequestBody Person person) {
+	public @ResponseBody String ajouterPhoto(@RequestBody Person person) throws ParseException, IOException {
 		System.out.println("Test angular:");
 
 		return "accueil";
@@ -98,6 +100,19 @@ public class VoyageController {
 		} else {
 			return "modificationVoyageAgent";
 		}
+	}
+	
+
+	// ***********************************************************************************************************************
+	// ******************** Affiche Map
+
+	// ***********************************************************************************************************************
+	
+	@RequestMapping(value = "/voyage/afficheMap", method = RequestMethod.GET)
+	public String afficheMap() {
+
+			return "VoyageMapTest";
+
 	}
 
 }

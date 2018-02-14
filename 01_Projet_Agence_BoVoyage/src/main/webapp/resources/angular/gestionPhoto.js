@@ -46,12 +46,12 @@ var monApp=angular.module("monApp",['naif.base64'])
 			
 			 $.ajax({
 				 type: "POST",
-				  url: "/voyage/recupPhoto",
-				  type: 'POST',
-		            data:  person,             
-		            dataType: "html",          
-		            contentType: 'application/json',
-		            mimeType: 'application/json',
+				 contentType : 'application/json; charset=utf-8',
+			     dataType : 'json',
+				 url: "/voyage/recupRest",
+		         data:  JSON.stringify(person),             
+        
+
 				     success :function(result)
 				     {
 				    	 console.log("Bonne redirection")
