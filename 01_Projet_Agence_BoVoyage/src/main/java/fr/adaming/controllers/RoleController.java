@@ -39,7 +39,7 @@ public class RoleController {
 
 	@Autowired
 	IVoyageService voyageService;
-	
+
 	@InitBinder
 	public void dataBinding(WebDataBinder binder) {
 
@@ -47,7 +47,7 @@ public class RoleController {
 		dateFormat.setLenient(false);
 		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
 	}
-	
+
 	@RequestMapping(value = "/agent/accueilAgent", method = RequestMethod.GET)
 	public String afficheAgent(Model model) {
 		// Recuperer le context de spring security
@@ -79,6 +79,14 @@ public class RoleController {
 		model.addAttribute("msg", "Bonjour M.Client " + mail + "!" + " Vous etes dans votre espace client.");
 		return "accueilClient";
 	}
-	
+
+	// -----------------Méthode pour supprimer un voyage via un lien dans
+	// l'accueil agent
+	@RequestMapping(value = "/agent/supprimeLienVoyage", method = RequestMethod.GET)
+	public String supprVoyageByLien(@RequestParam("pId") int idVoyage) {
+		//appel de la méthode service
+		voyageService.deleteVoyage(idVoyage);
+		return "redirect:accueilAgent";
+	}
 
 }

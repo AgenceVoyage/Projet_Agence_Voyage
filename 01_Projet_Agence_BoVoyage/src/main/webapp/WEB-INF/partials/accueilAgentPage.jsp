@@ -65,7 +65,7 @@
 				<td>${v.compagnieVoyage}</td>
 				<td>${v.prixRemise}</td>
 				<td><a
-					href="${pageContext.request.contextPath}/agent/supprimeLien?pId=${v.id}">Supprimer</a>
+					href="${pageContext.request.contextPath}/agent/supprimeLienVoyage?pId=${v.id}">Supprimer</a>
 					| <a
 					href="${pageContext.request.contextPath}/agent/modifLienVoyage?pId=${v.id}">Modifier</a></td>
 			</tr>
