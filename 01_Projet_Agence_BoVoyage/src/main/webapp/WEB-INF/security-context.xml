@@ -32,7 +32,7 @@
 		<security:form-login login-page="/login"
 			authentication-failure-url="/loginEchec" />
 		<!-- Pour se deconnecter : -->
-		<security:logout logout-success-url="/logout"
+		<security:logout logout-success-url="/utilisateur/accueil"
 			logout-url="/deconnexion" />
 	</security:http>
 

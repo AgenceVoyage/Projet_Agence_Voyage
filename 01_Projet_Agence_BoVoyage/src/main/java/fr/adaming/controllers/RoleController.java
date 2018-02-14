@@ -79,6 +79,8 @@ public class RoleController {
 		model.addAttribute("msg", "Bonjour M.Client " + mail + "!" + " Vous etes dans votre espace client.");
 		return "accueilClient";
 	}
+	
+	
 
 	// -----------------Méthode pour supprimer un voyage via un lien dans
 	// l'accueil agent
