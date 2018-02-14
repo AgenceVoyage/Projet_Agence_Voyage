@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.context.annotation.Scope;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,18 +14,25 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import fr.adaming.model.Person;
 import fr.adaming.model.Voyage;
+import fr.adaming.model.VoyageAngular;
 import fr.adaming.service.IVoyageService;
 
 @Controller
+@Scope("session")
 public class VoyageController {
 
 	@Autowired
 	IVoyageService voyageService;
+	
+	private Voyage voyage;
 
 	@InitBinder
 	public void dataBinding(WebDataBinder binder) {
@@ -48,14 +56,25 @@ public class VoyageController {
 
 	// @RequestParam("from") Date fromDate
 	@RequestMapping(value = "/voyage/soumettreAjoutVoyage", method = RequestMethod.POST)
-
 	public String soumettreAjouterVoyage(@ModelAttribute("vForm") Voyage v) {
 		System.out.println("Ajout Voyage:" + v.getCompagnieVoyage());
-		// System.out.println(fromDate);
-
-		voyageService.addVoyage(v);
+		
+		voyage=v;
+		return "ajoutPhotoVoyage";
+	}
+	
+	@RequestMapping(value = "/voyage/recupPhoto", method = RequestMethod.POST)
+	public  @ResponseBody String ajouterPhoto(@RequestBody Person person) {
+		System.out.println("Test angular:");
+			
 		return "accueil";
 	}
+	
+	
+	
+	// ***********************************************************************************************************************
+		// ******************** AJOUTER PHOTO
+
 
 	// ***********************************************************************************************************************
 

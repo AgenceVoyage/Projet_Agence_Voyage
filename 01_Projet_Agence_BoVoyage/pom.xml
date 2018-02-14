@@ -202,6 +202,25 @@
 			<artifactId>spring-security-taglibs</artifactId>
 			<version>3.2.10.RELEASE</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.4.1</version>
+		</dependency>
+		
+				<!--commons-logging -->
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.2</version>
+		</dependency>
+		
+		<dependency>
+    	  <groupId>org.codehaus.jackson</groupId>
+    	  <artifactId>jackson-mapper-asl</artifactId>
+    	  <version>1.9.13</version>
+		</dependency>
 
 	</dependencies>
 	<!-- Forcer Maven a compiler avec le compilateur de java8 -->
