@@ -20,7 +20,7 @@
 		<div class="form-group">
 			<form:label path="dateNaissance" class="col-sm-2 control-label">Date de naissance</form:label>
 			<div class="col-sm-5">
-				<input path="dateNaissance" type='date' class="form-control" />
+				<form:input path="dateNaissance" type="date" class="form-control" />
 			</div>
 		</div>
 
