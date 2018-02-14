@@ -17,8 +17,8 @@
 	<h1 style="color: red; text-align: center">Formulaire de
 		modification</h1>
 
-	<form:form method="PUT" action="soumettreModif"
-		modelAttribute="modifClient" cssClass="form-horizontal">
+	<form:form method="POST" action="soumettreModifAgent"
+		modelAttribute="modifClientA" cssClass="form-horizontal">
 
 		<div class="form-group">
 			<form:label path="id" cssClass="col-sm-2 control-label">Id</form:label>

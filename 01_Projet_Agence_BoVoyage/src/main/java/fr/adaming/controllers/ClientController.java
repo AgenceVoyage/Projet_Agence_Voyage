@@ -84,19 +84,26 @@ public class ClientController {
 	@RequestMapping(value = "/afficheModif/{pId}", method = RequestMethod.GET)
 	public String afficheModifier(ModelMap model, @PathVariable("pId") int id) {
 		Client c = clientService.getClientById(id);
-		model.addAttribute("modifClient", c);
+		model.addAttribute("modifClientC", c);
 		return "clientModifClient";
+	}
+
+	@RequestMapping(value = "/soumettreModifClient", method = RequestMethod.POST)
+	public String soumettreModifier(@ModelAttribute("modifClientC") Client c) {
+		System.out.println(c);
+		clientService.updateClient(c);
+		return "redirect:liste";
 	}
 
 	@RequestMapping(value = "/modiflien/{pId}", method = RequestMethod.GET)
 	public String updateLien(ModelMap model, @PathVariable("pId") int id) {
 		Client c = clientService.getClientById(id);
-		model.addAttribute("modifClient", c);
+		model.addAttribute("modifClientA", c);
 		return "clientModifAgent";
 	}
 
-	@RequestMapping(value = "/soumettreModif", method = RequestMethod.PUT)
-	public String soumettreModifier(@ModelAttribute("modifClient") Client c) throws ParseException {
+	@RequestMapping(value = "/soumettreModifAgent", method = RequestMethod.POST)
+	public String soumettreModifierAgent(@ModelAttribute("modifClientA") Client c) {
 		System.out.println(c);
 		clientService.updateClient(c);
 		return "redirect:liste";
