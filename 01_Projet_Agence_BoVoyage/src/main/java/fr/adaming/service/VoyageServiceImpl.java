@@ -32,11 +32,20 @@ public class VoyageServiceImpl implements IVoyageService {
 
 	@Override
 	public Voyage addVoyage(Voyage voy) {
+		voy.setDisponible(true);
+		voy.setPrixRemise(voy.getPrixPublic()*(1-voy.getRemise()/100));
 		return voyageDao.addVoyage(voy);
 	}
 
 	@Override
 	public Voyage updateVoyage(Voyage voy) {
+		if (voy.getNbPlaces()==0) {
+			voy.setDisponible(false);
+		} else {
+			voy.setDisponible(true);
+		}
+		voy.setPrixRemise(voy.getPrixPublic()*(1-voy.getRemise()/100));
+		
 		return voyageDao.updateVoyage(voy);
 	}
 

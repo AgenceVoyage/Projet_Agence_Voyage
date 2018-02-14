@@ -32,36 +32,28 @@
 			<th>Nombre de places restantes</th>
 			<th>Disponibilite</th>
 			<th>Pays</th>
+			<th>Ville</th>
+			<th>Continent</th>
+			<th>Compagnie de voyage</th>
+			<th>Prix remise</th>
+			<th>Options</th>
 		</tr>
-		<c:forEach var="ca" items="${AirList}">
+		<c:forEach var="v" items="${voyageList2}">
 			<tr>
-				<td>${ca.id}</td>
-				<td>${ca.reference}</td>
-				<td>${ca.dateLivraison}</td>
-				<td>${ca.distance}</td>
-				<td>${ca.poidsMax}</td>
-			</tr>
-		</c:forEach>
-	</table>
-
-	<h1 style="color: red; text-align: center">Liste des Cargaisons
-		Routieres</h1>
-
-	<table class="table table-bordered">
-		<tr>
-			<th>ID</th>
-			<th>Reference</th>
-			<th>Date de livraison</th>
-			<th>Distance</th>
-			<th>Température de conservation</th>
-		</tr>
-		<c:forEach var="cr" items="${RouteList}">
-			<tr>
-				<td>${cr.id}</td>
-				<td>${cr.reference}</td>
-				<td>${cr.dateLivraison}</td>
-				<td>${cr.distance}</td>
-				<td>${cr.temperatureConservation}</td>
+				<td>${v.id}</td>
+				<td>${v.reference}</td>
+				<td>${v.nom}</td>
+				<td>${v.dateDepart}</td>
+				<td>${v.dateArrivee}</td>
+				<td>${v.nbPlaces}</td>
+				<td>${v.disponible}</td>
+				<td>${v.pays}</td>
+				<td>${v.ville}</td>
+				<td>${v.continent}</td>
+				<td>${v.compagnieVoyage}</td>
+				<td>${v.prixRemise}</td>
+				<td><a href="${pageContext.request.contextPath}/agent/supprimeLien?pId=${v.id}">Supprimer</a>
+				 | <a href="${pageContext.request.contextPath}/agent/modifLien?pId=${v.id}">Modifier</a></td>
 			</tr>
 		</c:forEach>
 	</table>
