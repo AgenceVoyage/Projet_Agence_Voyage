@@ -53,9 +53,22 @@ public class HotelDaoImpl implements IHotelDao{
 
 	@Override
 	public Hotel updateHotel(Hotel h) {
-
-		em.merge(h);
-
+		
+		// écriture de la requete JPQL
+		String req = "update Hotel as h set h.nomHotel=:pNomHotel, h.nomFormule=:pNomFormule, h.prix=:pPrix where h.id=:pId";
+		
+		//écriture d'un query
+		Query query = em.createQuery(req);
+		
+		//assignation des paramètres
+		query.setParameter("pNomHotel", h.getNomHotel());
+		query.setParameter("pNomFormule", h.getNomFormule());
+		query.setParameter("pPrix", h.getPrix());
+		query.setParameter("pId", h.getId());
+		
+		//envoi de la requete
+		query.executeUpdate();
+		
 		return h;
 	}
 

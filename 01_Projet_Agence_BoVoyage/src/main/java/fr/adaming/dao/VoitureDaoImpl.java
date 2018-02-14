@@ -53,9 +53,22 @@ public class VoitureDaoImpl implements IVoitureDao {
 
 	@Override
 	public Voiture updateVoiture(Voiture v) {
-
-		em.merge(v);
-
+		
+		// écriture de la requete JPQL
+		String req = "update Voiture as v set v.loueur=:pLoueur,v.categorie=:pCategorie, v.prix=:pPrix where v.id=:pId";
+		
+		//écriture d'un query
+		Query query = em.createQuery(req);
+		
+		//assignation des paramètres
+		query.setParameter("pLoueur", v.getLoueur());
+		query.setParameter("pCategorie", v.getCategorie());
+		query.setParameter("pPrix", v.getPrix());
+		query.setParameter("pId", v.getId());
+		
+		//envoi de la requete
+		query.executeUpdate();
+		
 		return v;
 	}
 

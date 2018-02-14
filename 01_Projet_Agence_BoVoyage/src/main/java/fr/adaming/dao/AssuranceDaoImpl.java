@@ -11,15 +11,15 @@ import org.springframework.stereotype.Repository;
 import fr.adaming.model.Assurance;
 
 @Repository
-public class AssuranceDaoImpl implements IAssuranceDao{
-	
+public class AssuranceDaoImpl implements IAssuranceDao {
+
 	@PersistenceContext(unitName = "pu")
 	EntityManager em;
 
 	public void setEm(EntityManager em) {
 		this.em = em;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Assurance> getAllAssurances() {
@@ -53,9 +53,21 @@ public class AssuranceDaoImpl implements IAssuranceDao{
 
 	@Override
 	public Assurance updateAssurance(Assurance a) {
-
-		em.merge(a);
-
+		
+		// écriture de la requete JPQL
+		String req = "update Assurance as a set a.type=:pType,a.prix=:pPrix where a.id=:pId";
+		
+		//écriture d'un query
+		Query query = em.createQuery(req);
+		
+		//assignation des paramètres
+		query.setParameter("pType", a.getType());
+		query.setParameter("pPrix", a.getPrix());
+		query.setParameter("pId", a.getId());
+		
+		//envoi de la requete
+		query.executeUpdate();
+		
 		return a;
 	}
 

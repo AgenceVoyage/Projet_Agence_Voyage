@@ -50,13 +50,14 @@ public class HotelDaoImplTest {
 	}
 
 	@Test
-	@Ignore
 	@Transactional
+	@Rollback(false)
+	@Ignore
 	public void updateHotelTest() {
 		
-		Hotel hModif = hotelDao.updateHotel(h2);
-
-		assertEquals("Hotel de la rue", hModif.getNomHotel());
+		hotelDao.updateHotel(h2);
+		Hotel hote = hotelDao.getHotelById(1);
+		assertEquals(h2.getNomHotel(), hote.getNomHotel());
 	}
 	
 	@Test
