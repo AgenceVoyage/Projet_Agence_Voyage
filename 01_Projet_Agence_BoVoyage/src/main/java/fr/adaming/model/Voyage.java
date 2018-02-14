@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -59,7 +60,7 @@ public class Voyage implements Serializable {
 	private String compagnieVoyage;
 	private String prestation; // avion seul ou avion+voiture ou avion+hotel...
 	
-	@OneToMany(mappedBy="voyage")
+	@OneToMany(mappedBy="voyage", cascade=CascadeType.ALL)
 	private List<Photo> listePhotos;
 	
 	@ManyToOne
@@ -70,7 +71,7 @@ public class Voyage implements Serializable {
 	@JoinColumn(name="hotel_id", referencedColumnName="id_hotel")
 	private Hotel hotel;
 	
-	@OneToMany(mappedBy="voyage")
+	@OneToMany(mappedBy="voyage", cascade=CascadeType.ALL)
 	private List<Dossier> listeDossiers;
 
 	/**

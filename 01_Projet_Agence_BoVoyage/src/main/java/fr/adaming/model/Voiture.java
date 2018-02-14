@@ -3,6 +3,7 @@ package fr.adaming.model;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -38,7 +39,7 @@ public class Voiture implements Serializable {
 	/**
 	 * Déclaration des associations UML en Java
 	 */
-	@OneToMany(mappedBy = "voiture")
+	@OneToMany(mappedBy = "voiture", cascade=CascadeType.ALL)
 	private List<Voyage> listeVoyages;
 
 	/**

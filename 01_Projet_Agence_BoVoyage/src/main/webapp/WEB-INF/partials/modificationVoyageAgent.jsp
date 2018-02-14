@@ -28,6 +28,31 @@
 		<form:form method="PUT" action="soumettreModifVoyage" modelAttribute="vForm">
 			
 			<div class="form-group">
+				<label for="id" class="col-sm-3 control-label">ID Voyage :</label>
+				<div class="col-sm-5 ">
+					<form:input type="number" path="id"  class="form-control"
+						id="idId" placeholder="ID du Voyage"/>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="nom" class="col-sm-3 control-label">Nom du
+					Voyage :</label>
+				<div class="col-sm-5 ">
+					<form:input type="text" path="nom"  class="form-control"
+						id="idNom" placeholder="Nom"/>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="reference" class="col-sm-3 control-label">Reference :</label>
+				<div class="col-sm-5 ">
+					<form:input type="text" path="reference"  class="form-control"
+						id="idReference" placeholder="Reference"/>
+				</div>
+			</div>
+			
+			<div class="form-group">
 				<label for="compagnieVoyage" class="col-sm-3 control-label">Compagnie
 					Voyage :</label>
 				<div class="col-sm-5 ">
@@ -49,10 +74,58 @@
 			</div>
 			
 			<div class="form-group">
-				<label for="dateArrivee" class="col-sm-3 control-label">dateArrivee:</label>
+				<label for="ville" class="col-sm-3 control-label">Ville :</label>
+				<div class="col-sm-5 ">
+					<form:input type="text" path="ville"  class="form-control"
+						id="idVille" placeholder="Ville"/>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="continent" class="col-sm-3 control-label">Continent :</label>
+				<div class="col-sm-5 ">
+					<form:input type="text" path="continent"  class="form-control"
+						id="idContinent" placeholder="Continent"/>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="dateDepart" class="col-sm-3 control-label">Date de depart :</label>
+				<div class="col-sm-3">
+					<form:input type="datetime-local" path="dateDepart" 
+						id="idDateDepart" placeholder="Date de depart"/>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="dateArrivee" class="col-sm-3 control-label">Date d'arrivee:</label>
 				<div class="col-sm-3">
 					<form:input type="datetime-local" path="dateArrivee" 
-						id="idDate" placeholder="Date"/>
+						id="idDate" placeholder="Date d'arrivee"/>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="prixPublic" class="col-sm-3 control-label">Prix public :</label>
+				<div class="col-sm-3">
+					<form:input type="number" path="prixPublic" 
+						id="idPrixPublic" placeholder="Prix Public"/>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="remise" class="col-sm-3 control-label">Remise :</label>
+				<div class="col-sm-3">
+					<form:input type="number" path="remise" 
+						id="idRemise" placeholder="Remise"/>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="nbPlaces" class="col-sm-3 control-label">Nombre de places :</label>
+				<div class="col-sm-3">
+					<form:input type="number" path="nbPlaces" 
+						id="idNbPlaces" placeholder="Nombre de places"/>
 				</div>
 			</div>
 				
