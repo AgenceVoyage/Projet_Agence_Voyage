@@ -61,12 +61,11 @@ public class VoyageDaoImplTest {
 		assertEquals(1, listOut.size());
 	}
 	
-	@Ignore
 	@Test
 	@Transactional
-	@Rollback(true)
+	@Rollback(false)
 	public void testUpdateVoyage() throws ParseException {
-		Voyage voyage = new Voyage(2, "Utopie", "4567878khg", df.parse("05-03-2017 15:53"), df.parse("05-04-2017 17:05"), 55, 3025, 10, "Egypte", "Le Caire", "Afrique", "Pirate");
+		Voyage voyage = new Voyage(4, "Utopie", "4567878khg", df.parse("05-03-2017 15:53"), df.parse("05-04-2017 17:05"), 55, 3025, 10, "Egypte", "Le Caire", "Afrique", "Pirate");
 		
 		voyageDao.updateVoyage(voyage);
 		Voyage vOut = voyageDao.getVoyageById(2);

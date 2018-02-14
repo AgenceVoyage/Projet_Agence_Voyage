@@ -25,12 +25,12 @@ public class VoyageController {
 	@Autowired
 	IVoyageService voyageService;
 
-	@InitBinder("vForm")
+	@InitBinder
 	public void dataBinding(WebDataBinder binder) {
 		
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		dateFormat.setLenient(false);
-		binder.registerCustomEditor(Date.class, "dateArrivee", new CustomDateEditor(dateFormat, true));
+		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
 	} 
 	
 	@RequestMapping(value = "/accueil")
