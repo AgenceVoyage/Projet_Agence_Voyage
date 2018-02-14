@@ -41,11 +41,11 @@ public class Voyage implements Serializable {
 	private String nom;
 	private String reference;
 
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	private Date dateDepart;
 	
 
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	
 	private Date dateArrivee;
 

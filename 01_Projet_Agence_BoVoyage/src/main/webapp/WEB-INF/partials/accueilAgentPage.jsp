@@ -11,7 +11,9 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="<c:url value="/resources/boostrap/bootstrap.min.js"/>"></script>
+
 <title>Insert title here</title>
+
 </head>
 <body>
 	<div style="margin-left: 10%; width: 80%">
@@ -19,7 +21,7 @@
 		<h1 style="text-align: center; color: blue">Espace Agent</h1>
 		<jsp:include page="../../templates/headerAgent.jsp" />
 	</div>
-	
+
 	<h2 style="color: red; text-align: center">Liste des voyages</h2>
 
 	<table class="table table-bordered">
@@ -46,17 +48,29 @@
 				<td>${v.dateDepart}</td>
 				<td>${v.dateArrivee}</td>
 				<td>${v.nbPlaces}</td>
-				<td>${v.disponible}</td>
+				<c:set var="dispo" value="${v.disponible}" />
+				<c:choose>
+					<c:when test="${dispo==true}">
+						<td>Oui</td>
+					</c:when>
+					<c:otherwise>
+						<td>Non</td>
+					</c:otherwise>
+				</c:choose>
+
+
 				<td>${v.pays}</td>
 				<td>${v.ville}</td>
 				<td>${v.continent}</td>
 				<td>${v.compagnieVoyage}</td>
 				<td>${v.prixRemise}</td>
-				<td><a href="${pageContext.request.contextPath}/agent/supprimeLien?pId=${v.id}">Supprimer</a>
-				 | <a href="${pageContext.request.contextPath}/agent/modifLien?pId=${v.id}">Modifier</a></td>
+				<td><a
+					href="${pageContext.request.contextPath}/agent/supprimeLien?pId=${v.id}">Supprimer</a>
+					| <a
+					href="${pageContext.request.contextPath}/agent/modifLienVoyage?pId=${v.id}">Modifier</a></td>
 			</tr>
 		</c:forEach>
 	</table>
-	
+
 </body>
 </html>

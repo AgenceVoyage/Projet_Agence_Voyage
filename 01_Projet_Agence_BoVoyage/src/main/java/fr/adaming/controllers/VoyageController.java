@@ -31,7 +31,7 @@ public class VoyageController {
 
 	@Autowired
 	IVoyageService voyageService;
-	
+
 	private Voyage voyage;
 
 	@InitBinder
@@ -58,36 +58,46 @@ public class VoyageController {
 	@RequestMapping(value = "/voyage/soumettreAjoutVoyage", method = RequestMethod.POST)
 	public String soumettreAjouterVoyage(@ModelAttribute("vForm") Voyage v) {
 		System.out.println("Ajout Voyage:" + v.getCompagnieVoyage());
-		
-		voyage=v;
+
+		voyage = v;
 		return "ajoutPhotoVoyage";
 	}
-	
+
 	@RequestMapping(value = "/voyage/recupPhoto", method = RequestMethod.POST)
-	public  @ResponseBody String ajouterPhoto(@RequestBody Person person) {
+	public @ResponseBody String ajouterPhoto(@RequestBody Person person) {
 		System.out.println("Test angular:");
-			
+
 		return "accueil";
 	}
-	
-	
-	
-	// ***********************************************************************************************************************
-		// ******************** AJOUTER PHOTO
 
+	// ***********************************************************************************************************************
+	// ******************** AJOUTER PHOTO
 
 	// ***********************************************************************************************************************
 
-	@RequestMapping(value="/agent/accueilAgent")
-	public String afficheListeVoyages(Model model) {
-		// récupération de la liste de voyages de la BD
-		List<Voyage> listVoyages = voyageService.getAllVoyages();
+	// -------------------- Modification d'un voyage via le lien
+	@RequestMapping(value = "/agent/modifLienVoyage", method = RequestMethod.GET)
+	public String formModifVoyage(Model model, @RequestParam("pId") int idVoyage) {
+		// appel de la méthode service pour récupérer le voyage correspondant
+		Voyage vOut = voyageService.getVoyageById(idVoyage);
 
-		// ajout de la liste dans le modele
-		model.addAttribute("voyageList2", listVoyages);
+		model.addAttribute("vModif", vOut);
 
-		return "accueilAgent";
+		return "modificationVoyageAgent";
+	}
 
+	// ----------------- méthode pour soumettre le formulaire de modif
+	@RequestMapping(value = "/agent/soumettreModifVoyage", method = RequestMethod.POST)
+	public String modifierVoyage(@ModelAttribute("vModif") Voyage v) {
+		// appel de la méthode service pour modifier l'etudiant recupéré du
+		// formulaire de modif
+		Voyage vOut = voyageService.updateVoyage(v);
+
+		if (vOut.getId() != 0) {
+			return "redirect:accueilAgent";
+		} else {
+			return "modificationVoyageAgent";
+		}
 	}
 
 }

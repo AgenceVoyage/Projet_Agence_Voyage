@@ -55,8 +55,7 @@ public class VoyageDaoImpl implements IVoyageDao {
 				+ "v.pays=:pPays, v.ville=:pVille,"
 				+ "v.continent=:pContinent, v.compagnieVoyage=:pCompagnie, "
 				+ "v.prestation=:pPrestation,"
-				+ "v.voiture=:pVoiture, v.hotel=:pHotel,"
-				+ "v.listeDossiers=:pDossiers where v.id=:pId";
+				+ "v.voiture=:pVoiture, v.hotel=:pHotel where v.id=:pId";
 		
 		//écriture d'un query
 		Query query = em.createQuery(req);
@@ -78,7 +77,6 @@ public class VoyageDaoImpl implements IVoyageDao {
 		query.setParameter("pPrestation", voy.getPrestation());
 		query.setParameter("pVoiture", voy.getVoiture());
 		query.setParameter("pHotel", voy.getHotel());
-		query.setParameter("pDossiers", voy.getListeDossiers());
 		query.setParameter("pId", voy.getId());
 		
 		//envoi de la requete
