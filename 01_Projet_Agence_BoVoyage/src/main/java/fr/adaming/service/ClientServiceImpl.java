@@ -53,4 +53,9 @@ public class ClientServiceImpl implements IClientService {
 		return clientDao.getClientById(id);
 	}
 
+	@Override
+	public Client getClientByMail(String mail) {
+		return clientDao.getClientByMail(mail);
+	}
+
 }

@@ -41,6 +41,8 @@
         		</ul>
      		 </li>
      		 
+     		  <li><a href="${pageContext.request.contextPath}/client/afficheModif">Mes infos</a></li>
+     		 
          	 <li><a href="${pageContext.request.contextPath}/deconnexion">Deconnexion</a></li>
          	 
     			

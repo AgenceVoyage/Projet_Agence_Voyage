@@ -95,4 +95,12 @@ public class ClientDaoImpl implements IClientDao {
 		return cOut;
 	}
 
+	@Override
+	public Client getClientByMail(String mail) {
+		String req = "SELECT c FROM Client c WHERE c.mail=:pMail";
+		Query query = em.createQuery(req);
+		query.setParameter("pMail", mail);
+		return (Client) query.getSingleResult();
+	}
+
 }

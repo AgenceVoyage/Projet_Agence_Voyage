@@ -59,4 +59,12 @@ public interface IClientDao {
 	 */
 	public Client getClientById(int id);
 
+	/**
+	 * Méthode pour récupérer un client par son mail
+	 * 
+	 * @param mail
+	 * @return
+	 */
+	public Client getClientByMail(String mail);
+
 }

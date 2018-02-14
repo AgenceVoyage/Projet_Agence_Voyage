@@ -7,6 +7,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.context.annotation.Scope;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -24,7 +26,7 @@ import fr.adaming.service.IClientService;
 
 @Controller
 @Scope("request")
-@RequestMapping("/clients")
+@RequestMapping("/client")
 public class ClientController {
 
 	@Autowired
@@ -82,8 +84,10 @@ public class ClientController {
 	}
 
 	@RequestMapping(value = "/afficheModif", method = RequestMethod.GET)
-	public String afficheModifier(ModelMap model, @RequestParam("pId") int id) {
-		Client c = clientService.getClientById(id);
+	public String afficheModifier(ModelMap model) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String mail = auth.getName();
+		Client c = clientService.getClientByMail(mail);
 		model.addAttribute("modifClientC", c);
 		return "clientModifClient";
 	}
