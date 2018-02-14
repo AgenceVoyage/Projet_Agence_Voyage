@@ -18,7 +18,7 @@
     <ul class="nav navbar-nav">
       
 	  
-      <li><a href="${pageContext.request.contextPath}/accueil">Accueil</a></li>
+      <li><a href="${pageContext.request.contextPath}/agent/accueilAgent">Accueil</a></li>
 			 
 			<li class="dropdown">
        			 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Continents
