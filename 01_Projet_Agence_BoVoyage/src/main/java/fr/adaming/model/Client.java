@@ -15,7 +15,7 @@ import javax.persistence.Table;
 
 /**
  * Classe model pour les clients
- * 
+ * aa
  * @author inti-0265
  *
  */
