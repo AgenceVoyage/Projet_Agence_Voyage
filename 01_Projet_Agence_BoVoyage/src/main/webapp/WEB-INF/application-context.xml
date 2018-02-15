@@ -69,13 +69,7 @@
 		@RollBack -->
 	<tx:annotation-driven transaction-manager="transactionManager" />
 	
-	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
-	<property name="webBindingInitializer">
-		<bean class="fr.adaming.controllers.MyAppBinder"/>
-	</property>
 	
-	
-	</bean>
 
 
 </beans>
