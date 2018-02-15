@@ -37,21 +37,23 @@
 				<form:option value="avion">
 					<c:out value="Avion"></c:out>
 				</form:option>
-				<form:option value="avion+hotel">
+				<form:option value="avion+hotel" onclick="montrer(1)">
 					<c:out value="Avion et Hotel"></c:out>
 				</form:option>
-				<form:option value="avion+voiture">
+				<form:option value="avion+voiture" onclick="montrer(2)">
 					<c:out value="Avion et Voiture"></c:out>
 				</form:option>
-				<form:option value="avion+hotel+voiture">
+				<form:option value="avion+hotel+voiture" onclick="montrer(3)">
 					<c:out value="Avion, Hotel et Voiture"></c:out>
 				</form:option>
 			</form:select>
 		</div>
 
-		<c:if test="prestation">
+
+
+		<div class="menuDeroulants">
 			<div class="form-group">
-				<form:label path="prestation" class="col-sm-2 control-label">Prestation : </form:label>
+				<form:label path="nomFormule" class="col-sm-2 control-label">Formule de l'hotel : </form:label>
 				<form:select path="prestation">
 					<form:option value="avion">
 						<c:out value="Avion"></c:out>
@@ -67,7 +69,27 @@
 					</form:option>
 				</form:select>
 			</div>
-		</c:if>
+		</div>
+		
+		<div class="menuDeroulants">
+			<div class="form-group">
+				<form:label path="nomFormule" class="col-sm-2 control-label">Voiture : </form:label>
+				<form:select path="prestation">
+					<form:option value="avion">
+						<c:out value="Avion"></c:out>
+					</form:option>
+					<form:option value="avion+hotel">
+						<c:out value="Avion et Hotel"></c:out>
+					</form:option>
+					<form:option value="avion+voiture">
+						<c:out value="Avion et Voiture"></c:out>
+					</form:option>
+					<form:option value="avion+hotel+voiture">
+						<c:out value="Avion, Hotel et Voiture"></c:out>
+					</form:option>
+				</form:select>
+			</div>
+		</div>
 
 		<br />
 		<br />

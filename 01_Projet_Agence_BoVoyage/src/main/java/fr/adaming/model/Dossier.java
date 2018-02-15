@@ -88,18 +88,10 @@ public class Dossier implements Serializable{
 	 */
 	public Dossier() {
 		super();
-	}
+	}	
 
-	public Dossier(String numDossier, String statut, double prixTotal, String nomFormule, String prestation) {
-		super();
-		this.numDossier = numDossier;
-		this.statut = statut;
-		this.prixTotal = prixTotal;
-		this.nomFormule = nomFormule;
-		this.prestation = prestation;
-	}
-
-	public Dossier(int id, String numDossier, String statut, double prixTotal, String nomFormule, String prestation) {
+	public Dossier(int id, String numDossier, String statut, double prixTotal, String nomFormule, String prestation,
+			List<Assurance> listeAssurances, List<Client> listeClients, Voyage voyage) {
 		super();
 		this.id = id;
 		this.numDossier = numDossier;
@@ -107,8 +99,22 @@ public class Dossier implements Serializable{
 		this.prixTotal = prixTotal;
 		this.nomFormule = nomFormule;
 		this.prestation = prestation;
-		
-		
+		this.listeAssurances = listeAssurances;
+		this.listeClients = listeClients;
+		this.voyage = voyage;
+	}
+
+	public Dossier(String numDossier, String statut, double prixTotal, String nomFormule, String prestation,
+			List<Assurance> listeAssurances, List<Client> listeClients, Voyage voyage) {
+		super();
+		this.numDossier = numDossier;
+		this.statut = statut;
+		this.prixTotal = prixTotal;
+		this.nomFormule = nomFormule;
+		this.prestation = prestation;
+		this.listeAssurances = listeAssurances;
+		this.listeClients = listeClients;
+		this.voyage = voyage;
 	}
 
 	/**
