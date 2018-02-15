@@ -41,12 +41,23 @@ public class AgentController {
 		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
 	}
 
+	/**
+	 * Récupération et affichage de la liste des clients
+	 * 
+	 * @return
+	 */
 	@RequestMapping(value = "/clients/liste", method = RequestMethod.GET)
 	public ModelAndView afficheListe() {
 		List<Client> liste = clientService.getAllClients();
 		return new ModelAndView("listeClients", "clientsListe", liste);
 	}
 
+	/**
+	 * Affichage du formulaire de recherche d'un client
+	 * 
+	 * @param modele
+	 * @return
+	 */
 	@RequestMapping(value = "/clients/afficheRecherche", method = RequestMethod.GET)
 	public String afficheRechercher(Model modele) {
 		modele.addAttribute("clientRecherche", new Client());
@@ -54,6 +65,13 @@ public class AgentController {
 		return "rechercheClient";
 	}
 
+	/**
+	 * Soumission du formulaire de recherche d'un client
+	 * 
+	 * @param model
+	 * @param c
+	 * @return
+	 */
 	@RequestMapping(value = "/clients/soumettreRecherche", method = RequestMethod.POST)
 	public String soumettreRechercher(Model model, @ModelAttribute("clientRecherche") Client c) {
 		Client cOut = clientService.getClientById(c.getId());
@@ -66,6 +84,13 @@ public class AgentController {
 		}
 	}
 
+	/**
+	 * Affichage du formulaire de modification via le lien de la liste
+	 * 
+	 * @param model
+	 * @param id
+	 * @return
+	 */
 	@RequestMapping(value = "/clients/modiflien", method = RequestMethod.GET)
 	public String updateLien(ModelMap model, @RequestParam("pId") int id) {
 		Client c = clientService.getClientById(id);
@@ -73,6 +98,12 @@ public class AgentController {
 		return "clientModifAgent";
 	}
 
+	/**
+	 * Soumission du formulaire de modification des infos du client
+	 * 
+	 * @param c
+	 * @return
+	 */
 	@RequestMapping(value = "/clients/soumettreModifAgent", method = RequestMethod.POST)
 	public String soumettreModifierAgent(@ModelAttribute("modifClientA") Client c) {
 		Client cModif = clientService.getClientById(c.getId());
@@ -85,6 +116,13 @@ public class AgentController {
 		return "redirect:liste";
 	}
 
+	/**
+	 * Suppression d'un client via le lien de la liste
+	 * 
+	 * @param model
+	 * @param id
+	 * @return
+	 */
 	@RequestMapping(value = "/clients/suprimlien/{pId}", method = RequestMethod.GET)
 	public String deletLien(Model model, @PathVariable("pId") int id) {
 		clientService.deleteClient(id);
