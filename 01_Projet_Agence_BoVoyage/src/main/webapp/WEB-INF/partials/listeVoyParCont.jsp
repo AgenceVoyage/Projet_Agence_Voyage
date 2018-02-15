@@ -18,6 +18,7 @@
 
 <link rel="stylesheet"
 	href="<c:url value="/resources/css/utilisateur.css"/>" />
+<script src="<c:url value="/resources/js/getByVoyage.js"/>"></script>
 </head>
 <body>
 
@@ -27,6 +28,13 @@
 		</div>
 
 		<div class="form-group" style="margin-left: 23%">
+			<form class="navbar-form inline-form">
+				<div class="form-group">
+					<input type="search" class="input-sm form-control"
+						placeholder="Recherche par pays" id="search"
+						onkeyup="searchField()">
+				</div>
+			</form>
 			<c:forEach var="v" items="${voyageListCont}">
 				<div class="col-sm-3">
 					<div class="thumbnail fiche">
@@ -34,6 +42,7 @@
 
 						<div class="caption ">
 							<h3 class="fichetitle">${v.nom}</h3>
+							<p class="pays">${v.pays}</p>
 							<p>
 								<b>Prix : </b>${v.prixPublic}<br /> <b>Remise : </b>${v.remise}<br />
 								<b>Date de depart : </b>${v.dateDepart}<br /> <b>Date
