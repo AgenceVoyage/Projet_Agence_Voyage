@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import fr.adaming.model.Person;
+
 import fr.adaming.model.Photo;
 import fr.adaming.model.Voyage;
 import fr.adaming.model.VoyageAngular;
@@ -84,14 +84,6 @@ public class VoyageController {
 		return "accueil";
 	}
 	
-
-
-	public @ResponseBody String ajouterPhoto(@RequestBody final Person person) {
-		System.out.println("Test angular xxx:");
-		String pName = person.getName();
-		//System.out.println("Test angular xxx:"+pName);
-		return "accueil";
-	}
 
 	// ***********************************************************************************************************************
 	// ******************** AJOUTER PHOTO

@@ -112,6 +112,24 @@ public class Voyage implements Serializable {
 		this.image=image;
 
 	}
+	
+	public Voyage(String nom, String reference, Date dateDepart, Date dateArrivee, int nbPlaces, double prixPublic,
+			double remise, String pays, String ville, String continent,
+			String compagnieVoyage) {
+		super();
+		this.nom = nom;
+		this.reference = reference;
+		this.dateDepart = dateDepart;
+		this.dateArrivee = dateArrivee;
+		this.nbPlaces = nbPlaces;
+		this.prixPublic = prixPublic;
+		this.remise = remise;
+		this.pays = pays;
+		this.ville = ville;
+		this.continent = continent;
+		this.compagnieVoyage = compagnieVoyage;
+
+	}
 
 	public Voyage(int id, String nom, String reference, Date dateDepart, Date dateArrivee, int nbPlaces,
 			double prixPublic, double remise, String pays, String ville,

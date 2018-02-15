@@ -17,7 +17,7 @@
 </head>
 <body ng-app="monApp" ng-controller="AjoutPhotoVoyage">
 
-	{{msg}}
+
 
 	<div class="col-sm-7 col-lg-offset-2"
 		style="position: relative; padding-top: 30px; padding-bottom: 30px; top: 50px; border-style: solid; border-width: 1px; border-color: grey; background-color: rgba(215, 215, 215, 0.8); border-radius: 25px;">
@@ -33,11 +33,20 @@
 						id="idCompagnieVoyage" placeholder="Compagnie Voyage"/>
 				</div>
 			</div>
-			<div id="Test">kjioh</div>
+
 			
-			<br />
-			<br />
-			<br />
+			<br/><br/>
+			
+			<div class="form-group">
+				<label for=continent class="col-sm-3 control-label">Continent :</label>
+				<div class="col-sm-5 ">
+					<form:input type="text" path="continent"  class="form-control"
+						id="idContinent" placeholder="Continent"/>
+				</div>
+			</div>
+			
+			<br/><br/>
+
 			<div class="form-group">
 				<label for="pays" class="col-sm-3 control-label">Pays :</label>
 				<div class="col-sm-5 ">
@@ -46,48 +55,37 @@
 				</div>
 			</div>
 			
-	<!--  		<div class="form-group">
-				<label for="dateArrivee" class="col-sm-3 control-label">dateArrivee:</label>
-				<div class="col-sm-3">
-					<form:input type="date" path="dateArrivee" 
-						id="idDate" placeholder="Date"/>
-				</div>
-			</div>-->
+			<br/><br/>
 			
-					<div class="row">
-				<div class="input-field col-sm-12">
-					<input type="file" id="selectedFile"
-						ng-model="photo" accept="image/*"
-						class="form-control" base-sixty-four-input> 
+			<div class="form-group">
+				<label for="ville" class="col-sm-3 control-label">Ville :</label>
+				<div class="col-sm-5 ">
+					<form:input type="text" path="ville"  class="form-control"
+						id="idVille" placeholder="ville"/>
 				</div>
 			</div>
+			
+			<br/><br/>
+			
+			<div class="form-group">
+				<label for="nbPlaces" class="col-sm-3 control-label">Nb Place :</label>
+				<div class="col-sm-5 ">
+					<form:input type="number" path="nbPlaces"  class="form-control"
+						id="nbPlaces" placeholder="nb Places"/>
+				</div>
+			</div>
+			
+			<br/><br/>
 			
 			<input type="file" name="file">
 			
-		<!-- 	 <div class="row">
-				<div class="input-field col-sm-12">
-					<input type="file" id="selectedFile"
-						ng-model="photo" accept="image/*"
-						class="form-control" base-sixty-four-input> 
-				</div>
-			</div>
 			
-	
-		
-		    <input type="button" ng-click="affiche()" value="Afficher image">
 			
-			<div ng-repeat="p in listePhoto">
-			<img ng-src="data:image/JPEG;base64,{{p}}"
-					style="max-height: 150px; max-width: 150px">
-			</div>
-			
-			<input type="button" ng-click="valideImage()" value="Valider image"> -->
-				<input type="submit">
 			<br />
 			<br />
 			<br />
 			<br />
-
+			<input type="submit" value="Valider Voyage">
 
 
 		</form:form>
