@@ -66,7 +66,7 @@ public class DossierController {
 		return new ModelAndView("listeDossier", "dossierListe", listeDossier);
 	}
 
-	@RequestMapping(value = "/client/liste", method = RequestMethod.GET)
+	@RequestMapping(value = "/client/listeDossier", method = RequestMethod.GET)
 	public ModelAndView afficheListeDossierClient() {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String mail = auth.getName();
