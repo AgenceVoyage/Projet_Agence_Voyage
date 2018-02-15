@@ -24,11 +24,8 @@
 <body>
 
 
-	<div style="margin-left: 12%; margin-right: 12%">
-
 
 		<jsp:include page="../../templates/headerAgent.jsp" />
-	</div>
 
 
 	<h1 style="color: Teal; text-align: center">Liste des Voitures</h1>
