@@ -13,7 +13,11 @@
 	href="<c:url value="/resources/boostrap/bootstrap.min.css"/>" />
 </head>
 <body>
+	<div style="margin-left: 10%; width: 80%">
 
+		<h1 style="text-align: center; color: blue">Espace Agent</h1>
+		<jsp:include page="../../templates/headerAgent.jsp" />
+	</div>
 	<h1 style="color: red; text-align: center">Formulaire de recherche</h1>
 
 	<form:form method="POST" action="soumettreRecherche"
@@ -55,12 +59,12 @@
 				<td>${client.prenom}</td>
 				<td>${client.mail}</td>
 				<td>${client.tel}</td>
-				<td>${client.adresse.numero}, ${client.adresse.voirie},
+				<td>${client.adresse.numero},${client.adresse.voirie},
 					${client.adresse.codePostal} ${client.adresse.ville}</td>
 				<td><a
-					href="${pageContext.request.contextPath}/clients/modiflien/${client.id}">Modifier</a>
+					href="${pageContext.request.contextPath}/agent/clients/modiflien?pId=${client.id}">Modifier</a>
 					| <a
-					href="${pageContext.request.contextPath}/clients/suprimlien/${client.id}">Supprimer</a>
+					href="${pageContext.request.contextPath}/agent/clients/suprimlien/${client.id}">Supprimer</a>
 				</td>
 			</tr>
 		</table>

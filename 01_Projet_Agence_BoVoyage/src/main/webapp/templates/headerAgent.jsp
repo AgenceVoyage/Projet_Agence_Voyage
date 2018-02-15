@@ -77,6 +77,16 @@
 							href="${pageContext.request.contextPath}/hotels/afficheRecherche">Rechercher</a></li>
 					</ul></li>
 
+				<li class="dropdown"><a class="dropdown-toggle"
+					data-toggle="dropdown" href="#">Clients <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a
+							href="${pageContext.request.contextPath}/agent/clients/liste">Afficher
+								tous les clients</a></li>
+						<li><a
+							href="${pageContext.request.contextPath}/agent/clients/afficheRecherche">Rechercher</a></li>
+					</ul></li>
+
 
 				<li><a href="${pageContext.request.contextPath}/deconnexion">Deconnexion</a></li>
 

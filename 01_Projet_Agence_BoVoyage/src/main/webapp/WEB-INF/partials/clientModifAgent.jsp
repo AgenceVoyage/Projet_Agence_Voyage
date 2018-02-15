@@ -13,7 +13,11 @@
 	href="<c:url value="/resources/boostrap/bootstrap.min.css"/>" />
 </head>
 <body>
+	<div style="margin-left: 10%; width: 80%">
 
+		<h1 style="text-align: center; color: blue">Espace Agent</h1>
+		<jsp:include page="../../templates/headerAgent.jsp" />
+	</div>
 	<h1 style="color: red; text-align: center">Formulaire de
 		modification</h1>
 
