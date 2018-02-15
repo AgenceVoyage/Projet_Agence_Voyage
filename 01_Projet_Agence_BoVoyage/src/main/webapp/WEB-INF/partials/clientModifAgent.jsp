@@ -66,6 +66,8 @@
 				<form:input path="prenom" cssClass="form-control" />
 			</div>
 		</div>
+		<h3 style="color: Teal; margin-left: -25%; text-align: center">Coordonnées</h3>
+		
 		<div class="form-group">
 			<form:label path="mail" cssClass="col-sm-2 control-label">E-Mail</form:label>
 			<div class="col-sm-5">

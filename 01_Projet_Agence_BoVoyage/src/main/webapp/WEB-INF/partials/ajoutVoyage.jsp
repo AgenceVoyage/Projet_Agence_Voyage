@@ -26,7 +26,7 @@
 </head>
 <body>
 
-	<jsp:include page="../../templates/headerClient.jsp" />
+	<jsp:include page="../../templates/headerAgent.jsp" />
 
 	<div style="margin-left: 25%">
 
@@ -111,25 +111,30 @@
 				</div>
 			</div>
 
-			<div class="form-group">
-				<form:label path="dateDepart" cssClass="col-sm-2 control-label">Date de Depart</form:label>
-				<div class="col-sm-5">
-					<form:input path="dateDepart" type="date" class="form-control" />
+			<div style="margin-left: 15%">
+				<div class="form-group">
+					<form:label path="dateDepart" cssClass="col-sm-2 control-label">Date de Depart</form:label>
+					<div class="col-sm-5">
+						<form:input path="dateDepart" type="date" class="form-control" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<form:label path="dateArrivee" cssClass="col-sm-2 control-label">Date d'arrivée</form:label>
+					<div class="col-sm-5">
+						<form:input path="dateArrivee" type="date" class="form-control" />
+					</div>
+				</div>
+
+				<input type="file" name="file">
+
+			</div>
+			<br/>
+			<div class="form-group" style="margin-left: 12%">
+				<div class="col-sm-offset-2 col-sm-10">
+					<input type="submit" class="btn btn-info" value="Créer le Voyage">
 				</div>
 			</div>
-
-			<div class="form-group">
-				<form:label path="dateArrivee" cssClass="col-sm-2 control-label">Date d'arrivée</form:label>
-				<div class="col-sm-5">
-					<form:input path="dateArrivee" type="date" class="form-control" />
-				</div>
-			</div>
-
-			<input type="file" name="file">
-			<br />
-
-			<input type="submit" class="btn btn-info" value="Créer le Voyage">
-
 		</form:form>
 
 	</div>

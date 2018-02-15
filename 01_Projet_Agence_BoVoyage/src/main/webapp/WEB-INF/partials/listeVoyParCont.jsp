@@ -26,7 +26,7 @@
 			<jsp:include page="../../templates/headerUtilisateur.jsp" />
 		
 
-		<div class="form-group" style="margin-left: 23%">
+		<div class="form-group" style="margin-left: 12%;width:75%">
 			<form class="navbar-form inline-form">
 				<div class="form-group">
 					<input type="search" class="input-sm form-control"
