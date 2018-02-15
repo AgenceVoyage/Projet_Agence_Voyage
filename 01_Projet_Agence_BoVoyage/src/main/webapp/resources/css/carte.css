@@ -5,20 +5,20 @@ path{
 
 
 .Afrique:hover{
-     fill:yellow;
+     fill:brown;
  }
 
 .AmeriqueSud:hover{
-    fill:orange;
+    fill:green;
 }
 
 .AmeriqueNord:hover{
-    fill:green;
+    fill:orange;
 }
 
 
 .Europe:hover{
-    fill:purple;
+    fill:blue;
 }
 
 #Groenland:hover{
@@ -26,10 +26,10 @@ path{
 }
 
 .Asie:hover{
-    fill:pink;
+    fill:yellow;
 }
 
 .Australie:hover{
-    fill:plum;
+    fill:purple;
 }
 
