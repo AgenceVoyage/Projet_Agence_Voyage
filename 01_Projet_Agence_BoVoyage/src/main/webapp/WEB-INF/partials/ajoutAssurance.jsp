@@ -15,40 +15,54 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="<c:url value="/resources/boostrap/bootstrap.min.js"/>"></script>
 
-<title>Insert title here</title>
-
+<title>Ajout assurance</title>
+<link rel="stylesheet" href="<c:url value="/resources/css/log.css"/>" />
 </head>
 <body>
-	<div style="margin-left: 10%; width: 80%">
 
-		<h1 style="text-align: center; color: blue">Espace Agent</h1>
+	<div style="margin-left: 12%; margin-right: 12%;">
 		<jsp:include page="../../templates/headerAgent.jsp" />
 	</div>
 
+	<h1 style="color: Teal; margin-left: 32%">Formulaire d'ajout
+		d'assurance</h1>
 
-	<form:form method="POST" action="soumettreAjoutAssurance"
-		modelAttribute="assurance" cssClass="form-horizontal">
+	<div style="margin-left: 25%">
+	<br />
+	
+			<br />
+		<form:form method="POST" action="soumettreAjoutAssurance"
+			modelAttribute="assurance" cssClass="form-horizontal">
 
-		<div class="form-group">
-			<form:label path="type" class="col-sm-2 control-label">Type d'assurance</form:label>
-			<div class="col-sm-5">
-				<form:input path="type" cssClass="form-control" />
+			<div class="form-group">
+				<form:label path="type" class="col-sm-2 control-label">Type d'assurance</form:label>
+				<div class="col-sm-5">
+					<form:input path="type" cssClass="form-control" />
+				</div>
 			</div>
-		</div>
-		<div class="form-group">
-			<form:label path="prix" class="col-sm-2 control-label">Prix</form:label>
-			<div class="col-sm-5">
-				<form:input path="prix" cssClass="form-control" />
+
+			<br />
+
+			<div class="form-group">
+				<form:label path="prix" class="col-sm-2 control-label">Prix</form:label>
+				<div class="col-sm-5">
+					<form:input path="prix" cssClass="form-control" />
+				</div>
 			</div>
-		</div>
+			<br />
+
+
+			<div class="form-group" style="margin-left: 12%">
+				<div class="col-sm-offset-2 col-sm-10">
+					<input type="submit" class="btn btn-info"
+						value="Ajouter une Assurance" />
+				</div>
+			</div>
 		
-		<div class="form-group">
-			<div class="col-sm-offset-2 col-sm-10">
-				<input type="submit" class="btn btn-success" value="Ajouter une Assurance" />
-			</div>
-		</div>
 
-	</form:form>
 
+		</form:form>
+
+	</div>
 </body>
 </html>

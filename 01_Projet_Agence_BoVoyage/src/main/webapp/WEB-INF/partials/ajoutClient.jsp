@@ -14,20 +14,19 @@
 <link rel="stylesheet" href="<c:url value="/resources/css/log.css"/>" />
 </head>
 <body>
-	<div style="margin-left: 10%; width: 80%">
+	<div style="margin-left: 12%; margin-right: 12%">
 
 		<jsp:include page="../../templates/headerUtilisateur.jsp" />
 
 	</div>
-	<h1 style="color: Teal; margin-left: 37%">Formulaire
-		d'inscription</h1>
+	<h1 style="color: Teal; margin-left: 37%">Formulaire d'inscription</h1>
 
 	<div style="margin-left: 25%">
 
 		<form:form method="POST" action="soumettreAjout"
 			modelAttribute="clientAjout" cssClass="form-horizontal">
 
-			<h3 style="color: Teal; margin-left: -25%;text-align:center">Informations
+			<h3 style="color: Teal; margin-left: -25%; text-align: center">Informations
 				générales</h3>
 
 			<div class="form-group">
@@ -58,7 +57,7 @@
 				</div>
 			</div>
 
-			<h3 style="color: Teal; margin-left: -25%;text-align:center">Coordonnées</h3>
+			<h3 style="color: Teal; margin-left: -25%; text-align: center">Coordonnées</h3>
 
 			<div class="form-group">
 				<form:label path="mail" cssClass="col-sm-2 control-label">E-Mail</form:label>
@@ -102,9 +101,10 @@
 					</div>
 				</div>
 			</div>
-			
-			<h3 style="color: Teal; margin-left: -25%;text-align:center" >Paiement et sécurité</h3>
-			
+
+			<h3 style="color: Teal; margin-left: -25%; text-align: center">Paiement
+				et sécurité</h3>
+
 			<div class="form-group">
 				<form:label path="mdp" cssClass="col-sm-2 control-label">Mot de passe</form:label>
 				<div class="col-sm-5">
@@ -120,11 +120,13 @@
 
 			<div class="form-group" style="margin-left: 15%">
 				<div class="col-sm-offset-2 col-sm-10">
-					<input type="submit" class="btn btn-success" value="Ajouter" />
+					<input type="submit" class="btn btn-info" value="Ajouter" />
 				</div>
 			</div>
 		</form:form>
 	</div>
-
+	<div>
+		<jsp:include page="../../templates/footer.jsp" />
+	</div>
 </body>
 </html>

@@ -20,11 +20,12 @@
 	href="<c:url value="/resources/css/utilisateur.css"/>" />
 </head>
 <body>
-
-	<div style="margin-left: 4%; width: 80%">
-		<div style="margin-left: 19%">
+		<div style="margin-left: 12%; margin-right: 12%;">
 			<jsp:include page="../../templates/headerUtilisateur.jsp" />
 		</div>
+		
+	<div style="margin-left: 4%; width: 80%">
+
 		<div>
 			<jsp:include page="../../templates/carte.jsp" />
 		</div>

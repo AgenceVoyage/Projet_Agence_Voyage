@@ -15,80 +15,86 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="<c:url value="/resources/boostrap/bootstrap.min.js"/>"></script>
 
-<title>Insert title here</title>
+<title>Ajout hotel</title>
+<link rel="stylesheet" href="<c:url value="/resources/css/log.css"/>" />
 
 </head>
 <body>
-	<div style="margin-left: 10%; width: 80%">
 
-		<h1 style="text-align: center; color: blue">Espace Agent</h1>
+	<div style="margin-left: 12%; margin-right: 12%">
 		<jsp:include page="../../templates/headerAgent.jsp" />
 	</div>
 
+	<h1 style="color: Teal; margin-left: 34%">Formulaire d'ajout d'un
+		hotel</h1>
 
-	<form:form method="POST" action="soumettreAjoutHotel"
-		modelAttribute="temp" cssClass="form-horizontal">
+	<div style="margin-left: 25%">
+		<form:form method="POST" action="soumettreAjoutHotel"
+			modelAttribute="temp" cssClass="form-horizontal">
+			<h3 style="color: Teal; margin-left: -25%; text-align: center">Informations
+				générales</h3>
+			<div class="form-group">
+				<form:label path="nomHotel" class="col-sm-2 control-label">Nom de l'hotel</form:label>
+				<div class="col-sm-5">
+					<form:input path="nomHotel" cssClass="form-control" />
+				</div>
+			</div>
+			<div class="form-group">
+				<form:label path="prix" class="col-sm-2 control-label">Prix de l'hébergement seul</form:label>
+				<div class="col-sm-5">
+					<form:input path="prix" cssClass="form-control" />
+				</div>
+			</div>
+			<div class="form-group">
+				<form:label path="adresse" cssClass="col-sm-2 control-label">Adresse :</form:label>
+			</div>
+			
+			<div class="form-group">
+				<form:label path="adresse.numero" cssClass="col-sm-2 control-label">N°</form:label>
+				<div class="col-sm-5">
+					<form:input path="adresse.numero" cssClass="form-control" />
+				</div>
+			</div>
+			<div class="form-group">
+				<form:label path="adresse.voirie" cssClass="col-sm-2 control-label">Voirie</form:label>
+				<div class="col-sm-5">
+					<form:input path="adresse.voirie" cssClass="form-control" />
+				</div>
+			</div>
+			<div class="form-group">
+				<form:label path="adresse.codePostal"
+					cssClass="col-sm-2 control-label">Code Postal</form:label>
+				<div class="col-sm-5">
+					<form:input path="adresse.codePostal" cssClass="form-control" />
+				</div>
+			</div>
+			<div class="form-group">
+				<form:label path="adresse.ville" cssClass="col-sm-2 control-label">Ville</form:label>
+				<div class="col-sm-5">
+					<form:input path="adresse.ville" cssClass="form-control" />
+				</div>
+			</div>
 
-		<div class="form-group">
-			<form:label path="nomHotel" class="col-sm-2 control-label">Nom de l'hotel</form:label>
-			<div class="col-sm-5">
-				<form:input path="nomHotel" cssClass="form-control" />
-			</div>
-		</div>
-		<div class="form-group">
-			<form:label path="prix" class="col-sm-2 control-label">Prix de base</form:label>
-			<div class="col-sm-5">
-				<form:input path="prix" cssClass="form-control" />
-			</div>
-		</div>
-		<div class="form-group">
-			<form:label path="adresse" cssClass="col-sm-2 control-label">Adresse :</form:label>
-		</div>
-		<div class="form-group">
-			<form:label path="adresse.numero" cssClass="col-sm-2 control-label">N°</form:label>
-			<div class="col-sm-5">
-				<form:input path="adresse.numero" cssClass="form-control" />
-			</div>
-		</div>
-		<div class="form-group">
-			<form:label path="adresse.voirie" cssClass="col-sm-2 control-label">Voirie</form:label>
-			<div class="col-sm-5">
-				<form:input path="adresse.voirie" cssClass="form-control" />
-			</div>
-		</div>
-		<div class="form-group">
-			<form:label path="adresse.codePostal"
-				cssClass="col-sm-2 control-label">Code Postal</form:label>
-			<div class="col-sm-5">
-				<form:input path="adresse.codePostal" cssClass="form-control" />
-			</div>
-		</div>
-		<div class="form-group">
-			<form:label path="adresse.ville" cssClass="col-sm-2 control-label">Ville</form:label>
-			<div class="col-sm-5">
-				<form:input path="adresse.ville" cssClass="form-control" />
-			</div>
-		</div>
 
-		<div class="form-group">
-			<form:label path="idVoy" class="col-sm-2 control-label">Id Voyage : </form:label>
-			<form:select path="idVoy">
-				<c:forEach var="voy" items="${voyageListe}">
-					<form:option value="${voy.id}">
-						<c:out value="${voy.id}"></c:out>
-					</form:option>
-				</c:forEach>
-			</form:select>
-		</div>
-
-		<div class="form-group">
-			<div class="col-sm-offset-2 col-sm-10">
-				<input type="submit" class="btn btn-success"
-					value="Ajouter un Hotel" />
+			<div class="form-group">
+				<form:label path="idVoy" class="col-sm-2 control-label">Id Voyage : </form:label>
+				<form:select path="idVoy">
+					<c:forEach var="voy" items="${voyageListe}">
+						<form:option value="${voy.id}">
+							<c:out value="${voy.id}"></c:out>
+						</form:option>
+					</c:forEach>
+				</form:select>
 			</div>
-		</div>
 
-	</form:form>
+			<div class="form-group" style="margin-left: 15%">
+				<div class="col-sm-offset-2 col-sm-10">
+					<input type="submit" class="btn btn-info"
+						value="Ajouter un Hotel" />
+				</div>
+			</div>
 
+		</form:form>
+	</div>
 </body>
 </html>

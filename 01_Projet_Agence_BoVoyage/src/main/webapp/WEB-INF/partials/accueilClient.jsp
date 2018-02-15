@@ -11,7 +11,7 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="<c:url value="/resources/boostrap/bootstrap.min.js"/>"></script>
-<title>Page d'accueuil de l'espace client</title>
+<title>Page d'accueil de l'espace client</title>
 </head>
 <body>
 	<div style="margin-left: 10%; width: 80%">
@@ -40,6 +40,9 @@
 				</div>
 			</c:forEach>
 		</div>
+	</div>
+	<div>
+		<jsp:include page="../../templates/footer.jsp" />
 	</div>
 
 </body>
