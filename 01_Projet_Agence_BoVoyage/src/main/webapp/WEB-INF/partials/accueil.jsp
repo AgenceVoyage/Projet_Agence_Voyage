@@ -21,20 +21,21 @@
 </head>
 <body>
 
-	<div style="margin-left: 10%; width: 80%">
-		<jsp:include page="../../templates/headerUtilisateur.jsp" />
-
-		<div style="margin-left: 18%">
+	<div style="margin-left: 0%; width: 80%">
+		<div style="margin-left: 23%">
+			<jsp:include page="../../templates/headerUtilisateur.jsp" />
+		</div>
+		<div>
 			<jsp:include page="../../templates/carte.jsp" />
 		</div>
 
 
-		<div class="form-group">
+		<div class="form-group" style="margin-left: 23%">
 			<c:forEach var="v" items="${voyageList}">
 				<div class="col-sm-3 ">
 					<div class="thumbnail">
 						<img src="..." alt="...">
-						<a href="${pageContext.request.contextPath}/utilisateur/detailVoyage?pId=${v.id}">Voir le détail</a>
+<a href="${pageContext.request.contextPath}/utilisateur/detailVoyage?pId=${v.id}">Voir le détail</a>
 
 						<div class="caption">
 							<h3>${v.nom}</h3>
