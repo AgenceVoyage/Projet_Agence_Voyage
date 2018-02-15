@@ -5,12 +5,17 @@ body {
 }
 
 .fiche {
-	background-color: #c2b180;
+	background-color: #d6caa9;
 }
 
 .fichetitle {
 	font-style: italic;
 	font-style: blod;
 	color: Teal;
-	text-align:center
+	text-align: center
+}
+
+.liennavbar {
+	font-style: blod;
+	color: Teal;
 }

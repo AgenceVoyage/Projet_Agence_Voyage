@@ -4,6 +4,7 @@
 
 <head>
 	<title>Barre Menu</title>
+
 <head>
 
 <body>
@@ -13,43 +14,35 @@
 
 
  
-<nav class="navbar navbar-inverse" style="background-color: #F8F8F8;">
+<nav class="navbar navbar-inverse" style="background-color: #d6caa9;">
   <div class="container-fluid">
     <ul class="nav navbar-nav">
       
 	  
-      <li><a href="${pageContext.request.contextPath}/utilisateur/accueil">Accueil</a></li>
+      <li><a href="${pageContext.request.contextPath}/utilisateur/accueil" style="color:Teal;font-style: blod">Accueil</a></li>
 			 
 			<li class="dropdown">
-       			 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Continents
+       			 <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color:Teal;font-style: blod">Continents
        			 <span class="caret"></span></a>
         		<ul class="dropdown-menu">
-         			 <li><a href="">Europe</a></li>
-         			 <li><a href="">Afrique</a></li>
-         			 <li><a href="">Asie</a></li>
-         			 <li><a href="">Oceanie</a></li>
-         			 <li><a href="">Amerique</a></li>
+         			 <li><a href="${pageContext.request.contextPath}/utilisateur/listeVoyageParCont?pContinent=Europe" style="color:Teal;font-style: blod">Europe</a></li>
+         			 <li><a href="${pageContext.request.contextPath}/utilisateur/listeVoyageParCont?pContinent=Afrique" style="color:Teal;font-style: blod">Afrique</a></li>
+         			 <li><a href="${pageContext.request.contextPath}/utilisateur/listeVoyageParCont?pContinent=Asie" style="color:Teal;font-style: blod">Asie</a></li>
+         			 <li><a href="${pageContext.request.contextPath}/utilisateur/listeVoyageParCont?pContinent=Australie" style="color:Teal;font-style: blod">Oceanie</a></li>
+         			 <li><a href="${pageContext.request.contextPath}/utilisateur/listeVoyageParCont?pContinent=Amerique" style="color:Teal;font-style: blod">Amerique</a></li>
+         			 <li><a href=" ${pageContext.request.contextPath}/utilisateur/listeVoyageParCont?pContinent=Groenland" style="color:Teal;font-style: blod">Groenland</a></li>
         		</ul>
      		 </li>
      		 
-     		 <li class="dropdown">
-       			 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Voyage (Agent)
-       			 <span class="caret"></span></a>
-        		<ul class="dropdown-menu">
-         			 <li><a href="${pageContext.request.contextPath}/voyage/ajouter">Ajouter</a></li>
-         			 <li><a href="${pageContext.request.contextPath}/voyage/supprimer">Supprimer</a></li>
-        		</ul>
-     		 </li>
-     		 
-     		 <li><a href="${pageContext.request.contextPath}/utilisateur/client/afficheAjout">Inscription Client</a></li>
-         	 <li><a href="${pageContext.request.contextPath}/client/accueilClient">Connection Client</a></li>
-         	 <li><a href="${pageContext.request.contextPath}/agent/accueilAgent">Connection Agent</a></li>
+     		 <li><a href="${pageContext.request.contextPath}/utilisateur/client/afficheAjout" style="color:Teal;font-style: blod">Inscription Client</a></li>
+         	 <li><a href="${pageContext.request.contextPath}/client/accueilClient" style="color:Teal;font-style: blod">Connexion Client</a></li>
+         	 <li><a href="${pageContext.request.contextPath}/agent/accueilAgent" style="color:Teal;font-style: blod">Connexion Agent</a></li>
          	 
     			
          	 <form class="navbar-form navbar-right inline-form">
       			<div class="form-group">
-        			<input type="search" class="input-sm form-control" placeholder="Recherche">
-       				 <button type="submit" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-eye-open"></span> Chercher</button>
+        			<input type="search" class="input-sm form-control" placeholder="Recherche par pays">
+       				 <button type="submit" class="btn btn-primary btn-sm" ><span class="glyphicon glyphicon-eye-open" ></span> Chercher</button>
       			</div>
     		</form>
 
