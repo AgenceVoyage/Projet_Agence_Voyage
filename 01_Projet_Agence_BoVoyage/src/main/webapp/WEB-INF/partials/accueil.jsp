@@ -20,10 +20,10 @@
 	href="<c:url value="/resources/css/utilisateur.css"/>" />
 </head>
 <body>
-		<div style="margin-left: 12%; margin-right: 12%;">
-			<jsp:include page="../../templates/headerUtilisateur.jsp" />
-		</div>
-		
+	<div style="margin-left: 12%; margin-right: 12%;">
+		<jsp:include page="../../templates/headerUtilisateur.jsp" />
+	</div>
+
 	<div style="margin-left: 4%; width: 80%">
 
 		<div>
@@ -52,6 +52,10 @@
 				</div>
 			</c:forEach>
 		</div>
+	</div>
+
+	<div>
+		<jsp:include page="../../templates/footer.jsp" />
 	</div>
 </body>
 </html>
