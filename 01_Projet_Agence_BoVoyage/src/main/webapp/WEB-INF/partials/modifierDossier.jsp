@@ -15,7 +15,7 @@
 <body>
 <h1 style="color: red; text-align: center">Formulaire de modification</h1>
 
-	<form:form method="POST" action="modifLien"
+	<form:form method="POST" action="soumettreModifLien"
 		modelAttribute="dossierModif" cssClass="form-horizontal">
 		
 		<div class="form-group">

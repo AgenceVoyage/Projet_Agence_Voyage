@@ -12,7 +12,9 @@ import org.springframework.stereotype.Repository;
 
 import fr.adaming.model.Adresse;
 import fr.adaming.model.Client;
+import fr.adaming.model.Dossier;
 import fr.adaming.model.Role;
+import fr.adaming.model.Voyageur;
 
 @Repository
 public class ClientDaoImpl implements IClientDao {
@@ -101,6 +103,21 @@ public class ClientDaoImpl implements IClientDao {
 		Query query = em.createQuery(req);
 		query.setParameter("pMail", mail);
 		return (Client) query.getSingleResult();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Client> getListVoyageursByDossier(Dossier d) {
+		//écriture de la requete JPQL
+		String req = "select c from Client c join c.listeDossiers d where d.id=:pId";
+		
+		//création d'un query
+		Query query = em.createQuery(req);
+		
+		//assignation des paramètres de la requete
+		query.setParameter("pId", d.getId());
+		
+		return query.getResultList();
 	}
 
 }

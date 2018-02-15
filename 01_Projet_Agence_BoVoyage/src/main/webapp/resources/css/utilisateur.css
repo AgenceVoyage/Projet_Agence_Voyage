@@ -1,6 +1,16 @@
 body {
-	background-image:url("../images/fond1.jpg");
-	backround-repeat:no-repeat;
-	background-size: cover;	
+	background-image: url("../images/fond1.jpg");
+	backround-repeat: no-repeat;
+	background-size: cover;
 }
 
+.fiche {
+	background-color: #c2b180;
+}
+
+.fichetitle {
+	font-style: italic;
+	font-style: blod;
+	color: Teal;
+	text-align:center
+}

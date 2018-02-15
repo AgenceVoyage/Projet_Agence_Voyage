@@ -40,12 +40,7 @@ public interface IDossierService {
 	 * @return une liste de dossier
 	 */
 	public List<Dossier> getAllDossiers();
-	
-	/**
-	 * Methode permettant de recuperer le dossier d'un client
-	 * @param client
-	 * @return Dossier
-	 */
-	public Dossier getDossierByClient(Client client);
+
+
 	
 }

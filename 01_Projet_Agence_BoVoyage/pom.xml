@@ -94,12 +94,7 @@
 			<version>4.1.9.RELEASE</version>
 		</dependency>
 
-		<!-- spring tx : pour que le conteneur spring gere transaction -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-tx</artifactId>
-			<version>4.1.9.RELEASE</version>
-		</dependency>
+		
 
 		<!-- spring-core -->
 		<dependency>
@@ -227,6 +222,12 @@
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
 			<version>1.3.2</version>
+		</dependency>
+		<!-- MAil -->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.7</version>
 		</dependency>
 	</dependencies>
 	<!-- Forcer Maven a compiler avec le compilateur de java8 -->

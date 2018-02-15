@@ -1,6 +1,8 @@
 package fr.adaming.daoTest;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -15,8 +17,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import fr.adaming.dao.IClientDao;
+import fr.adaming.dao.IDossierDao;
 import fr.adaming.model.Adresse;
 import fr.adaming.model.Client;
+import fr.adaming.model.Dossier;
 
 /**
  * Classe de test pour le client
@@ -31,6 +35,9 @@ public class ClientDaoImplTest {
 	@Autowired
 	IClientDao clientDao;
 	Client client;
+	
+	@Autowired
+	IDossierDao dossierDao;
 
 	/**
 	 * Instanciation d'un client avant les tests
@@ -118,5 +125,31 @@ public class ClientDaoImplTest {
 		clientDao.addClient(client);
 		assertEquals("nomTest", clientDao.getClientById(clientDao.getAllClients().get(0).getId()).getNom());
 	}
-
+	
+	@Ignore
+	@Test
+	@Transactional
+	@Rollback(false)
+	public void testGetListVoyageursByDossier(){
+		Dossier d = dossierDao.getDossierById(1);
+		List<Dossier> listOut = new ArrayList<Dossier>();
+		listOut.add(d);
+		
+		Client c = clientDao.getClientById(1);
+		c.setListeDossiers(listOut);
+		clientDao.updateClient(c);
+		
+		Client c2 = clientDao.getClientById(2);
+		c2.setListeDossiers(listOut);
+		clientDao.updateClient(c2);
+		
+		List<Client> listIn = new ArrayList<Client>();
+		listIn.add(c);
+		listIn.add(c2);
+		d.setListeClients(listIn);
+		
+		List<Client> listClient = clientDao.getListVoyageursByDossier(d);
+		
+		assertEquals(2, listClient.size());
+	}
 }
