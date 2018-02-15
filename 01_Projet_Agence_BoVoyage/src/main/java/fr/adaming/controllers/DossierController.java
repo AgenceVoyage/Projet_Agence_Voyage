@@ -1,8 +1,11 @@
 package fr.adaming.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -13,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import fr.adaming.model.Client;
 import fr.adaming.model.Dossier;
+import fr.adaming.service.IClientService;
 import fr.adaming.service.IDossierService;
 
 /**
@@ -29,6 +34,8 @@ public class DossierController {
 
 	@Autowired
 	private IDossierService dossierService;
+	
+	private IClientService clientService;
 
 	public void setDossierService(IDossierService dossierService) {
 		this.dossierService = dossierService;
@@ -52,9 +59,21 @@ public class DossierController {
 	 * 
 	 * @return la page ajoutDossier.jsp ou est présent le formulaire
 	 */
-	@RequestMapping(value = "/afficheAjoutDossier", method = RequestMethod.GET)
-	public ModelAndView afficheAjout() {
-		return new ModelAndView("ajoutDossier", "dossierAjout", new Dossier());
+	@RequestMapping(value = "/client/afficheAjoutDossier", method = RequestMethod.GET)
+	public String afficheAjout(Model model) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String mail = auth.getName();
+		Client c = clientService.getClientByMail(mail);
+		
+		List<Client> listClients = new ArrayList<Client>();
+		listClients.add(c);
+		
+		Dossier dossier = new Dossier();
+		dossier.setListeClients(listClients);
+		
+		model.addAttribute("dossierAjout", dossier);
+		
+		return "ajoutDossier";
 	}
 
 	/**
@@ -63,7 +82,7 @@ public class DossierController {
 	 * @param dossier
 	 * @return un dossier
 	 */
-	@RequestMapping(value = "/soumettreAjoutDossier", method = RequestMethod.POST)
+	@RequestMapping(value = "/client/soumettreAjoutDossier", method = RequestMethod.POST)
 	public String soumettreAjout(@ModelAttribute("dossierAjout") Dossier dossier) {
 		// Appel de la methode service
 		Dossier dOut = dossierService.addDossier(dossier);

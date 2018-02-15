@@ -136,17 +136,18 @@ public class ClientDaoImplTest {
 		listOut.add(d);
 		
 		Client c = clientDao.getClientById(1);
-		c.setListeDossiers(listOut);
-		clientDao.updateClient(c);
+//		c.setListeDossiers(listOut);
+//		clientDao.updateClient(c);
 		
 		Client c2 = clientDao.getClientById(2);
-		c2.setListeDossiers(listOut);
-		clientDao.updateClient(c2);
+//		c2.setListeDossiers(listOut);
+//		clientDao.updateClient(c2);
 		
 		List<Client> listIn = new ArrayList<Client>();
 		listIn.add(c);
 		listIn.add(c2);
 		d.setListeClients(listIn);
+		dossierDao.updateDossier(d);
 		
 		List<Client> listClient = clientDao.getListVoyageursByDossier(d);
 		

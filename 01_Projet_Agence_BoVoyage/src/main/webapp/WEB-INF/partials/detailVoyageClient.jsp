@@ -5,6 +5,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+#map {
+	height: 400px;
+	width: 50%;
+}
+</style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 <link rel="stylesheet"
@@ -12,7 +18,11 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="<c:url value="/resources/boostrap/bootstrap.min.js"/>"></script>
-
+<script
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBz2jm5RRGDAnvYharuQWuyKF6r9BI2MtY">
+	
+</script>
+<script src="<c:url value="/resources/js/googleMap.js"/>"></script>
 <title>Page de details d'un voyage</title>
 </head>
 <body>
@@ -86,6 +96,15 @@
 			</div>
 		</div>
 	</div>
-
+	<center>
+		<div id="map"></div>
+	</center>
+	<script>
+		var ville = '${voyageDetail.ville}';
+		console.log(ville);
+		var pays = '${voyageDetail.pays}';
+		console.log(pays);
+		var nom = '${voyageDetail.nom}';
+	</script>
 </body>
 </html>
