@@ -53,8 +53,6 @@ public class VoyageDaoImpl implements IVoyageDao {
 				+ "v.prixPublic=:pPrixPublic, v.remise=:pRemise,"
 				+ "v.prixRemise=:pPrixRemise, v.disponible=:pDisponible, "
 				+ "v.pays=:pPays, v.ville=:pVille,"
-				+ "v.continent=:pContinent, v.compagnieVoyage=:pCompagnie, "
-				+ "v.prestation=:pPrestation,"
 				+ "v.voiture=:pVoiture, v.hotel=:pHotel where v.id=:pId";
 		
 		//écriture d'un query
@@ -74,7 +72,6 @@ public class VoyageDaoImpl implements IVoyageDao {
 		query.setParameter("pVille", voy.getVille());
 		query.setParameter("pContinent", voy.getContinent());
 		query.setParameter("pCompagnie", voy.getCompagnieVoyage());
-		query.setParameter("pPrestation", voy.getPrestation());
 		query.setParameter("pVoiture", voy.getVoiture());
 		query.setParameter("pHotel", voy.getHotel());
 		query.setParameter("pId", voy.getId());

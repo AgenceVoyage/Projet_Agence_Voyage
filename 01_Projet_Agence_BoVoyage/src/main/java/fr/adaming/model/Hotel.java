@@ -34,8 +34,6 @@ public class Hotel implements Serializable {
 
 	private String nomHotel;
 
-	private String nomFormule;
-
 	private double prix;
 
 	@Embedded
@@ -55,19 +53,17 @@ public class Hotel implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Hotel(String nomHotel, String nomFormule, double prix, Adresse adresse) {
+	public Hotel(String nomHotel, double prix, Adresse adresse) {
 		super();
 		this.nomHotel = nomHotel;
-		this.nomFormule = nomFormule;
 		this.prix = prix;
 		this.adresse = adresse;
 	}
 
-	public Hotel(int id, String nomHotel, String nomFormule, double prix, Adresse adresse) {
+	public Hotel(int id, String nomHotel, double prix, Adresse adresse) {
 		super();
 		this.id = id;
 		this.nomHotel = nomHotel;
-		this.nomFormule = nomFormule;
 		this.prix = prix;
 		this.adresse = adresse;
 	}
@@ -89,14 +85,6 @@ public class Hotel implements Serializable {
 
 	public void setNomHotel(String nomHotel) {
 		this.nomHotel = nomHotel;
-	}
-
-	public String getNomFormule() {
-		return nomFormule;
-	}
-
-	public void setNomFormule(String nomFormule) {
-		this.nomFormule = nomFormule;
 	}
 
 	public double getPrix() {
@@ -122,6 +110,5 @@ public class Hotel implements Serializable {
 	public void setListeVoyages(List<Voyage> listeVoyages) {
 		this.listeVoyages = listeVoyages;
 	}
-
 
 }
