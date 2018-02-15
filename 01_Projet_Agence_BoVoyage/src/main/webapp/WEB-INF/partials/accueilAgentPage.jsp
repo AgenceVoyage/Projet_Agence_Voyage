@@ -17,83 +17,84 @@
 
 </head>
 <body>
-	<div>
-		<jsp:include page="../../templates/headerAgent.jsp" />
-	</div>
-	<h2 style="color: red; text-align: center">Liste des voyages</h2>
 
-	<table class="table table-bordered">
-		<tr>
-			<th>ID</th>
-			<th>Reference</th>
-			<th>Nom</th>
-			<th>Date de depart</th>
-			<th>Date d'arrivee</th>
-			<th>Nombre de places restantes</th>
-			<th>Disponibilite</th>
-			<th>Pays</th>
-			<th>Ville</th>
-			<th>Continent</th>
-			<th>Compagnie de voyage</th>
-			<th>Prix remise</th>
-			<th>ID Hotel</th>
-			<th>ID Voiture</th>
-			<th>Options</th>
-		</tr>
-		<c:forEach var="v" items="${voyageList2}">
+	<jsp:include page="../../templates/headerAgent.jsp" />
+
+	<h1 style="color: Teal; text-align: center">Liste des voyages</h1>
+	<div style="margin-left: 1%; margin-right: 1%">
+
+		<table class="table table-bordered fiche">
 			<tr>
-				<td>${v.id}</td>
-				<td>${v.reference}</td>
-				<td>${v.nom}</td>
-				<td>${v.dateDepart}</td>
-				<td>${v.dateArrivee}</td>
-				<td>${v.nbPlaces}</td>
-				<c:set var="dispo" value="${v.disponible}" />
-				<c:choose>
-					<c:when test="${dispo==true}">
-						<td>Oui</td>
-					</c:when>
-					<c:otherwise>
-						<td>Non</td>
-					</c:otherwise>
-				</c:choose>
-
-
-				<td>${v.pays}</td>
-				<td>${v.ville}</td>
-				<td>${v.continent}</td>
-				<td>${v.compagnieVoyage}</td>
-				<td>${v.prixRemise}</td>
-
-				<c:set var="hotel" value="${v.hotel}" />
-				<c:choose>
-					<c:when test="${not empty hotel}">
-						<td>${v.hotel.id}</td>
-					</c:when>
-					<c:otherwise>
-						<td>Non renseigne</td>
-					</c:otherwise>
-				</c:choose>
-
-				<c:set var="voiture" value="${v.voiture}" />
-				<c:choose>
-					<c:when test="${not empty voiture}">
-						<td>${v.voiture.id}</td>
-					</c:when>
-					<c:otherwise>
-						<td>Non renseigne</td>
-					</c:otherwise>
-				</c:choose>
-
-
-				<td><a
-					href="${pageContext.request.contextPath}/agent/supprimeLienVoyage?pId=${v.id}">Supprimer</a>
-					| <a
-					href="${pageContext.request.contextPath}/agent/modifLienVoyage?pId=${v.id}">Modifier</a></td>
+				<th>ID</th>
+				<th>Reference</th>
+				<th>Nom</th>
+				<th>Date de depart</th>
+				<th>Date d'arrivee</th>
+				<th>Nombre de places restantes</th>
+				<th>Disponibilite</th>
+				<th>Pays</th>
+				<th>Ville</th>
+				<th>Continent</th>
+				<th>Compagnie de voyage</th>
+				<th>Prix remise</th>
+				<th>ID Hotel</th>
+				<th>ID Voiture</th>
+				<th>Options</th>
 			</tr>
-		</c:forEach>
-	</table>
+			<c:forEach var="v" items="${voyageList2}">
+				<tr>
+					<td>${v.id}</td>
+					<td>${v.reference}</td>
+					<td>${v.nom}</td>
+					<td>${v.dateDepart}</td>
+					<td>${v.dateArrivee}</td>
+					<td>${v.nbPlaces}</td>
+					<c:set var="dispo" value="${v.disponible}" />
+					<c:choose>
+						<c:when test="${dispo==true}">
+							<td>Oui</td>
+						</c:when>
+						<c:otherwise>
+							<td>Non</td>
+						</c:otherwise>
+					</c:choose>
 
+
+					<td>${v.pays}</td>
+					<td>${v.ville}</td>
+					<td>${v.continent}</td>
+					<td>${v.compagnieVoyage}</td>
+					<td>${v.prixRemise}</td>
+
+					<c:set var="hotel" value="${v.hotel}" />
+					<c:choose>
+						<c:when test="${not empty hotel}">
+							<td>${v.hotel.id}</td>
+						</c:when>
+						<c:otherwise>
+							<td>Non renseigne</td>
+						</c:otherwise>
+					</c:choose>
+
+					<c:set var="voiture" value="${v.voiture}" />
+					<c:choose>
+						<c:when test="${not empty voiture}">
+							<td>${v.voiture.id}</td>
+						</c:when>
+						<c:otherwise>
+							<td>Non renseigne</td>
+						</c:otherwise>
+					</c:choose>
+
+
+					<td><a
+						href="${pageContext.request.contextPath}/agent/supprimeLienVoyage?pId=${v.id}">Supprimer</a>
+						| <a
+						href="${pageContext.request.contextPath}/agent/modifLienVoyage?pId=${v.id}">Modifier</a></td>
+				</tr>
+			</c:forEach>
+		</table>
+	</div>
 
 	<div>
 		<jsp:include page="../../templates/footer.jsp" />
