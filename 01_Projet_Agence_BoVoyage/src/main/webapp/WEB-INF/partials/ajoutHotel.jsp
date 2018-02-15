@@ -45,10 +45,8 @@
 					<form:input path="prix" cssClass="form-control" />
 				</div>
 			</div>
-			<div class="form-group">
-				<form:label path="adresse" cssClass="col-sm-2 control-label">Adresse :</form:label>
-			</div>
-			
+			<h3 style="color: Teal; margin-left: -25%; text-align: center">Adresse</h3>
+
 			<div class="form-group">
 				<form:label path="adresse.numero" cssClass="col-sm-2 control-label">N°</form:label>
 				<div class="col-sm-5">
@@ -76,8 +74,8 @@
 			</div>
 
 
-			<div class="form-group">
-				<form:label path="idVoy" class="col-sm-2 control-label">Id Voyage : </form:label>
+			<div class="form-group" style="margin-left: 29%">
+				<form:label path="idVoy" class="col-sm-2 control-label">Id Voyage</form:label>
 				<form:select path="idVoy">
 					<c:forEach var="voy" items="${voyageListe}">
 						<form:option value="${voy.id}">
@@ -89,8 +87,7 @@
 
 			<div class="form-group" style="margin-left: 15%">
 				<div class="col-sm-offset-2 col-sm-10">
-					<input type="submit" class="btn btn-info"
-						value="Ajouter un Hotel" />
+					<input type="submit" class="btn btn-info" value="Ajouter un Hotel" />
 				</div>
 			</div>
 
