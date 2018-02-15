@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import fr.adaming.dao.IDossierDao;
+import fr.adaming.model.Client;
 import fr.adaming.model.Dossier;
 
 @Service
@@ -46,4 +47,8 @@ public class DossierServiceImpl implements IDossierService{
 		return dossierDao.getAllDossiers();
 	}
 
+	@Override
+	public Dossier getDossierByClient(Client client) {
+		return dossierDao.getDossierByClient(client);
+	}
 }

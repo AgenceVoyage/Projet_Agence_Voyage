@@ -2,6 +2,7 @@ package fr.adaming.service;
 
 import java.util.List;
 
+import fr.adaming.model.Client;
 import fr.adaming.model.Dossier;
 
 public interface IDossierService {
@@ -39,5 +40,12 @@ public interface IDossierService {
 	 * @return une liste de dossier
 	 */
 	public List<Dossier> getAllDossiers();
+	
+	/**
+	 * Methode permettant de recuperer le dossier d'un client
+	 * @param client
+	 * @return Dossier
+	 */
+	public Dossier getDossierByClient(Client client);
 	
 }
