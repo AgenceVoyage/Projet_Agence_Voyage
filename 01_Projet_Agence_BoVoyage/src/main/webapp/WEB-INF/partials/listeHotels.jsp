@@ -19,9 +19,9 @@
 	href="<c:url value="/resources/css/utilisateur.css"/>" />
 </head>
 <body>
-	<div style="margin-left: 10%; width: 80%">
+	
 		<jsp:include page="../../templates/headerAgent.jsp" />
-	</div>
+	
 
 
 	<h1 style="color: Teal; text-align: center">Liste des Hotels
