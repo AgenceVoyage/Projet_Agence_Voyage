@@ -51,6 +51,7 @@ public class AssuranceDaoImplTest {
 		@Test
 		@Transactional
 		@Rollback(false)
+		@Ignore
 		public void updateTest() {
 			
 			Assurance aModif = assuranceDao.updateAssurance(a2);
