@@ -22,7 +22,7 @@ import fr.adaming.model.Voyageur;
 import fr.adaming.service.IMailPdfService;
 
 @Controller
-@RequestMapping("/mailPdf")
+@RequestMapping("/client/mailPdf")
 public class MailPdfController {
 
 	@Autowired
@@ -60,7 +60,7 @@ public class MailPdfController {
 		listeClients.add(c1);
 		listeClients.add(c2);
 		dossier.setListeClients(listeClients);
-		Voyage voyage = new Voyage("Escapade à Madagascar", "MAD028",new Date(),new Date(),18,1000,800,"Madagascar","Antananarivo","AFRIQUE","EASYJET");
+		Voyage voyage = new Voyage("Escapade à Madagascar", "MAD028",new Date(),new Date(),18,1000,800,"Madagascar","Antananarivo","AFRIQUE","EASYJET",null);
 		Voiture voiture =  new Voiture("SIXT", "4x4", 200);
 		voyage.setVoiture(voiture);
 		Adresse adresse= new Adresse(2, "avenue de l'océan", 45000, "Antananarivo");
@@ -96,7 +96,7 @@ public class MailPdfController {
 		listeClients.add(c1);
 		listeClients.add(c2);
 		dossier.setListeClients(listeClients);
-		Voyage voyage = new Voyage("Escapade à Madagascar", "MAD028",new Date(),new Date(),18,1000,800,"Madagascar","Antananarivo","AFRIQUE","EASYJET");
+		Voyage voyage = new Voyage("Escapade à Madagascar", "MAD028",new Date(),new Date(),18,1000,800,"Madagascar","Antananarivo","AFRIQUE","EASYJET",null);
 		Voiture voiture =  new Voiture("SIXT", "4x4", 200);
 		voyage.setVoiture(voiture);
 		Adresse adresse= new Adresse(2, "avenue de l'océan", 45000, "Antananarivo");

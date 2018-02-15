@@ -16,22 +16,23 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="<c:url value="/resources/boostrap/bootstrap.min.js"/>"></script>
-
+<link rel="stylesheet"
+	href="<c:url value="/resources/css/utilisateur.css"/>" />
 <title>Insert title here</title>
 
 </head>
 <body>
 
 
-	<div style="margin-left: 10%; width: 80%">
+	<div style="margin-left: 12%; margin-right: 12%">
 
-		<h1 style="text-align: center; color: blue">Espace Agent</h1>
+		
 		<jsp:include page="../../templates/headerAgent.jsp" />
 	</div>
 
 
-	<h1 style="color: red; text-align: center">Liste des Voitures</h1>
-	<table class="table table-bordered">
+	<h1 style="color: Teal; text-align: center">Liste des Voitures</h1>
+	<table class="table table-bordered fiche">
 		<tr>
 			<th>ID</th>
 			<th>Catégorie</th>
@@ -54,7 +55,6 @@
 			</tr>
 		</c:forEach>
 	</table>
-
 
 </body>
 </html>
