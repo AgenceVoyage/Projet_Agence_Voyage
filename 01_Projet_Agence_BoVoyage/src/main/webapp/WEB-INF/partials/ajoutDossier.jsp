@@ -18,8 +18,12 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="<c:url value="/resources/boostrap/bootstrap.min.js"/>"></script>
 
+	<link rel="stylesheet" href="<c:url value="/resources/css/dossier.css"/>">
+
 <script type="text/javascript"
 	src="<c:url value="/resources/js/dossier.js"/>"></script>
+	
+
 
 
 </head>
@@ -36,7 +40,7 @@
 
 		<div class="form-group">
 			<form:label path="prestation" class="col-sm-2 control-label">Prestation : </form:label>
-			<form:select path="prestation" onchange="affiche()" id="idPrest">
+			<form:select path="prestation" onchange="affiche()" id="idPrest">				
 				<form:option value="avion">
 					<c:out value="Avion"></c:out>
 				</form:option>
@@ -57,13 +61,13 @@
 		<br />
 
 
-		<div class="avion">Mettre ici le prix total sans hotel ni voiture (à cacher si
-			voiture ou hotel)</div>
+		<div id="avion">Prix total : ${dossierAjout.voyage.prixRemise} euros</div>
+		
 
-		<div class="menuDeroulants">
+		<div class="cacher" id="hotel">
 			<div class="form-group">
 				<form:label path="nomFormule" class="col-sm-2 control-label">Formule de l'hotel : </form:label>
-				<form:select path="nomFormule">
+				<form:select path="nomFormule" onchange="affiche2()" id="idFormule">
 					<form:option value="hebergement seul">
 						<c:out value="Hebergement seul"></c:out>
 					</form:option>
@@ -81,41 +85,30 @@
 		</div>
 
 		<br />
-		<br />
-		<br />
 
-		<div>Mettre ici le prix total avec hotel sans voiture (à cacher
-			si voiture ou pas hotel)</div>
+		<div class="cacher2" id="hotel1">Prix total : ${dossierAjout.voyage.prixRemise+dossierAjout.voyage.hotel.prix} euros</div>
+		<div class="cacher2" id="hotel2">Prix total : ${dossierAjout.voyage.prixRemise+dossierAjout.voyage.hotel.prix*(1.1)} euros</div>
+		<div class="cacher2" id="hotel3">Prix total : ${dossierAjout.voyage.prixRemise+dossierAjout.voyage.hotel.prix*(1.3)} euros</div>
+		<div class="cacher2" id="hotel4">Prix total : ${dossierAjout.voyage.prixRemise+dossierAjout.voyage.hotel.prix*(1.5)} euros</div>
 
-		<div class="menuDeroulants" style="">
-			<h5>Voiture :</h5>
+		<div class="cacher" id="voiture">
+			<h4>Voiture :</h4>
 			Loueur : ${dossierAjout.voyage.voiture.loueur} <br /> Categorie :
 			${dossierAjout.voyage.voiture.categorie}
 		</div>
 
 		<br />
-		<br />
-		<br />
-		<div>Mettre ici le prix total sans hotel avec voiture (à cacher
-			si pas voiture ou si hotel)</div>
+		<div class="cacher" id="voiture1">Prix total : ${dossierAjout.voyage.prixRemise+dossierAjout.voyage.voiture.prix} euros</div>
 
-		<br />
-		<br />
-		<br />
+		<div class="cacher2" id="tout1">Prix total : ${dossierAjout.voyage.prixRemise+dossierAjout.voyage.voiture.prix+dossierAjout.voyage.hotel.prix} euros</div>
+		<div class="cacher2" id="tout2">Prix total : ${dossierAjout.voyage.prixRemise+dossierAjout.voyage.voiture.prix+dossierAjout.voyage.hotel.prix*(1.1)} euros</div>
+		<div class="cacher2" id="tout3">Prix total : ${dossierAjout.voyage.prixRemise+dossierAjout.voyage.voiture.prix+dossierAjout.voyage.hotel.prix*(1.3)} euros</div>
+		<div class="cacher2" id="tout4">Prix total : ${dossierAjout.voyage.prixRemise+dossierAjout.voyage.voiture.prix+dossierAjout.voyage.hotel.prix*(1.5)} euros</div>
 
-		<div>Mettre ici le prix total avec hotel et voiture (à cacher si
-			pas)</div>
 
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">
-				<input type="submit" class="btn btn-success"
-					value="Ajouter des voyageurs" />
-			</div>
-		</div>
-
-		<div class="form-group">
-			<div class="col-sm-offset-2 col-sm-10">
-				<input type="submit" class="btn btn-success" value="Reserver" />
+				<input type="submit" class="btn btn-success" value="Continuer" />
 			</div>
 		</div>
 	</form:form>
