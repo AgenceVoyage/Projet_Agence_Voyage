@@ -21,8 +21,8 @@
 </head>
 <body>
 
-	<div style="margin-left: 0%; width: 80%">
-		<div style="margin-left: 23%">
+	<div style="margin-left: 4%; width: 80%">
+		<div style="margin-left: 19%">
 			<jsp:include page="../../templates/headerUtilisateur.jsp" />
 		</div>
 		<div>
@@ -32,18 +32,21 @@
 
 		<div class="form-group" style="margin-left: 23%">
 			<c:forEach var="v" items="${voyageList}">
-				<div class="col-sm-3 ">
-					<div class="thumbnail">
+				<div class="col-sm-3">
+					<div class="thumbnail fiche">
 						<img src="..." alt="...">
-<a href="${pageContext.request.contextPath}/utilisateur/detailVoyage?pId=${v.id}">Voir le détail</a>
 
 						<div class="caption">
-							<h3>${v.nom}</h3>
+							<h3 class="fichetitle">${v.nom}</h3>
 							<p>
 								<b>Prix : </b>${v.prixPublic}<br /> <b>Remise : </b>${v.remise}<br />
 								<b>Date de depart : </b>${v.dateDepart}<br /> <b>Date
 									d'arrivee : </b>${v.dateArrivee}</p>
 						</div>
+
+						<a
+							href="${pageContext.request.contextPath}/utilisateur/detailVoyage?pId=${v.id}">Voir
+							le détail</a>
 					</div>
 				</div>
 			</c:forEach>
