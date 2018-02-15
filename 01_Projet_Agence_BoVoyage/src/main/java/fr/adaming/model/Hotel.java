@@ -15,7 +15,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
- * 
+ * Classe model pour les hotels
  * @author Adaming44
  *
  */

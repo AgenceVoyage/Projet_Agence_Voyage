@@ -7,19 +7,14 @@
 <head>
 <body>
 
-
-
-
-
-
 	<nav class="navbar navbar-inverse" style="background-color: #F8F8F8;">
 		<div class="container-fluid">
 			<ul class="nav navbar-nav">
 
-
 				<li><a
-					href="${pageContext.request.contextPath}/agent/accueilAgent
-      ">Accueil</a></li>
+					href="${pageContext.request.contextPath}/agent/accueilAgent"><img
+						src="${pageContext.request.contextPath}/resources/images/agenceLACEME2.png"
+						style="height: 50px" /></a></li>
 
 				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown" href="#">Continents <span class="caret"></span></a>
@@ -32,8 +27,7 @@
 					</ul></li>
 
 				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#">Voyage<span
-						class="caret"></span></a>
+					data-toggle="dropdown" href="#">Voyage<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a
 							href="${pageContext.request.contextPath}/voyage/ajouter">Ajouter</a></li>
@@ -87,6 +81,9 @@
 							href="${pageContext.request.contextPath}/agent/clients/afficheRecherche">Rechercher</a></li>
 					</ul></li>
 
+				<li><a
+					href="${pageContext.request.contextPath}/infosAgence?pNum=0">Notre
+						agence</a></li>
 
 				<li><a href="${pageContext.request.contextPath}/deconnexion">Deconnexion</a></li>
 

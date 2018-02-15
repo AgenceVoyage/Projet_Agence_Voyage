@@ -22,7 +22,7 @@ import fr.adaming.model.Voyageur;
 import fr.adaming.service.IMailPdfService;
 
 @Controller
-@RequestMapping("/mailPdf")
+@RequestMapping("/client/mailPdf")
 public class MailPdfController {
 
 	@Autowired

@@ -15,39 +15,42 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="<c:url value="/resources/boostrap/bootstrap.min.js"/>"></script>
 
-<title>Insert title here</title>
+<title>Ajout Voiture</title>
+<link rel="stylesheet" href="<c:url value="/resources/css/log.css"/>" />
 
 </head>
 <body>
-	<div style="margin-left: 10%; width: 80%">
+	<div style="margin-left: 12%; margin-right: 12%">
 
-		<h1 style="text-align: center; color: blue">Espace Agent</h1>
 		<jsp:include page="../../templates/headerAgent.jsp" />
 	</div>
+<h1 style="color: Teal; margin-left: 32%">Formulaire d'ajout d'une
+		voiture</h1>
 
+	<div style="margin-left: 25%">
 	<form:form method="POST" action="soumettreAjoutVoiture"
 		modelAttribute="temp" cssClass="form-horizontal">
 
 		<div class="form-group">
-			<form:label path="loueur" class="col-sm-2 control-label">Loueur :</form:label>
+			<form:label path="loueur" class="col-sm-2 control-label">Loueur</form:label>
 			<div class="col-sm-5">
 				<form:input path="loueur" cssClass="form-control" />
 			</div>
 		</div>
 		<div class="form-group">
-			<form:label path="categorie" class="col-sm-2 control-label">Catégorie de véhicule : </form:label>
+			<form:label path="categorie" class="col-sm-2 control-label">Catégorie de véhicule</form:label>
 			<div class="col-sm-5">
 				<form:input path="categorie" cssClass="form-control" />
 			</div>
 		</div>
 		<div class="form-group">
-			<form:label path="prix" class="col-sm-2 control-label">Prix de l'option : </form:label>
+			<form:label path="prix" class="col-sm-2 control-label">Prix de l'option</form:label>
 			<div class="col-sm-5">
 				<form:input path="prix" cssClass="form-control" />
 			</div>
 		</div>
-		<div class="form-group">
-			<form:label path="idVoy" class="col-sm-2 control-label">Id Voyage : </form:label>
+		<div class="form-group" style="margin-left: 29%">
+			<form:label path="idVoy" class="col-sm-2 control-label">Id Voyage</form:label>
 			<form:select path="idVoy">
 				<c:forEach var="voy" items="${voyageListe}">
 					<form:option value="${voy.id}">
@@ -57,15 +60,14 @@
 			</form:select>
 		</div>
 
-
-		<div class="form-group">
+			<div class="form-group" style="margin-left: 15%">
 			<div class="col-sm-offset-2 col-sm-10">
-				<input type="submit" class="btn btn-success"
+				<input type="submit" class="btn btn-info"
 					value="Ajouter une Voiture" />
 			</div>
 		</div>
 
 	</form:form>
-
+</div>
 </body>
 </html>

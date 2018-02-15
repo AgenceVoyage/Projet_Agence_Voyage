@@ -11,25 +11,29 @@
 <title>Modifier Client</title>
 <link rel="stylesheet"
 	href="<c:url value="/resources/boostrap/bootstrap.min.css"/>" />
+<link rel="stylesheet" href="<c:url value="/resources/css/log.css"/>" />
 </head>
 <body>
-	<div style="margin-left: 10%; width: 80%">
-
-		<h1 style="text-align: center; color: blue">Espace Agent</h1>
+<div style="margin-left: 12%; margin-right: 12%">
 		<jsp:include page="../../templates/headerAgent.jsp" />
 	</div>
-	<h1 style="color: red; text-align: center">Formulaire de
-		modification</h1>
+	<h1 style="color: Teal; margin-left: 33%">Formulaire de modification client</h1>
+
 
 	<form:form method="POST" action="soumettreModifAgent"
 		modelAttribute="modifClientA" cssClass="form-horizontal">
 
+					<h3 style="color: Teal; margin-left: -25%; text-align: center">Informations
+				générales</h3>
+				
 		<div class="form-group">
 			<form:label path="id" cssClass="col-sm-2 control-label">Id</form:label>
 			<div class="col-sm-5">
 				<form:input path="id" cssClass="form-control" readonly="true" />
 			</div>
 		</div>
+		
+
 		<div class="form-group">
 			<form:label path="dateNaissance" cssClass="col-sm-2 control-label">Date de naissance</form:label>
 			<div class="col-sm-5">
