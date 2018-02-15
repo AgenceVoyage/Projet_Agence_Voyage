@@ -33,6 +33,9 @@
 								<b>Date de depart : </b>${v.dateDepart}<br /> <b>Date
 									d'arrivee : </b>${v.dateArrivee}</p>
 						</div>
+						<a
+							href="${pageContext.request.contextPath}/client/detailVoyage?pId=${v.id}">Voir
+							le détail</a>
 					</div>
 				</div>
 			</c:forEach>
