@@ -1,23 +1,23 @@
 
 path{
-	fill:#FF7F50;
+	fill:#c2b180;
 }
 
 
-#Afrique:hover{
+.Afrique:hover{
      fill:yellow;
  }
 
-#AmeriqueSud:hover{
+.AmeriqueSud:hover{
     fill:orange;
 }
 
-#AmeriqueNord:hover{
+.AmeriqueNord:hover{
     fill:green;
 }
 
 
-#Europe:hover{
+.Europe:hover{
     fill:purple;
 }
 
@@ -25,10 +25,11 @@ path{
     fill:grey;
 }
 
-#Asie:hover{
+.Asie:hover{
     fill:pink;
 }
 
-#Australie:hover{
+.Australie:hover{
     fill:plum;
 }
+
