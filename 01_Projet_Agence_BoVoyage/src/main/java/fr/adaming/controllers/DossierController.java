@@ -61,7 +61,7 @@ public class DossierController {
 	 * 
 	 * @return la page allDossier.jsp, la page affichant cette liste
 	 */
-	@RequestMapping(value = "/liste", method = RequestMethod.GET)
+	@RequestMapping(value = "/dossiers/liste", method = RequestMethod.GET)
 	public ModelAndView afficheListeDossier() {
 		// Recupereration de la liste de la bd
 		List<Dossier> listeDossier = dossierService.getAllDossiers();
