@@ -18,6 +18,9 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="<c:url value="/resources/boostrap/bootstrap.min.js"/>"></script>
 
+<script type="text/javascript"
+	src="<c:url value="/resources/js/dossier.js"/>"></script>
+
 
 </head>
 <body>
@@ -33,59 +36,45 @@
 
 		<div class="form-group">
 			<form:label path="prestation" class="col-sm-2 control-label">Prestation : </form:label>
-			<form:select path="prestation">
+			<form:select path="prestation" onchange="affiche()" id="idPrest">
 				<form:option value="avion">
 					<c:out value="Avion"></c:out>
 				</form:option>
-				<form:option value="avion+hotel" onclick="montrer(1)">
+				<form:option value="avion+hotel" onclick="montrer(2)">
 					<c:out value="Avion et Hotel"></c:out>
 				</form:option>
-				<form:option value="avion+voiture" onclick="montrer(2)">
+				<form:option value="avion+voiture" onclick="montrer(3)">
 					<c:out value="Avion et Voiture"></c:out>
 				</form:option>
-				<form:option value="avion+hotel+voiture" onclick="montrer(3)">
+				<form:option value="avion+hotel+voiture" onclick="montrer(4)">
 					<c:out value="Avion, Hotel et Voiture"></c:out>
 				</form:option>
 			</form:select>
 		</div>
 
+		<br />
+		<br />
+		<br />
 
+
+		<div class="avion">Mettre ici le prix total sans hotel ni voiture (à cacher si
+			voiture ou hotel)</div>
 
 		<div class="menuDeroulants">
 			<div class="form-group">
 				<form:label path="nomFormule" class="col-sm-2 control-label">Formule de l'hotel : </form:label>
-				<form:select path="prestation">
-					<form:option value="avion">
-						<c:out value="Avion"></c:out>
+				<form:select path="nomFormule">
+					<form:option value="hebergement seul">
+						<c:out value="Hebergement seul"></c:out>
 					</form:option>
-					<form:option value="avion+hotel">
-						<c:out value="Avion et Hotel"></c:out>
+					<form:option value="petit dejeuner">
+						<c:out value="Hebergement et petit-dejeuner"></c:out>
 					</form:option>
-					<form:option value="avion+voiture">
-						<c:out value="Avion et Voiture"></c:out>
+					<form:option value="demi pension">
+						<c:out value="Hebergement et demi-pension"></c:out>
 					</form:option>
-					<form:option value="avion+hotel+voiture">
-						<c:out value="Avion, Hotel et Voiture"></c:out>
-					</form:option>
-				</form:select>
-			</div>
-		</div>
-		
-		<div class="menuDeroulants">
-			<div class="form-group">
-				<form:label path="nomFormule" class="col-sm-2 control-label">Voiture : </form:label>
-				<form:select path="prestation">
-					<form:option value="avion">
-						<c:out value="Avion"></c:out>
-					</form:option>
-					<form:option value="avion+hotel">
-						<c:out value="Avion et Hotel"></c:out>
-					</form:option>
-					<form:option value="avion+voiture">
-						<c:out value="Avion et Voiture"></c:out>
-					</form:option>
-					<form:option value="avion+hotel+voiture">
-						<c:out value="Avion, Hotel et Voiture"></c:out>
+					<form:option value="pension complete">
+						<c:out value="Hebergement et pension complete"></c:out>
 					</form:option>
 				</form:select>
 			</div>
@@ -95,10 +84,38 @@
 		<br />
 		<br />
 
-		<!-- ajouter les voyageurs 1 à 1 -->
+		<div>Mettre ici le prix total avec hotel sans voiture (à cacher
+			si voiture ou pas hotel)</div>
+
+		<div class="menuDeroulants" style="">
+			<h5>Voiture :</h5>
+			Loueur : ${dossierAjout.voyage.voiture.loueur} <br /> Categorie :
+			${dossierAjout.voyage.voiture.categorie}
+		</div>
+
+		<br />
+		<br />
+		<br />
+		<div>Mettre ici le prix total sans hotel avec voiture (à cacher
+			si pas voiture ou si hotel)</div>
+
+		<br />
+		<br />
+		<br />
+
+		<div>Mettre ici le prix total avec hotel et voiture (à cacher si
+			pas)</div>
+
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">
-				<input type="submit" class="btn btn-success" value="Ajouter" />
+				<input type="submit" class="btn btn-success"
+					value="Ajouter des voyageurs" />
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<input type="submit" class="btn btn-success" value="Reserver" />
 			</div>
 		</div>
 	</form:form>
