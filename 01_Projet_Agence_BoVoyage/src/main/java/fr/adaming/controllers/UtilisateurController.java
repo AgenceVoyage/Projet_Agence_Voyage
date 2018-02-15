@@ -62,11 +62,23 @@ public class UtilisateurController {
 		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
 	}
 
+	/**
+	 * Méthode pour afficher le formulaire d'inscription
+	 * 
+	 * @return
+	 */
 	@RequestMapping(value = "/client/afficheAjout", method = RequestMethod.GET)
 	public ModelAndView afficheAjouter() {
 		return new ModelAndView("ajoutClient", "clientAjout", new Client());
 	}
 
+	/**
+	 * Méthode de soumision du formulaire d'inscription : Ajout d'un client dans
+	 * la base
+	 * 
+	 * @param c
+	 * @return
+	 */
 	@RequestMapping(value = "/client/soumettreAjout", method = RequestMethod.POST)
 	public String soumettreAjouter(@ModelAttribute("clientAjout") Client c) {
 		Client cOut = clientService.addClient(c);

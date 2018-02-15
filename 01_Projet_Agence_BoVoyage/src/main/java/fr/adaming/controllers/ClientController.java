@@ -38,6 +38,12 @@ public class ClientController {
 		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
 	}
 
+	/**
+	 * Affichage du formulaire de modification des infos client
+	 * 
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = "/afficheModif", method = RequestMethod.GET)
 	public String afficheModifier(ModelMap model) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -47,6 +53,12 @@ public class ClientController {
 		return "clientModifClient";
 	}
 
+	/**
+	 * Soumission du formulaire de modification des infos du client
+	 * 
+	 * @param c
+	 * @return
+	 */
 	@RequestMapping(value = "/soumettreModifClient", method = RequestMethod.POST)
 	public String soumettreModifier(@ModelAttribute("modifClientC") Client c) {
 		Client cModif = clientService.getClientById(c.getId());
