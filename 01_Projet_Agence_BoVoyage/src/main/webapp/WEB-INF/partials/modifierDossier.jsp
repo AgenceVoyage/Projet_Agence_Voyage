@@ -16,7 +16,7 @@
 <h1 style="color: red; text-align: center">Formulaire de modification</h1>
 
 	<form:form method="POST" action="modifLien"
-		modelAttribute="dossierAjout" cssClass="form-horizontal">
+		modelAttribute="dossierModif" cssClass="form-horizontal">
 		
 		<div class="form-group">
 			<form:label path="id" cssClass="col-sm-2 control-label">ID</form:label>
@@ -43,18 +43,18 @@
 				<form:input path="voyage" cssClass="form-control" />
 			</div>
 		</div>
-		<div class="form-group">
-			<form:label path="assurance" cssClass="col-sm-2 control-label">Assurance</form:label>
-			<div class="col-sm-5">
-				<form:input path="assurance" cssClass="form-control" />
-			</div>
-		</div>
-		<div class="form-group">
-			<form:label path="listeClients" cssClass="col-sm-2 control-label">Nombre de clients</form:label>
-			<div class="col-sm-5">
-				<form:input path="listeClients" cssClass="form-control" />
-			</div>
-		</div>
+<!-- 		<div class="form-group"> -->
+<%-- 			<form:label path="assurance" cssClass="col-sm-2 control-label">Assurance</form:label> --%>
+<!-- 			<div class="col-sm-5"> -->
+<%-- 				<form:input path="assurance" cssClass="form-control" /> --%>
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 		<div class="form-group"> -->
+<%-- 			<form:label path="listeClients" cssClass="col-sm-2 control-label">Nombre de clients</form:label> --%>
+<!-- 			<div class="col-sm-5"> -->
+<%-- 				<form:input path="listeClients" cssClass="form-control" /> --%>
+<!-- 			</div> -->
+<!-- 		</div> -->
 		<div class="form-group">
 			<form:label path="prixTotal" cssClass="col-sm-2 control-label">Prix Total</form:label>
 			<div class="col-sm-5">
@@ -63,7 +63,7 @@
 		</div>
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">
-				<input type="submit" class="btn btn-success" value="Ajouter" />
+				<input type="submit" class="btn btn-success" value="Modifier" />
 			</div>
 		</div>
 	</form:form>

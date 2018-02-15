@@ -136,6 +136,16 @@ public class DossierController {
 		model.addAttribute("dossierModif", dOut);
 		return "modifierDossier";
 	}
+	
+	public String soumettreModifier(@ModelAttribute ("dossierModif")Dossier dossier){
+		//Appel de la methode service
+		Dossier dmod = dossierService.updateDossier(dossier);
+		if(dmod != null){
+			return "redirect: liste";
+		}else{
+			return "redirect : modifLien";
+		}
+	}
 
 	/////////// -- Recherche d'un dossier -- /////////////
 	/**

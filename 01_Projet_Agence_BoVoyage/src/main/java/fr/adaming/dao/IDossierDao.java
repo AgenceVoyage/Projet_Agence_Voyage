@@ -2,6 +2,7 @@ package fr.adaming.dao;
 
 import java.util.List;
 
+import fr.adaming.model.Client;
 import fr.adaming.model.Dossier;
 
 /**
@@ -45,4 +46,11 @@ public interface IDossierDao {
 	 * @return une liste de dossier
 	 */
 	public List<Dossier> getAllDossiers();
+	
+	/**
+	 * Methode permettant de recuperer le dossier d'un client
+	 * @param client
+	 * @return dossier
+	 */
+	public Dossier getDossierByClient(Client client);
 }

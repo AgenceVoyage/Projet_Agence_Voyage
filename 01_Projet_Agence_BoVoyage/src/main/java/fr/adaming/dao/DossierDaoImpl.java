@@ -8,6 +8,7 @@ import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 
+import fr.adaming.model.Client;
 import fr.adaming.model.Dossier;
 
 @Repository
@@ -42,8 +43,8 @@ public class DossierDaoImpl implements IDossierDao {
 		query.setParameter("pNumDossier", dossier.getNumDossier());
 		query.setParameter("pPrixTotal", dossier.getPrixTotal());
 		query.setParameter("pStatut", dossier.getStatut());
-		//query.setParameter("pClients", dossier.getListeClients());
-		//query.setParameter("pAssurances", dossier.getListeAssurances());
+		// query.setParameter("pClients", dossier.getListeClients());
+		// query.setParameter("pAssurances", dossier.getListeAssurances());
 		query.setParameter("pVoyage", dossier.getVoyage());
 		query.setParameter("pId", dossier.getId());
 		// Envoi de la requete
@@ -82,6 +83,19 @@ public class DossierDaoImpl implements IDossierDao {
 		// Creer le query
 		Query query = em.createQuery(req);
 		return query.getResultList();
+	}
+
+	@Override
+	public Dossier getDossierByClient(Client client) {
+		// Creation de la requete JPQL
+		String req = "select d from Dossier d where d.client.id=:pId";
+		// Creer le query
+		Query query = em.createQuery(req);
+		// Assigner les parametres du query
+		query.setParameter("pId", client.getId() );
+		//Envoyer la requete
+		Dossier dossier = (Dossier) query.getSingleResult();
+		return dossier;
 	}
 
 }
