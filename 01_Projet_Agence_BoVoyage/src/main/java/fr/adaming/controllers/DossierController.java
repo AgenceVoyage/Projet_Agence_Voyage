@@ -137,14 +137,15 @@ public class DossierController {
 		return "modifierDossier";
 	}
 	
-	public String soumettreModifier(@ModelAttribute ("dossierModif")Dossier dossier){
+	@RequestMapping(value="/soumettreModifLien", method= RequestMethod.POST)
+	public String soumettreModifier(@ModelAttribute ("dossierModif") Dossier dossier){
 		//Appel de la methode service
-		Dossier dmod = dossierService.updateDossier(dossier);
-		if(dmod != null){
+	 dossierService.updateDossier(dossier);
+//		if(dmod != null){
 			return "redirect: liste";
-		}else{
-			return "redirect : modifLien";
-		}
+//		}else{
+//			return "redirect : modifLien";
+//		}
 	}
 
 	/////////// -- Recherche d'un dossier -- /////////////
