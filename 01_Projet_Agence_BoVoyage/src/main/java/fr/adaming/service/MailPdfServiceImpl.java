@@ -1,9 +1,23 @@
 package fr.adaming.service;
 
+import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Properties;
+
+import javax.mail.Authenticator;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 
 import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.EmailAttachment;
@@ -27,7 +41,6 @@ import fr.adaming.model.Assurance;
 import fr.adaming.model.Client;
 import fr.adaming.model.Dossier;
 import fr.adaming.model.Voyageur;
-
 
 //Ligne 76 à decommenter quand la BD sera complete
 @Service
@@ -65,25 +78,31 @@ public class MailPdfServiceImpl implements IMailPdfService {
 			table.addCell("Nom");
 			table.addCell("Prenom");
 
-			int idClientResa=0;
+			int idClientResa = 0;
 			for (Voyageur voyageur : dossier.getListeClients()) {
 				table.addCell(voyageur.getNom());
 				table.addCell(voyageur.getPrenom());
-				if(voyageur.isClientResa()){
-					idClientResa=voyageur.getId();
-				}	
+				if (voyageur.isClientResa()) {
+					idClientResa = voyageur.getId();
+				}
 			}
-			 DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-			 
-		    //Client client = clientDao.getClientById(idClientResa);
-			 String titre = "Reçu pour la réservation n° " + dossier.getNumDossier() +" de "+ clientDao.getClientById(idClientResa).getNom()+ " " + clientDao.getClientById(idClientResa).getPrenom() +" à destination de "
-						+ dossier.getVoyage().getVille() + ", " + dossier.getVoyage().getPays() + " du "
-						+ formatter.format(dossier.getVoyage().getDateArrivee()) + " au " + formatter.format(dossier.getVoyage().getDateDepart()) + "\n";
+			DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 
-//			// Création des elements à ajouter dans le document
-//			String titre = "Reçu pour la réservation n° " + dossier.getNumDossier() +" à destination de "
-//					+ dossier.getVoyage().getVille() + ", " + dossier.getVoyage().getPays() + " du "
-//					+ formatter.format(dossier.getVoyage().getDateArrivee()) + " au " + formatter.format(dossier.getVoyage().getDateDepart()) + "\n";
+			// Client client = clientDao.getClientById(idClientResa);
+			String titre = "Reçu pour la réservation n° " + dossier.getNumDossier() + " de "
+					+ clientDao.getClientById(idClientResa).getNom() + " "
+					+ clientDao.getClientById(idClientResa).getPrenom() + " à destination de "
+					+ dossier.getVoyage().getVille() + ", " + dossier.getVoyage().getPays() + " du "
+					+ formatter.format(dossier.getVoyage().getDateArrivee()) + " au "
+					+ formatter.format(dossier.getVoyage().getDateDepart()) + "\n";
+
+			// // Création des elements à ajouter dans le document
+			// String titre = "Reçu pour la réservation n° " +
+			// dossier.getNumDossier() +" à destination de "
+			// + dossier.getVoyage().getVille() + ", " +
+			// dossier.getVoyage().getPays() + " du "
+			// + formatter.format(dossier.getVoyage().getDateArrivee()) + " au "
+			// + formatter.format(dossier.getVoyage().getDateDepart()) + "\n";
 			Chunk c1 = new Chunk(titre, chapterFont);
 
 			Phrase p12;
@@ -118,7 +137,7 @@ public class MailPdfServiceImpl implements IMailPdfService {
 				p13.add(dossier.getVoyage().getVoiture().getCategorie() + "  au prix de : ");
 				p13.add(Double.toString(dossier.getVoyage().getVoiture().getPrix()));
 				p13.add(" € avec le loueur :");
-				p13.add(dossier.getVoyage().getVoiture().getLoueur() +"\n\n");
+				p13.add(dossier.getVoyage().getVoiture().getLoueur() + "\n\n");
 			}
 
 			PdfPTable table2 = new PdfPTable(5);
@@ -166,16 +185,16 @@ public class MailPdfServiceImpl implements IMailPdfService {
 
 	@Override
 	public int envoyerMail(Dossier dossier) {
-		//Récuperer le client qui a fait la resa
-		int idClientResa=0;
+		// Récuperer le client qui a fait la resa
+		int idClientResa = 0;
 		for (Voyageur voyageur : dossier.getListeClients()) {
-			if(voyageur.isClientResa()){
-				idClientResa=voyageur.getId();
-			}	
+			if (voyageur.isClientResa()) {
+				idClientResa = voyageur.getId();
+			}
 		}
-		String mail=clientDao.getClientById(idClientResa).getMail();
-		System.out.println("##################"+mail);
-		
+		String mail = clientDao.getClientById(idClientResa).getMail();
+		System.out.println("##################" + mail);
+
 		try {
 			// Creation de la piece jointe
 			EmailAttachment attachment = new EmailAttachment();
@@ -187,11 +206,10 @@ public class MailPdfServiceImpl implements IMailPdfService {
 			email.setHostName("smtp.googlemail.com");
 			email.setSmtpPort(465);
 			// Parametrage du compte
-			//email.setAuthenticator(new DefaultAuthenticator("lacemevoyage@gmail.com", "adaming44"));
-			email.setAuthenticator(new DefaultAuthenticator("manulg13@gmail.com", "wanadoo8"));
+			email.setAuthenticator(new DefaultAuthenticator("lacemevoyage@gmail.com", "adaming44"));
 			email.setSSLOnConnect(true);
 			// Adresse de l'envoyeur
-			email.setFrom("manulg13@gmail.com");
+			email.setFrom("lacemevoyage@gmail.com");
 			// Objet du mail
 			email.setSubject("Votre voyage avec Laceme Voyage ");
 			// Corps du mail
@@ -209,11 +227,84 @@ public class MailPdfServiceImpl implements IMailPdfService {
 		return 1;
 	}
 
-	
-	
-	public int envoyerMail2(Dossier dossier){
+	class GMailAuthenticator extends Authenticator {
+		String user;
+		String pw;
+
+		public GMailAuthenticator(String username, String password) {
+			super();
+			this.user = username;
+			this.pw = password;
+		}
+
+		public PasswordAuthentication getPasswordAuthentication() {
+			return new PasswordAuthentication(user, pw);
+		}
+	}
+
+	public int envoyerMail2(Dossier dossier) {
+		// Récuperer le client qui a fait la resa
+		int idClientResa = 0;
+		for (Voyageur voyageur : dossier.getListeClients()) {
+			if (voyageur.isClientResa()) {
+				idClientResa = voyageur.getId();
+			}
+		}
+		String mail = clientDao.getClientById(idClientResa).getMail();
 		
-		
+		System.out.println("!!!!!!!!!!!!!!!!!!! ENVOIE MAIL !!!!!!!!!!!!!!!!!!!!!!!!");
+		// Creation protocole
+		Properties props = new Properties();
+		props.put("mail.smtp.host", "smtp.gmail.com");
+		props.put("mail.smtp.socketFactory.port", "465");
+		props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+		props.put("mail.smtp.auth", "true");
+		props.put("mail.smtp.port", "465");
+		props.setProperty("mail.smtp.starttls.enable", "true");
+		System.out.println("!!!!!!!!!!!!! Debut creation session !!!!!!!!!!!!!!!!!!!");
+		// 1 -> Création de la session
+		Session session = Session.getInstance(props, new GMailAuthenticator("ecommerce44000@gmail.com", "adaming44000"));
+		System.out.println("!!!!!!!!! Session cree !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+		try {
+
+			Message message = new MimeMessage(session);
+			System.out.println("!!!!!!!! Message session cree !!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+			message.setFrom(new InternetAddress("ecommerce44000@gmail.com"));
+			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(mail));
+			System.out.println("!!!!!!!! Destinataire et envoyeur done !!!! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+			message.setSubject("Recapitulatif de votre commande");
+
+			System.out.println("!!!!!!!!!!!!!! Piece jointe !!!!!!!!!!!!!!!!!!!!!!!!!!");
+			MimeMultipart mp = new MimeMultipart();
+			MimeBodyPart mbp1 = new MimeBodyPart();
+			MimeBodyPart mbp2 = new MimeBodyPart();
+			try {
+				mbp1.attachFile(new File("C:/Users/inti0294/Desktop/PDFTp/reservation" + dossier.getNumDossier() + ".pdf"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			mbp2.setText("Bonjour !!!!!,"
+					+ "\n\n Nous vous remercions de votre commande, veuillez trouvez en piece jointe le recapitulatif de votre commande!!"
+					+ "\n\n Cordialment! \n l'equipe ecommerce");
+			/*
+			 * ByteArrayDataSource ds = new ByteArrayDataSource();
+			 * mbp1.setDataHandler(new DataHandler(ds));
+			 * mbp1.setFileName("Test.pdf");
+			 */
+			mp.addBodyPart(mbp1);
+			mp.addBodyPart(mbp2);
+			message.setContent(mp);
+			System.out.println("!!!!!!!! Debut transport !!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+			System.out.println("!!!!!!!! Adresse mail verif : !!!!!!!!!!!!!!!!!!!!!!!!!!!!! " +mail );
+			Transport.send(message);
+
+			System.out.println("Done");
+
+		} catch (MessagingException e) {
+			throw new RuntimeException(e);
+		}
+
 		return 1;
 	}
 }

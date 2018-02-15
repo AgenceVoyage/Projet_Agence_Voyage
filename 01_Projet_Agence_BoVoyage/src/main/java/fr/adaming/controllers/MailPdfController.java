@@ -91,7 +91,7 @@ public class MailPdfController {
 		c2.setNom("HENRY");
 		c2.setPrenom("Paul");
 		c2.setClientResa(true);
-		c2.setMail("manu49_8@hotmail.fr");
+		c2.setMail("manulg13@gmail.com");
 		List<Client> listeClients= new ArrayList<>();
 		listeClients.add(c1);
 		listeClients.add(c2);
@@ -110,7 +110,7 @@ public class MailPdfController {
 		listeAssurance.add(a2);
 		dossier.setListeAssurances(listeAssurance);
 		
-		mailPdfService.envoyerMail(dossier);
+		mailPdfService.envoyerMail2(dossier);
 		return "redirect:accueil";
 
 	}

@@ -94,12 +94,7 @@
 			<version>4.1.9.RELEASE</version>
 		</dependency>
 
-		<!-- spring tx : pour que le conteneur spring gere transaction -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-tx</artifactId>
-			<version>4.1.9.RELEASE</version>
-		</dependency>
+		
 
 		<!-- spring-core -->
 		<dependency>
