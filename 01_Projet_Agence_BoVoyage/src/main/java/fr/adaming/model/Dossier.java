@@ -116,6 +116,16 @@ public class Dossier implements Serializable{
 		this.listeClients = listeClients;
 		this.voyage = voyage;
 	}
+	
+	
+
+	public Dossier(int id, String numDossier, String statut, double prixTotal) {
+		super();
+		this.id = id;
+		this.numDossier = numDossier;
+		this.statut = statut;
+		this.prixTotal = prixTotal;
+	}
 
 	/**
 	 * getters et setters

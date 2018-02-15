@@ -15,7 +15,7 @@
 <script type="text/javascript" src="<c:url value="/resources/angular/angular-base64-upload.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/resources/angular/gestionPhoto.js"/>"></script>
 </head>
-<body ng-app="monApp" ng-controller="AjoutPhotoVoyage">
+<body >
 
 
 
@@ -31,6 +31,16 @@
 				<div class="col-sm-5 ">
 					<form:input type="text" path="compagnieVoyage" name="jfsqdfh"  class="form-control"
 						id="idCompagnieVoyage" placeholder="Compagnie Voyage"/>
+				</div>
+			</div>
+			
+			<br/><br/>
+			
+			<div class="form-group">
+				<label for=nom class="col-sm-3 control-label">Nom du voyage :</label>
+				<div class="col-sm-5 ">
+					<form:input type="text" path="nom"  class="form-control"
+						id="idNom" placeholder="Nom du Voyage"/>
 				</div>
 			</div>
 
@@ -72,6 +82,44 @@
 				<div class="col-sm-5 ">
 					<form:input type="number" path="nbPlaces"  class="form-control"
 						id="nbPlaces" placeholder="nb Places"/>
+				</div>
+			</div>
+			
+			<br/><br/>
+			
+			<div class="form-group">
+				<label for="prixPublic" class="col-sm-3 control-label">Prix Initial :</label>
+				<div class="col-sm-5 ">
+					<form:input type="number" path="prixPublic"  class="form-control"
+						id="nbPrixPublic" placeholder="Prix Initial "/>
+				</div>
+			</div>
+			
+			<br/><br/>
+			
+			<div class="form-group">
+				<label for="prixRemise" class="col-sm-3 control-label">Prix Remise :</label>
+				<div class="col-sm-5 ">
+					<form:input type="number" path="prixRemise"  class="form-control"
+						id="nbPrixRemise" placeholder="Prix Remise "/>
+				</div>
+			</div>
+			
+			<br/><br/>
+			
+			<div class="form-group">
+				<form:label path="dateDepart" cssClass="col-sm-2 control-label">Date de Depart</form:label>
+				<div class="col-sm-5">
+					<form:input path="dateDepart" type="date" class="form-control" />
+				</div>
+			</div>
+			
+			<br/><br/>
+			
+			<div class="form-group">
+				<form:label path="dateArrivee" cssClass="col-sm-2 control-label">Date de naissance</form:label>
+				<div class="col-sm-5">
+					<form:input path="dateArrivee" type="date" class="form-control" />
 				</div>
 			</div>
 			

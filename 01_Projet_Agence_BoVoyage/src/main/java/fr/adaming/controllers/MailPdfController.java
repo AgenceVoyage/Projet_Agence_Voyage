@@ -60,11 +60,11 @@ public class MailPdfController {
 		listeClients.add(c1);
 		listeClients.add(c2);
 		dossier.setListeClients(listeClients);
-		Voyage voyage = new Voyage("Escapade à Madagascar", "MAD028",new Date(),new Date(),18,1000,800,"Madagascar","Antananarivo","AFRIQUE","EASYJET");
+		Voyage voyage = new Voyage("Escapade à Madagascar", "MAD028",new Date(),new Date(),18,1000,800,"Madagascar","Antananarivo","AFRIQUE","EASYJET",null);
 		Voiture voiture =  new Voiture("SIXT", "4x4", 200);
 		voyage.setVoiture(voiture);
 		Adresse adresse= new Adresse(2, "avenue de l'océan", 45000, "Antananarivo");
-		Hotel hotel = new Hotel("Hotel bleu", "pension complete", 500, adresse);
+		Hotel hotel = new Hotel("Hotel bleu", 500, adresse);
 		voyage.setHotel(hotel);
 		dossier.setVoyage(voyage);
 		Assurance a1= new Assurance("annulation", 80);
@@ -96,11 +96,11 @@ public class MailPdfController {
 		listeClients.add(c1);
 		listeClients.add(c2);
 		dossier.setListeClients(listeClients);
-		Voyage voyage = new Voyage("Escapade à Madagascar", "MAD028",new Date(),new Date(),18,1000,800,"Madagascar","Antananarivo","AFRIQUE","EASYJET");
+		Voyage voyage = new Voyage("Escapade à Madagascar", "MAD028",new Date(),new Date(),18,1000,800,"Madagascar","Antananarivo","AFRIQUE","EASYJET",null);
 		Voiture voiture =  new Voiture("SIXT", "4x4", 200);
 		voyage.setVoiture(voiture);
 		Adresse adresse= new Adresse(2, "avenue de l'océan", 45000, "Antananarivo");
-		Hotel hotel = new Hotel("Hotel bleu", "pension complete", 500, adresse);
+		Hotel hotel = new Hotel("Hotel bleu", 500, adresse);
 		voyage.setHotel(hotel);
 		dossier.setVoyage(voyage);
 		Assurance a1= new Assurance("annulation", 80);
