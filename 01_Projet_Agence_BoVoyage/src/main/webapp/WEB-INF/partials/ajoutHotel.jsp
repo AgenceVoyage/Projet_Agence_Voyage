@@ -21,9 +21,7 @@
 </head>
 <body>
 
-	<div style="margin-left: 12%; margin-right: 12%">
-		<jsp:include page="../../templates/headerAgent.jsp" />
-	</div>
+	<jsp:include page="../../templates/headerAgent.jsp" />
 
 	<h1 style="color: Teal; margin-left: 34%">Formulaire d'ajout d'un
 		hotel</h1>
@@ -93,5 +91,10 @@
 
 		</form:form>
 	</div>
+
+	<div>
+		<jsp:include page="../../templates/footer.jsp" />
+	</div>
+
 </body>
 </html>

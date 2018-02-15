@@ -1,12 +1,6 @@
 /*    --------------------------------------------------
 	:: Login Section
 	-------------------------------------------------- */
-	
-	body {
-	background-image: url("../images/sable.jpg");
-	backround-repeat: no-repeat;
-	background-size: cover;
-	
 #login {
     padding-top: 50px
 }
@@ -71,6 +65,7 @@
 	-------------------------------------------------- */
 .form-control {
     color: #212121;
+    
 }
 .btn-custom {
     color: #fff;
@@ -95,3 +90,13 @@
 #footer a {
     color: inherit;
 }
+
+/*    --------------------------------------------------
+	:: Login Section
+	-------------------------------------------------- */
+	
+	body {
+	background-image: url("../images/sable.jpg");
+	backround-repeat: no-repeat;
+	background-size: cover;
+	
