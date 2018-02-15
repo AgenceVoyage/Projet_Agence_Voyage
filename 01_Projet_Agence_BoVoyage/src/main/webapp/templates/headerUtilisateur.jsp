@@ -6,7 +6,7 @@
 <title>Barre Menu</title>
 <head>
 <body>
-
+<div style="margin-left:12%;margin-right:12%">
 	<nav class="navbar navbar-inverse" style="background-color: #d6caa9;">
 		<div class="container-fluid">
 			<ul class="nav navbar-nav">
@@ -22,6 +22,10 @@
 					style="color: Teal; font-style: blod">Continents <span
 						class="caret"></span></a>
 					<ul class="dropdown-menu">
+						<li><a
+							href="${pageContext.request.contextPath}/utilisateur/listeVoyageParCont?pContinent=All"
+							style="color: Teal; font-style: blod">Tous les voyages</a></li>
+							 <li role="separator" class="divider" style="color:grey"></li>
 						<li><a
 							href="${pageContext.request.contextPath}/utilisateur/listeVoyageParCont?pContinent=Europe"
 							style="color: Teal; font-style: blod">Europe</a></li>
@@ -59,7 +63,7 @@
 			</ul>
 		</div>
 	</nav>
-
+</div>
 </body>
 
 </html>

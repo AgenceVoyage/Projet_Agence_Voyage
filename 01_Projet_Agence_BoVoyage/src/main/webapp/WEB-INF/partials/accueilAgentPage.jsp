@@ -16,7 +16,7 @@
 
 </head>
 <body>
-	<div style="margin-left: 10%; width: 80%">
+	<div>
 
 		<h1 style="text-align: center; color: blue">Espace Agent</h1>
 		<jsp:include page="../../templates/headerAgent.jsp" />

@@ -6,8 +6,9 @@
 <title>Barre Menu</title>
 <head>
 <body>
+<div style="margin-left:13%;margin-right:13%">
 
-	<nav class="navbar navbar-inverse" style="background-color: #F8F8F8;">
+	<nav class="navbar navbar-inverse" style="background-color: #d6caa9">
 		<div class="container-fluid">
 			<ul class="nav navbar-nav">
 
@@ -17,93 +18,74 @@
 						style="height: 50px" /></a></li>
 
 				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#">Continents <span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="">Europe</a></li>
-						<li><a href="">Afrique</a></li>
-						<li><a href="">Asie</a></li>
-						<li><a href="">Oceanie</a></li>
-						<li><a href="">Amerique</a></li>
-					</ul></li>
-
-				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#">Voyage<span class="caret"></span></a>
+					data-toggle="dropdown" href="#"style="color: Teal; font-style: blod">Voyage<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a
-							href="${pageContext.request.contextPath}/voyage/ajouter">Ajouter</a></li>
+							href="${pageContext.request.contextPath}/voyage/ajouter"style="color: Teal; font-style: blod">Ajouter</a></li>
 						<li><a
-							href="${pageContext.request.contextPath}/voyage/supprimer">Supprimer</a></li>
+							href="${pageContext.request.contextPath}/voyage/supprimer"style="color: Teal; font-style: blod">Supprimer</a></li>
 					</ul></li>
 
 
 				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#">Assurances <span class="caret"></span></a>
+					data-toggle="dropdown" href="#"style="color: Teal; font-style: blod">Assurances <span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a
-							href="${pageContext.request.contextPath}/assurances/liste">Afficher
+							href="${pageContext.request.contextPath}/assurances/liste"style="color: Teal; font-style: blod">Afficher
 								toutes les Assurances</a></li>
 						<li><a
-							href="${pageContext.request.contextPath}/assurances/afficheAjoutAssurance">Ajouter</a></li>
+							href="${pageContext.request.contextPath}/assurances/afficheAjoutAssurance"style="color: Teal; font-style: blod">Ajouter</a></li>
 						<li><a
-							href="${pageContext.request.contextPath}/assurances/afficheRecherche">Rechercher</a></li>
+							href="${pageContext.request.contextPath}/assurances/afficheRecherche"style="color: Teal; font-style: blod">Rechercher</a></li>
 					</ul></li>
 
 				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#">Voitures <span class="caret"></span></a>
+					data-toggle="dropdown" href="#"style="color: Teal; font-style: blod">Voitures <span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a
-							href="${pageContext.request.contextPath}/voitures/liste">Afficher
+							href="${pageContext.request.contextPath}/voitures/liste"style="color: Teal; font-style: blod">Afficher
 								toutes les Voitures</a></li>
 						<li><a
-							href="${pageContext.request.contextPath}/voitures/afficheAjoutVoiture">Ajouter</a></li>
+							href="${pageContext.request.contextPath}/voitures/afficheAjoutVoiture"style="color: Teal; font-style: blod">Ajouter</a></li>
 						<li><a
-							href="${pageContext.request.contextPath}/voitures/afficheRecherche">Rechercher</a></li>
+							href="${pageContext.request.contextPath}/voitures/afficheRecherche"style="color: Teal; font-style: blod">Rechercher</a></li>
 					</ul></li>
 
 				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#">Hotels <span class="caret"></span></a>
+					data-toggle="dropdown" href="#"style="color: Teal; font-style: blod">Hotels <span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="${pageContext.request.contextPath}/hotels/liste">Afficher
+						<li><a href="${pageContext.request.contextPath}/hotels/liste"style="color: Teal; font-style: blod">Afficher
 								tous les hotels</a></li>
 						<li><a
-							href="${pageContext.request.contextPath}/hotels/afficheAjoutHotel">Ajouter</a></li>
+							href="${pageContext.request.contextPath}/hotels/afficheAjoutHotel"style="color: Teal; font-style: blod">Ajouter</a></li>
 						<li><a
-							href="${pageContext.request.contextPath}/hotels/afficheRecherche">Rechercher</a></li>
+							href="${pageContext.request.contextPath}/hotels/afficheRecherche"style="color: Teal; font-style: blod">Rechercher</a></li>
 					</ul></li>
 
 				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#">Clients <span class="caret"></span></a>
+					data-toggle="dropdown" href="#"style="color: Teal; font-style: blod">Clients <span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a
-							href="${pageContext.request.contextPath}/agent/clients/liste">Afficher
+							href="${pageContext.request.contextPath}/agent/clients/liste"style="color: Teal; font-style: blod">Afficher
 								tous les clients</a></li>
 						<li><a
-							href="${pageContext.request.contextPath}/agent/clients/afficheRecherche">Rechercher</a></li>
+							href="${pageContext.request.contextPath}/agent/clients/afficheRecherche"style="color: Teal; font-style: blod">Rechercher</a></li>
 					</ul></li>
 
 				<li><a
-					href="${pageContext.request.contextPath}/infosAgence?pNum=0">Notre
+					href="${pageContext.request.contextPath}/infosAgence?pNum=0"style="color: Teal; font-style: blod">Notre
 						agence</a></li>
 
-				<li><a href="${pageContext.request.contextPath}/deconnexion">Deconnexion</a></li>
+				<li><a href="${pageContext.request.contextPath}/deconnexion"style="color: Teal; font-style: blod">Deconnexion</a></li>
 
 
-				<form class="navbar-form navbar-right inline-form">
-					<div class="form-group">
-						<input type="search" class="input-sm form-control"
-							placeholder="Recherche">
-						<button type="submit" class="btn btn-primary btn-sm">
-							<span class="glyphicon glyphicon-eye-open"></span> Chercher
-						</button>
-					</div>
-				</form>
 
 			</ul>
 		</div>
 	</nav>
 
 
-
+</div>
 
 </body>
 
