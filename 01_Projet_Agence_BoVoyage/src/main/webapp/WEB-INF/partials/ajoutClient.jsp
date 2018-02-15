@@ -13,7 +13,11 @@
 	href="<c:url value="/resources/boostrap/bootstrap.min.css"/>" />
 </head>
 <body>
+	<div style="margin-left: 10%; width: 80%">
 
+		<jsp:include page="../../templates/headerUtilisateur.jsp" />
+
+	</div>
 	<h1 style="color: red; text-align: center">Formulaire d'ajout</h1>
 
 	<form:form method="POST" action="soumettreAjout"

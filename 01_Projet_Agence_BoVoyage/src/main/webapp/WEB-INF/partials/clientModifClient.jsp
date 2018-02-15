@@ -13,12 +13,24 @@
 	href="<c:url value="/resources/boostrap/bootstrap.min.css"/>" />
 </head>
 <body>
+	<div style="margin-left: 10%; width: 80%">
 
+		<h1 style="text-align: center; color: blue">Espace Client</h1>
+		<jsp:include page="../../templates/headerClient.jsp" />
+
+	</div>
 	<h1 style="color: red; text-align: center">Formulaire de
 		modification</h1>
 
 	<form:form method="POST" action="soumettreModifClient"
 		modelAttribute="modifClientC" cssClass="form-horizontal">
+
+		<div class="form-group" hidden="true">
+			<form:label path="id" cssClass="col-sm-2 control-label">Id</form:label>
+			<div class="col-sm-5">
+				<form:input path="id" cssClass="form-control" />
+			</div>
+		</div>
 		<div class="form-group">
 			<form:label path="dateNaissance" cssClass="col-sm-2 control-label">Date de naissance</form:label>
 			<div class="col-sm-5">

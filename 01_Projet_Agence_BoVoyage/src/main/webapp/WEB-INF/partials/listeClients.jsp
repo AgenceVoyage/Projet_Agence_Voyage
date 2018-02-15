@@ -11,6 +11,11 @@
 	href="<c:url value="/resources/boostrap/bootstrap.min.css"/>" />
 </head>
 <body>
+	<div style="margin-left: 10%; width: 80%">
+
+		<h1 style="text-align: center; color: blue">Espace Agent</h1>
+		<jsp:include page="../../templates/headerAgent.jsp" />
+	</div>
 	<h1 style="color: red; text-align: center">Liste des Clients</h1>
 	<table class="table table-bordered">
 		<tr>
@@ -38,9 +43,9 @@
 				<td>${c.adresse.numero}, ${c.adresse.voirie},
 					${c.adresse.codePostal} ${c.adresse.ville}</td>
 				<td><a
-					href="${pageContext.request.contextPath}/clients/modiflien?pId=${c.id}">Modifier</a>
+					href="${pageContext.request.contextPath}/agent/clients/modiflien?pId=${c.id}">Modifier</a>
 					| <a
-					href="${pageContext.request.contextPath}/clients/suprimlien/${c.id}">Supprimer</a>
+					href="${pageContext.request.contextPath}/agent/clients/suprimlien/${c.id}">Supprimer</a>
 				</td>
 			</tr>
 		</c:forEach>
