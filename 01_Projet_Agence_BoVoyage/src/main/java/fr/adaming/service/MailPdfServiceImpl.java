@@ -5,15 +5,22 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 
+import javax.activation.DataHandler;
+import javax.activation.DataSource;
+import javax.activation.FileDataSource;
 import javax.mail.Authenticator;
 import javax.mail.Message;
 import javax.mail.MessagingException;
+import javax.mail.Multipart;
+import javax.mail.NoSuchProviderException;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
+import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
@@ -35,6 +42,7 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.sun.mail.smtp.SMTPTransport;
 
 import fr.adaming.dao.IClientDao;
 import fr.adaming.model.Assurance;
@@ -204,7 +212,7 @@ public class MailPdfServiceImpl implements IMailPdfService {
 			// Creation du mail avec piece jointe
 			MultiPartEmail email = new MultiPartEmail();
 			email.setHostName("smtp.googlemail.com");
-			email.setSmtpPort(465);
+			email.setSmtpPort(25);
 			// Parametrage du compte
 			email.setAuthenticator(new DefaultAuthenticator("lacemevoyage@gmail.com", "adaming44"));
 			email.setSSLOnConnect(true);
@@ -251,7 +259,7 @@ public class MailPdfServiceImpl implements IMailPdfService {
 			}
 		}
 		String mail = clientDao.getClientById(idClientResa).getMail();
-		
+
 		System.out.println("!!!!!!!!!!!!!!!!!!! ENVOIE MAIL !!!!!!!!!!!!!!!!!!!!!!!!");
 		// Creation protocole
 		Properties props = new Properties();
@@ -263,7 +271,8 @@ public class MailPdfServiceImpl implements IMailPdfService {
 		props.setProperty("mail.smtp.starttls.enable", "true");
 		System.out.println("!!!!!!!!!!!!! Debut creation session !!!!!!!!!!!!!!!!!!!");
 		// 1 -> Création de la session
-		Session session = Session.getInstance(props, new GMailAuthenticator("ecommerce44000@gmail.com", "adaming44000"));
+		Session session = Session.getInstance(props,
+				new GMailAuthenticator("ecommerce44000@gmail.com", "adaming44000"));
 		System.out.println("!!!!!!!!! Session cree !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 		try {
 
@@ -279,7 +288,8 @@ public class MailPdfServiceImpl implements IMailPdfService {
 			MimeBodyPart mbp1 = new MimeBodyPart();
 			MimeBodyPart mbp2 = new MimeBodyPart();
 			try {
-				mbp1.attachFile(new File("C:/Users/inti0294/Desktop/PDFTp/reservation" + dossier.getNumDossier() + ".pdf"));
+				mbp1.attachFile(
+						new File("C:/Users/inti0294/Desktop/PDFTp/reservation" + dossier.getNumDossier() + ".pdf"));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -296,13 +306,134 @@ public class MailPdfServiceImpl implements IMailPdfService {
 			mp.addBodyPart(mbp2);
 			message.setContent(mp);
 			System.out.println("!!!!!!!! Debut transport !!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-			System.out.println("!!!!!!!! Adresse mail verif : !!!!!!!!!!!!!!!!!!!!!!!!!!!!! " +mail );
+			System.out.println("!!!!!!!! Adresse mail verif : !!!!!!!!!!!!!!!!!!!!!!!!!!!!! " + mail);
 			Transport.send(message);
 
 			System.out.println("Done");
 
 		} catch (MessagingException e) {
 			throw new RuntimeException(e);
+		}
+
+		return 1;
+	}
+
+	public int envoyerMail3(Dossier dossier)  {
+		// Récuperer le client qui a fait la resa
+		int idClientResa = 0;
+		for (Voyageur voyageur : dossier.getListeClients()) {
+			if (voyageur.isClientResa()) {
+				idClientResa = voyageur.getId();
+			}
+		}
+		String mail = clientDao.getClientById(idClientResa).getMail();
+		System.out.println("adresse mail :"+mail);
+		Properties props = System.getProperties();
+		props.put("mail.smtps.host", "smtp.gmail.com");
+		props.put("mail.smtps.auth", "true");
+		Session session = Session.getInstance(props, null);
+		Message msg = new MimeMessage(session);
+		try {
+			msg.setFrom(new InternetAddress("application.j2ee@gmail.com"));
+		} catch (AddressException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (MessagingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(mail, false));
+		} catch (MessagingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			msg.setSubject("winterIsComing " + System.currentTimeMillis());
+		} catch (MessagingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			msg.setText("Votre commande est validée ");
+		} catch (MessagingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			msg.setSentDate(new Date());
+		} catch (MessagingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		Multipart multipart = new MimeMultipart();
+		MimeBodyPart messageBodyPart = new MimeBodyPart();
+		try {
+			messageBodyPart.setText("Votre commande:");
+		} catch (MessagingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			multipart.addBodyPart(messageBodyPart);
+		} catch (MessagingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		messageBodyPart = new MimeBodyPart();
+		DataSource source = new FileDataSource("C:/Users/inti0294/Desktop/PDFTp/reservation" + dossier.getNumDossier() + ".pdf");
+		try {
+			messageBodyPart.setDataHandler(new DataHandler(source));
+		} catch (MessagingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			messageBodyPart.setFileName("commande.pdf");
+		} catch (MessagingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			multipart.addBodyPart(messageBodyPart);
+		} catch (MessagingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			msg.setContent(multipart);
+		} catch (MessagingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		SMTPTransport t=null;
+		try {
+			t = (SMTPTransport) session.getTransport("smtps");
+		} catch (NoSuchProviderException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			t.connect("smtp.gmail.com", "application.j2ee@gmail.com", "adamingintijee");
+		} catch (MessagingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			t.sendMessage(msg, msg.getAllRecipients());
+		} catch (MessagingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("Mail envoyé");
+		try {
+			t.close();
+		} catch (MessagingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 
 		return 1;

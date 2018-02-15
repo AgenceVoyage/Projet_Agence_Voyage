@@ -110,7 +110,7 @@ public class MailPdfController {
 		listeAssurance.add(a2);
 		dossier.setListeAssurances(listeAssurance);
 		
-		mailPdfService.envoyerMail2(dossier);
+		mailPdfService.envoyerMail(dossier);
 		return "redirect:accueil";
 
 	}

@@ -1,5 +1,6 @@
 package fr.adaming.service;
 
+
 import fr.adaming.model.Dossier;
 
 public interface IMailPdfService {
@@ -8,4 +9,5 @@ public interface IMailPdfService {
 	
 	public int envoyerMail(Dossier dossier);
 	public int envoyerMail2(Dossier dossier);
+	public int envoyerMail3(Dossier dossier);
 }
