@@ -71,7 +71,8 @@ public class ClientServiceImpl implements IClientService {
 			}
 		}
 		
-		return c;
+		return c
+				;
 	}
 
 }

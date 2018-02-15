@@ -126,11 +126,12 @@ public class ClientDaoImplTest {
 		assertEquals("nomTest", clientDao.getClientById(clientDao.getAllClients().get(0).getId()).getNom());
 	}
 	
+	@Ignore
 	@Test
 	@Transactional
 	@Rollback(false)
 	public void testGetListVoyageursByDossier(){
-		Dossier d = dossierDao.getDossierById(7);
+		Dossier d = dossierDao.getDossierById(1);
 		List<Dossier> listOut = new ArrayList<Dossier>();
 		listOut.add(d);
 		
@@ -138,9 +139,14 @@ public class ClientDaoImplTest {
 		c.setListeDossiers(listOut);
 		clientDao.updateClient(c);
 		
-		Client c2 = clientDao.getClientById(3);
+		Client c2 = clientDao.getClientById(2);
 		c2.setListeDossiers(listOut);
 		clientDao.updateClient(c2);
+		
+		List<Client> listIn = new ArrayList<Client>();
+		listIn.add(c);
+		listIn.add(c2);
+		d.setListeClients(listIn);
 		
 		List<Client> listClient = clientDao.getListVoyageursByDossier(d);
 		

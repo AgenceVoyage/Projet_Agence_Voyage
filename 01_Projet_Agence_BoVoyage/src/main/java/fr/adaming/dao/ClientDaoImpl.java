@@ -109,7 +109,7 @@ public class ClientDaoImpl implements IClientDao {
 	@Override
 	public List<Client> getListVoyageursByDossier(Dossier d) {
 		//écriture de la requete JPQL
-		String req = "select c from Client inner join c.listeDossiers d where d.id=:pId";
+		String req = "select c from Client c join c.listeDossiers d where d.id=:pId";
 		
 		//création d'un query
 		Query query = em.createQuery(req);
