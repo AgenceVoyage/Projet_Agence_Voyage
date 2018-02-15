@@ -31,8 +31,8 @@ public class DossierDaoImplTest {
 	@Autowired
 	private IDossierDao dossierDao;
 	
-	Dossier d1 = new Dossier("2545", "dispo", 1000.5);
-	Dossier d2 = new Dossier("2000", "dispo", 500.5);
+	Dossier d1 = new Dossier();//("2545", "dispo", 1000.5);
+	Dossier d2 = new Dossier();//"2000", "dispo", 500.5);
 	@Ignore
 	@Test
 	@Transactional

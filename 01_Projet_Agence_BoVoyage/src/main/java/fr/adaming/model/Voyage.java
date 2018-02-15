@@ -16,10 +16,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * Classe model pour les voyages
@@ -71,6 +73,15 @@ public class Voyage implements Serializable {
 
 	@OneToMany(mappedBy = "voyage", cascade = CascadeType.ALL)
 	private List<Dossier> listeDossiers;
+	
+	@Transient
+	private MultipartFile file;
+	@Transient
+	private List<String> imageString;
+	@Transient
+	private int nbPhoto;
+	
+	private byte[] image;
 
 	/**
 	 * constructeurs
@@ -80,7 +91,7 @@ public class Voyage implements Serializable {
 	}
 
 	public Voyage(String nom, String reference, Date dateDepart, Date dateArrivee, int nbPlaces, double prixPublic,
-			double remise, String pays, String ville, String continent, String compagnieVoyage) {
+			double remise, String pays, String ville, String continent, String compagnieVoyage,byte[] image) {
 		super();
 		this.nom = nom;
 		this.reference = reference;
@@ -93,10 +104,14 @@ public class Voyage implements Serializable {
 		this.ville = ville;
 		this.continent = continent;
 		this.compagnieVoyage = compagnieVoyage;
+		this.image=image;
 	}
+	
+	
+	
 
 	public Voyage(int id, String nom, String reference, Date dateDepart, Date dateArrivee, int nbPlaces,
-			double prixPublic, double remise, String pays, String ville, String continent, String compagnieVoyage) {
+			double prixPublic, double remise, String pays, String ville, String continent, String compagnieVoyage,byte[] image) {
 		super();
 		this.id = id;
 		this.nom = nom;
@@ -110,6 +125,7 @@ public class Voyage implements Serializable {
 		this.ville = ville;
 		this.continent = continent;
 		this.compagnieVoyage = compagnieVoyage;
+		this.image=image;
 	}
 
 	/**
@@ -261,4 +277,38 @@ public class Voyage implements Serializable {
 		this.listeDossiers = listeDossiers;
 	}
 
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
+
+	public List<String> getImageString() {
+		return imageString;
+	}
+
+	public void setImageString(List<String> imageString) {
+		this.imageString = imageString;
+	}
+
+	public int getNbPhoto() {
+		return nbPhoto;
+	}
+
+	public void setNbPhoto(int nbPhoto) {
+		this.nbPhoto = nbPhoto;
+	}
+
+	public byte[] getImage() {
+		return image;
+	}
+
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
+
+		
+	
 }

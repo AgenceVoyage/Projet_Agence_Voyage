@@ -23,8 +23,8 @@ public class HotelDaoImplTest {
 	@Autowired
 	IHotelDao hotelDao;
 	
-	Hotel h1 = new Hotel("Hotel de la plage", "Formule", 65, new Adresse(15,"rue",33500,"Bouscat"));
-	Hotel h2 = new Hotel(1,"Hotel de la rue", "Formule", 75, new Adresse(66,"pays",44000,"Bouscat"));
+	Hotel h1 = new Hotel();//"Hotel de la plage", "Formule", 65, new Adresse(15,"rue",33500,"Bouscat"));
+	Hotel h2 = new Hotel();//1,"Hotel de la rue", "Formule", 75, new Adresse(66,"pays",44000,"Bouscat"));
 	
 	@Test
 	@Transactional

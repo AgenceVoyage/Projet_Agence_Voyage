@@ -30,7 +30,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import fr.adaming.model.Photo;
 import fr.adaming.model.Voyage;
-import fr.adaming.model.VoyageAngular;
 import fr.adaming.service.IPhotoService;
 import fr.adaming.service.IVoyageService;
 

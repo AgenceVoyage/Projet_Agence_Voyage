@@ -97,7 +97,7 @@ public class RoleController {
 	}
 
 	// méthode pour afficher un voyage : utilisateur
-	@RequestMapping(value="/utilisateur/detailVoyage", method=RequestMethod.GET)
+	@RequestMapping(value = "/utilisateur/detailVoyage", method = RequestMethod.GET)
 	public String getDetailVoyageUtilisateur(Model model, @RequestParam("pId") int idVoyage) {
 		// appel de la méthode service pour récupérer un voyage par son id
 		Voyage voyage = voyageService.getVoyageById(idVoyage);
@@ -107,17 +107,23 @@ public class RoleController {
 
 		return "detailsVoyageUtilisateur";
 	}
-	
+
 	// méthode pour afficher un voyage : client
-	@RequestMapping(value="/client/detailVoyage", method=RequestMethod.GET)
-		public String getDetailVoyageClient(Model model, @RequestParam("pId") int idVoyage) {
-			// appel de la méthode service pour récupérer un voyage par son id
-			Voyage voyage = voyageService.getVoyageById(idVoyage);
+	@RequestMapping(value = "/client/detailVoyage", method = RequestMethod.GET)
+	public String getDetailVoyageClient(Model model, @RequestParam("pId") int idVoyage) {
+		// appel de la méthode service pour récupérer un voyage par son id
+		Voyage voyage = voyageService.getVoyageById(idVoyage);
 
-			// ajout du voyage dans le modele
-			model.addAttribute("voyageDetail", voyage);
+		// ajout du voyage dans le modele
+		model.addAttribute("voyageDetail", voyage);
 
-			return "detailVoyageClient";
-		}
+		return "detailVoyageClient";
+	}
+
+	@RequestMapping(value = "/infosAgence", method = RequestMethod.GET)
+	public String getInfosAgence(Model model, @RequestParam("pNum") int numRole) {
+		model.addAttribute("num", numRole);
+		return "infosAgence";
+	}
 
 }

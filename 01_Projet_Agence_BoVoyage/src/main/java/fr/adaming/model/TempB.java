@@ -16,8 +16,8 @@ public class TempB extends Hotel {
 		super();
 	}
 
-	public TempB(String nomHotel, String nomFormule, double prix, Adresse adresse, int idVoy) {
-		super(nomHotel, nomFormule, prix, adresse);
+	public TempB(String nomHotel,  double prix, Adresse adresse, int idVoy) {
+		super(nomHotel, prix, adresse);
 		this.idVoy = idVoy;
 	}
 
