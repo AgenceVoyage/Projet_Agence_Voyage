@@ -34,6 +34,7 @@
 				<div class="col-sm-3 ">
 					<div class="thumbnail">
 						<img src="..." alt="...">
+						<a href="${pageContext.request.contextPath}/utilisateur/detailVoyage?pId=${v.id}">Voir le détail</a>
 
 						<div class="caption">
 							<h3>${v.nom}</h3>

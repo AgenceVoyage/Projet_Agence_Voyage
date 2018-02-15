@@ -96,4 +96,28 @@ public class RoleController {
 		return "redirect:accueilAgent";
 	}
 
+	// méthode pour afficher un voyage : utilisateur
+	@RequestMapping(value="/utilisateur/detailVoyage", method=RequestMethod.GET)
+	public String getDetailVoyageUtilisateur(Model model, @RequestParam("pId") int idVoyage) {
+		// appel de la méthode service pour récupérer un voyage par son id
+		Voyage voyage = voyageService.getVoyageById(idVoyage);
+
+		// ajout du voyage dans le modele
+		model.addAttribute("voyageDetail", voyage);
+
+		return "detailsVoyageUtilisateur";
+	}
+	
+	// méthode pour afficher un voyage : client
+	@RequestMapping(value="/client/detailVoyage", method=RequestMethod.GET)
+		public String getDetailVoyageClient(Model model, @RequestParam("pId") int idVoyage) {
+			// appel de la méthode service pour récupérer un voyage par son id
+			Voyage voyage = voyageService.getVoyageById(idVoyage);
+
+			// ajout du voyage dans le modele
+			model.addAttribute("voyageDetail", voyage);
+
+			return "detailVoyageClient";
+		}
+
 }
