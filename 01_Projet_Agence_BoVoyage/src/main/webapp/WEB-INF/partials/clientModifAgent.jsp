@@ -9,16 +9,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Modifier Client</title>
+
 <link rel="stylesheet"
 	href="<c:url value="/resources/boostrap/bootstrap.min.css"/>" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="<c:url value="/resources/boostrap/bootstrap.min.js"/>"></script>
+
 <link rel="stylesheet" href="<c:url value="/resources/css/log.css"/>" />
 </head>
 <body>
 <div style="margin-left: 12%; margin-right: 12%">
 		<jsp:include page="../../templates/headerAgent.jsp" />
 	</div>
-	<h1 style="color: Teal; margin-left: 33%">Formulaire de modification client</h1>
-
+	<h1 style="color: Teal; margin-left: 28%">Formulaire de modification client</h1>
+	<div style="margin-left: 25%">
 
 	<form:form method="POST" action="soumettreModifAgent"
 		modelAttribute="modifClientA" cssClass="form-horizontal">
@@ -73,9 +78,7 @@
 				<form:input path="tel" cssClass="form-control" />
 			</div>
 		</div>
-		<div class="form-group">
-			<form:label path="adresse" cssClass="col-sm-2 control-label">Adresse :</form:label>
-		</div>
+					<h3 style="color: Teal; margin-left: -25%; text-align: center">Adresse</h3>
 		<div class="form-group">
 			<form:label path="adresse.numero" cssClass="col-sm-2 control-label">N°</form:label>
 			<div class="col-sm-5">
@@ -101,12 +104,12 @@
 				<form:input path="adresse.ville" cssClass="form-control" />
 			</div>
 		</div>
-		<div class="form-group">
+		<div class="form-group" style="margin-left: 15%">
 			<div class="col-sm-offset-2 col-sm-10">
-				<input type="submit" class="btn btn-success" value="Modifier" />
+				<input type="submit" class="btn btn-info" value="Modifier" />
 			</div>
 		</div>
 	</form:form>
-
+</div>
 </body>
 </html>
