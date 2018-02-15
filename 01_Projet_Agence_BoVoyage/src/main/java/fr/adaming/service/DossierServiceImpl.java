@@ -46,9 +46,4 @@ public class DossierServiceImpl implements IDossierService{
 	public List<Dossier> getAllDossiers() {
 		return dossierDao.getAllDossiers();
 	}
-
-	@Override
-	public Dossier getDossierByClient(Client client) {
-		return dossierDao.getDossierByClient(client);
-	}
 }
