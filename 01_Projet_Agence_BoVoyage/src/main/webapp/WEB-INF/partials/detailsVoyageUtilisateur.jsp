@@ -17,6 +17,10 @@
 </head>
 <body>
 
+	<div style="margin-left: 10%; width: 80%">
+		<jsp:include page="../../templates/headerUtilisateur.jsp" />
+	</div>
+
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="thumbnail">
@@ -75,7 +79,9 @@
 
 					<div class="form-group">
 						<div class="col-sm-offset-2 col-sm-5">
-							<a href="${pageContext.request.contextPath}/client/detailVoyage?pId=${voyageDetail.id}"><input type="button" value="Se connecter pour reserver"/></a>
+							<a
+								href="${pageContext.request.contextPath}/client/detailVoyage?pId=${voyageDetail.id}"><input
+								type="button" value="Se connecter pour reserver" /></a>
 						</div>
 					</div>
 				</div>

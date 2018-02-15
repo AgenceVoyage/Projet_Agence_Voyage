@@ -17,6 +17,10 @@
 </head>
 <body>
 
+	<div style="margin-left: 10%; width: 80%">
+		<jsp:include page="../../templates/headerClient.jsp" />
+	</div>
+
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="thumbnail">
@@ -75,7 +79,7 @@
 
 					<div class="form-group">
 						<div class="col-sm-offset-2 col-sm-5">
-							<input type="button" value="Reserver ce voyage"/>
+							<input type="button" value="Reserver ce voyage" />
 						</div>
 					</div>
 				</div>
