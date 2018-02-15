@@ -1,5 +1,7 @@
 package fr.adaming.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -42,6 +44,24 @@ public class PhotoDaoImpl implements IPhotoDao {
 		query.setParameter("pIdVoyage", idVoyage);
 		
 		return query.executeUpdate();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Photo> getAllPhotoByIdVoyage(int idVoyage) {
+		String req = "select p from Photo as p where p.voyage.id=:pIdVoyage";
+
+		// création d'un query
+		Query query = em.createQuery(req);
+		
+		//assignation des paramètres de la requete
+		query.setParameter("pIdVoyage", idVoyage);
+		
+		List<Photo> liste_photo=query.getResultList();
+
+		// retourner la liste
+		return liste_photo;
+	
 	}
 
 }

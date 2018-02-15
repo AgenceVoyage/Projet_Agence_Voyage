@@ -1,5 +1,7 @@
 package fr.adaming.service;
 
+import java.util.List;
+
 import fr.adaming.model.Photo;
 import fr.adaming.model.Voyage;
 
@@ -27,5 +29,8 @@ public interface IPhotoService {
 	 * @return
 	 */
 	public int deletePhoto(Voyage v);
+	
+	
+	public List<Photo> getAllPhotoByIdVoyage(int id);
 
 }

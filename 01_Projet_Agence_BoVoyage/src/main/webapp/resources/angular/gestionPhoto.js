@@ -4,8 +4,9 @@
 var monApp=angular.module("monApp",['naif.base64'])
 
 
-	.controller("AjoutPhotoVoyage", function($scope) {
+	.controller("AjoutPhotoVoyage", function($scope,$http) {
 		
+		console.log("AjoutPhotoAngular")
 		
 		$scope.photo=null;		
 		$scope.msg="Angular"
@@ -39,24 +40,29 @@ var monApp=angular.module("monApp",['naif.base64'])
 			//var imagesVoyageController = document.getElementById("listePhoto").value;
 		}
 		
+
 		
 		$scope.ajouterPhoto=function(){
-			
+			console.log("Ajout AJAX")
+			var url='http://localhost:8080/01_Projet_Agence_BoVoyage/voyage/recupRest';
 			var person = {"name":"John"};
 			
-			 $.ajax({
-				 type: "POST",
-				 contentType : 'application/json; charset=utf-8',
-			     dataType : 'json',
-				 url: "/voyage/recupRest",
-		         data:  JSON.stringify(person),             
-        
-
-				     success :function(result)
-				     {
-				    	 console.log("Bonne redirection")
-				     }
-				  })
+			$http({
+				method : 'POST',
+				url :url,
+				data : angular.toJson(person),
+				header : {
+					'content-type' : 'application/json'
+				}
+			}).then(
+					function success(reponse) {
+						// stockage de la réponse dans le callback
+						
+					},
+					function erreur(reponse) {
+						console.log("****erreur du serveur pour l'ajout de location: "
+								+ reponse.status + " " + reponse.statusText)
+					});
 		}
 	
 	})

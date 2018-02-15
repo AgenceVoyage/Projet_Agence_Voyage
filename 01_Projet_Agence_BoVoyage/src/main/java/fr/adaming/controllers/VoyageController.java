@@ -2,8 +2,11 @@ package fr.adaming.controllers;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -21,10 +24,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import fr.adaming.model.Person;
+import fr.adaming.model.Photo;
 import fr.adaming.model.Voyage;
 import fr.adaming.model.VoyageAngular;
+import fr.adaming.service.IPhotoService;
 import fr.adaming.service.IVoyageService;
 
 @Controller
@@ -33,6 +39,8 @@ public class VoyageController {
 
 	@Autowired
 	IVoyageService voyageService;
+	@Autowired
+	IPhotoService photoService;
 
 	private Voyage voyage;
 
@@ -49,26 +57,38 @@ public class VoyageController {
 	// *****************************************************************************
 
 	@RequestMapping(value = "/voyage/ajouter")
-	public String afficheForm(Model model) {
+	public ModelAndView afficheForm() {
 		Voyage v = new Voyage();
 		v.setCompagnieVoyage("TEST");
-		model.addAttribute("vForm", v); // ajouter model Voyage
-		return "ajoutVoyage";
+		/*v.setFile(null);
+		model.addAttribute("vForm", v); // ajouter model Voyage*/
+		//return "ajoutVoyage";
+		return new ModelAndView("ajoutVoyage","vForm",v);
 	}
 
 	// @RequestParam("from") Date fromDate
 	@RequestMapping(value = "/voyage/soumettreAjoutVoyage", method = RequestMethod.POST)
-	public String soumettreAjouterVoyage(@ModelAttribute("vForm") Voyage v) {
+	public String soumettreAjouterVoyage(@ModelAttribute("vForm") Voyage v) throws IOException {
 		System.out.println("Ajout Voyage:" + v.getCompagnieVoyage());
 
 		voyage = v;
-		return "ajoutPhotoVoyage";
+		List<Photo> list_p=new ArrayList<Photo>();
+		Photo p=new Photo();
+		v.setImage(v.getFile().getBytes());
+		p.setPicture(v.getFile().getBytes());
+		list_p.add(p);
+		//v.setListePhotos(list_p);
+		voyageService.addVoyage(v);
+		photoService.addPhoto(p, v);
+		return "accueil";
 	}
+	
 
-	@RequestMapping(value = "/voyage/recupPhotomljo", method = RequestMethod.POST)
-	public @ResponseBody String ajouterPhoto(@RequestBody Person person) throws ParseException, IOException {
-		System.out.println("Test angular:");
 
+	public @ResponseBody String ajouterPhoto(@RequestBody final Person person) {
+		System.out.println("Test angular xxx:");
+		String pName = person.getName();
+		//System.out.println("Test angular xxx:"+pName);
 		return "accueil";
 	}
 

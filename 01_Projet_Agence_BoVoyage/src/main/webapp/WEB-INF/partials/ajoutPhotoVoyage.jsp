@@ -21,7 +21,7 @@
 		
 		
  		
-		<form:form method="POST" action="recupPhoto">
+	
 			< <div class="row">
 				<div class="input-field col-sm-12">
 					<input type="file" id="selectedFile"
@@ -39,15 +39,15 @@
 					style="max-height: 150px; max-width: 150px">
 			</div>
 			
-			<input type="button" ng-click="valideImage()" value="Valider image">				
-			
-			
-		   <div class="form-group">
+				
+				
+	
+			 <div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">
-				<button class="btn btn-default" ng-click="ajouterPhoto()">Ajouter</button>
+				<button class="btn btn-default" ng-click="ajouterPhoto()">Ajouter Photo3</button>
 				</div>
 			</div>	
-		</form:form>
+	
 		
 
 </body>

@@ -1,5 +1,7 @@
 package fr.adaming.dao;
 
+import java.util.List;
+
 import fr.adaming.model.Photo;
 
 /**
@@ -29,5 +31,7 @@ public interface IPhotoDao {
 	 * @return
 	 */
 	public int deletePhoto(int idVoyage);
+	
+	public List<Photo> getAllPhotoByIdVoyage(int id);
 
 }

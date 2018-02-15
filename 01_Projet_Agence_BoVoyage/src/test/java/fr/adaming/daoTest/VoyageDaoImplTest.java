@@ -38,7 +38,7 @@ public class VoyageDaoImplTest {
 	@Transactional
 	@Rollback(false)
 	public void testAddVoyage() throws ParseException {
-		Voyage voyage = new Voyage("Idealiste", "kl9821sp", df.parse("05-03-2017 15:53"), df.parse("05-06-2017 17:05"), 12, 2500, 20, "France", "Paris", "Europe", "Airbus");
+		Voyage voyage = new Voyage("Idealiste", "kl9821sp", df.parse("05-03-2017 15:53"), df.parse("05-06-2017 17:05"), 12, 2500, 20, "France", "Paris", "Europe", "Airbus",null);
 		
 		Voyage vOut = voyageDao.addVoyage(voyage);
 		
@@ -66,7 +66,7 @@ public class VoyageDaoImplTest {
 	@Transactional
 	@Rollback(false)
 	public void testUpdateVoyage() throws ParseException {
-		Voyage voyage = new Voyage(4, "Utopie", "4567878khg", df.parse("05-03-2017 15:53"), df.parse("05-04-2017 17:05"), 55, 3025, 10, "Egypte", "Le Caire", "Afrique", "Pirate");
+		Voyage voyage = new Voyage(4, "Utopie", "4567878khg", df.parse("05-03-2017 15:53"), df.parse("05-04-2017 17:05"), 55, 3025, 10, "Egypte", "Le Caire", "Afrique", "Pirate",null);
 		
 		voyageDao.updateVoyage(voyage);
 		Voyage vOut = voyageDao.getVoyageById(4);

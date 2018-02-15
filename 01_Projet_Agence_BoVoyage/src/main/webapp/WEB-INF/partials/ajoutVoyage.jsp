@@ -23,7 +23,7 @@
 		style="position: relative; padding-top: 30px; padding-bottom: 30px; top: 50px; border-style: solid; border-width: 1px; border-color: grey; background-color: rgba(215, 215, 215, 0.8); border-radius: 25px;">
 
 
-		<form:form method="POST" action="soumettreAjoutVoyage" modelAttribute="vForm">
+		<form:form method="POST" action="soumettreAjoutVoyage" modelAttribute="vForm" enctype="multipart/form-data">
 			
 			<div class="form-group">
 				<label for="compagnieVoyage" class="col-sm-3 control-label">Compagnie
@@ -61,6 +61,8 @@
 						class="form-control" base-sixty-four-input> 
 				</div>
 			</div>
+			
+			<input type="file" name="file">
 			
 		<!-- 	 <div class="row">
 				<div class="input-field col-sm-12">
