@@ -46,11 +46,4 @@ public interface IDossierDao {
 	 * @return une liste de dossier
 	 */
 	public List<Dossier> getAllDossiers();
-	
-	/**
-	 * Methode permettant de recuperer le dossier d'un client
-	 * @param client
-	 * @return dossier
-	 */
-	public Dossier getDossierByClient(Client client);
 }

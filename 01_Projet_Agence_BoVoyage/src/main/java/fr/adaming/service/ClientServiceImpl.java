@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import fr.adaming.dao.IClientDao;
 import fr.adaming.model.Client;
+import fr.adaming.model.Dossier;
 import fr.adaming.model.Role;
 
 @Service
@@ -57,6 +58,20 @@ public class ClientServiceImpl implements IClientService {
 	@Override
 	public Client getClientByMail(String mail) {
 		return clientDao.getClientByMail(mail);
+	}
+
+	@Override
+	public Client getClientByDossier(Dossier d) {
+		List<Client> listOut = clientDao.getListVoyageursByDossier(d);
+		Client c = new Client();
+		
+		for (Client element : listOut) {
+			if (element.isClientResa()) {
+				c=element;
+			}
+		}
+		
+		return c;
 	}
 
 }

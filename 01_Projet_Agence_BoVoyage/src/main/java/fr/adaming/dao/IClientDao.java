@@ -3,6 +3,8 @@ package fr.adaming.dao;
 import java.util.List;
 
 import fr.adaming.model.Client;
+import fr.adaming.model.Dossier;
+import fr.adaming.model.Voyageur;
 
 /**
  * Méthodes DAO du client
@@ -66,5 +68,12 @@ public interface IClientDao {
 	 * @return
 	 */
 	public Client getClientByMail(String mail);
+	
+	/**
+	 * méthode pour récupérer la liste de voyageurs d'un dossier
+	 * @param d
+	 * @return
+	 */
+	public List<Client> getListVoyageursByDossier(Dossier d);
 
 }
