@@ -148,10 +148,12 @@ public class UtilisateurController {
 	 * 
 	 * @param c
 	 * @return
+	 * @throws Exception 
 	 */
 	@RequestMapping(value = "/client/soumettreAjout", method = RequestMethod.POST)
-	public String soumettreAjouter(@ModelAttribute("clientAjout") Client c) {
+	public String soumettreAjouter(@ModelAttribute("clientAjout") Client c) throws Exception {
 		Client cOut = clientService.addClient(c);
+		clientService.confirmAddClient(c,c.getMail());
 		if (cOut.getId() != 0) {
 			return "accueil";
 		} else {
