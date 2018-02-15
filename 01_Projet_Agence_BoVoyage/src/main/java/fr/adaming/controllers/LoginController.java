@@ -1,18 +1,12 @@
 package fr.adaming.controllers;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import fr.adaming.model.Hotel;
-import fr.adaming.model.Voyage;
 import fr.adaming.service.IVoyageService;
 
 /**
@@ -24,12 +18,6 @@ import fr.adaming.service.IVoyageService;
 @Controller
 public class LoginController {
 
-	@Autowired
-	IVoyageService voyageService;
-
-	public void setVoyageService(IVoyageService voyageService) {
-		this.voyageService = voyageService;
-	}
 
 	/**
 	 * Methode permettant d'afficher le login.
@@ -76,18 +64,4 @@ public class LoginController {
 		return "login";
 	}
 
-	@RequestMapping(value = "/utilisateur/listeVoyageParCont", method = RequestMethod.GET)
-	public String afficheListeVoyageCont(ModelMap model, @RequestParam("pContinent") String cont) {
-		List<Voyage> listeVoyages = voyageService.getAllVoyages();
-		List<Voyage> listeVoyParCont = new ArrayList<>();
-		
-		for (Voyage voyage : listeVoyages) {
-			
-			if (voyage.getContinent().equals(cont)) {
-				listeVoyParCont.add(voyage);
-			}
-		}
-		model.addAttribute("voyageListCont", listeVoyParCont);
-		return "listeVoyParCont";
-	}
 }

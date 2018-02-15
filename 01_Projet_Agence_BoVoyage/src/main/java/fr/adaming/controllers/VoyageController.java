@@ -15,6 +15,7 @@ import org.springframework.expression.ParseException;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -133,6 +134,22 @@ public class VoyageController {
 
 			return "VoyageMapTest";
 
+	}
+	
+
+	@RequestMapping(value = "/utilisateur/listeVoyageParCont", method = RequestMethod.GET)
+	public String afficheListeVoyageCont(ModelMap model, @RequestParam("pContinent") String cont) {
+		List<Voyage> listeVoyages = voyageService.getAllVoyages();
+		List<Voyage> listeVoyParCont = new ArrayList<>();
+		
+		for (Voyage voyage : listeVoyages) {
+			
+			if (voyage.getContinent().equals(cont)) {
+				listeVoyParCont.add(voyage);
+			}
+		}
+		model.addAttribute("voyageListCont", listeVoyParCont);
+		return "listeVoyParCont";
 	}
 
 }
