@@ -18,8 +18,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import fr.adaming.model.Client;
 import fr.adaming.model.Dossier;
+import fr.adaming.model.Voyage;
 import fr.adaming.service.IClientService;
 import fr.adaming.service.IDossierService;
+import fr.adaming.service.IVoyageService;
 
 /**
  * Controller pour gerer les flux frontOffice concernant les dossier de
@@ -29,17 +31,30 @@ import fr.adaming.service.IDossierService;
  *
  */
 @Controller
-@RequestMapping("/dossiers")
 public class DossierController {
 
 	@Autowired
 	private IDossierService dossierService;
 	
+	@Autowired
 	private IClientService clientService;
+	
+	@Autowired
+	private IVoyageService voyageService;
 
 	public void setDossierService(IDossierService dossierService) {
 		this.dossierService = dossierService;
 	}
+
+	public void setClientService(IClientService clientService) {
+		this.clientService = clientService;
+	}
+
+	public void setVoyageService(IVoyageService voyageService) {
+		this.voyageService = voyageService;
+	}
+
+
 
 	/**
 	 * Methode permettant d'afficher la liste des dossiers
@@ -60,7 +75,8 @@ public class DossierController {
 	 * @return la page ajoutDossier.jsp ou est présent le formulaire
 	 */
 	@RequestMapping(value = "/client/afficheAjoutDossier", method = RequestMethod.GET)
-	public String afficheAjout(Model model) {
+	public String afficheAjout(Model model, @RequestParam("pId") int idVoyage) {
+		System.out.println("coucou je suis là");
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String mail = auth.getName();
 		Client c = clientService.getClientByMail(mail);
@@ -70,6 +86,9 @@ public class DossierController {
 		
 		Dossier dossier = new Dossier();
 		dossier.setListeClients(listClients);
+		
+		Voyage voyage = voyageService.getVoyageById(idVoyage);
+		dossier.setVoyage(voyage);
 		
 		model.addAttribute("dossierAjout", dossier);
 		

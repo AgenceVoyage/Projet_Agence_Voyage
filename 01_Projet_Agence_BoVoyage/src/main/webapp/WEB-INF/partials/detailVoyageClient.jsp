@@ -89,7 +89,7 @@
 
 					<div class="form-group">
 						<div class="col-sm-offset-2 col-sm-5">
-							<input type="button" value="Reserver ce voyage" />
+							<a href="${pageContext.request.contextPath}/client/afficheAjoutDossier?pId=${voyageDetail.id}"><input type="button" value="Reserver ce voyage" /></a>
 						</div>
 					</div>
 				</div>

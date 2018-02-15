@@ -38,6 +38,8 @@ public class Dossier implements Serializable{
 	private String numDossier;
 	private String statut;
 	private double prixTotal;
+	private String nomFormule;
+	private String prestation;
 	
 	/**
 	 * Convertir les associations uml en java
@@ -88,19 +90,25 @@ public class Dossier implements Serializable{
 		super();
 	}
 
-	public Dossier(String numDossier, String statut, double prixTotal) {
+	public Dossier(String numDossier, String statut, double prixTotal, String nomFormule, String prestation) {
 		super();
 		this.numDossier = numDossier;
 		this.statut = statut;
 		this.prixTotal = prixTotal;
+		this.nomFormule = nomFormule;
+		this.prestation = prestation;
 	}
 
-	public Dossier(int id, String numDossier, String statut, double prixTotal) {
+	public Dossier(int id, String numDossier, String statut, double prixTotal, String nomFormule, String prestation) {
 		super();
 		this.id = id;
 		this.numDossier = numDossier;
 		this.statut = statut;
 		this.prixTotal = prixTotal;
+		this.nomFormule = nomFormule;
+		this.prestation = prestation;
+		
+		
 	}
 
 	/**
@@ -139,5 +147,23 @@ public class Dossier implements Serializable{
 	public void setStatut(String statut) {
 		this.statut = statut;
 	}
+
+	public String getNomFormule() {
+		return nomFormule;
+	}
+
+	public void setNomFormule(String nomFormule) {
+		this.nomFormule = nomFormule;
+	}
+
+	public String getPrestation() {
+		return prestation;
+	}
+
+	public void setPrestation(String prestation) {
+		this.prestation = prestation;
+	}
+	
+	
 	
 }

@@ -36,15 +36,15 @@ public class DossierDaoImpl implements IDossierDao {
 	@Override
 	public Dossier updateDossier(Dossier dossier) {
 		// Creation de la requete JPQL
-		String req = "UPDATE Dossier as d SET d.numDossier=:pNumDossier, d.prixTotal=:pPrixTotal, d.statut=:pStatut, d.voyage=:pVoyage WHERE d.id=:pId";
+		String req = "UPDATE Dossier as d SET d.numDossier=:pNumDossier, d.prixTotal=:pPrixTotal, d.statut=:pStatut, d.nomFormule=:pNomForm, d.prestation=:pPrest, d.voyage=:pVoyage WHERE d.id=:pId";
 		// Creation du query
 		Query query = em.createQuery(req);
 		// Assigner les paramètres
 		query.setParameter("pNumDossier", dossier.getNumDossier());
 		query.setParameter("pPrixTotal", dossier.getPrixTotal());
 		query.setParameter("pStatut", dossier.getStatut());
-		// query.setParameter("pClients", dossier.getListeClients());
-		// query.setParameter("pAssurances", dossier.getListeAssurances());
+		query.setParameter("pNomForm", dossier.getNomFormule());
+		query.setParameter("pPrest", dossier.getPrestation());
 		query.setParameter("pVoyage", dossier.getVoyage());
 		query.setParameter("pId", dossier.getId());
 		// Envoi de la requete

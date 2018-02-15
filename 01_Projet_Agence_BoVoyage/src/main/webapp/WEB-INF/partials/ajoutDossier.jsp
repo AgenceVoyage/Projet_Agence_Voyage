@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <!-- Ajputer la lib JSTL -->
+	pageEncoding="ISO-8859-1"%>
+<!-- Ajputer la lib JSTL -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!-- Ajout de la taglib spring mvc form -->
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
@@ -11,8 +11,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Ajouter un Dossier</title>
-	
-	<link rel="stylesheet"
+
+<link rel="stylesheet"
 	href="<c:url value="/resources/boostrap/bootstrap.min.css"/>" />
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -22,48 +22,58 @@
 </head>
 <body>
 
-
-<h1 style="color: red; text-align: center">Formulaire d'ajout</h1>
+	<div style="margin-left: 10%; width: 80%">
+		<jsp:include page="../../templates/headerClient.jsp" />
+	</div>
+	<h1 style="color: red; text-align: center">Formulaire de
+		reservation du voyage ${dossierAjout.voyage.nom}</h1>
 
 	<form:form method="POST" action="client/soumettreAjoutDossier"
 		modelAttribute="dossierAjout" cssClass="form-horizontal">
 
 		<div class="form-group">
-			<form:label path="numDossier" cssClass="col-sm-2 control-label">Numero de dossier</form:label>
-			<div class="col-sm-5">
-				<form:input path="numDossier" type="text" class="form-control" />
-			</div>
+			<form:label path="prestation" class="col-sm-2 control-label">Prestation : </form:label>
+			<form:select path="prestation">
+				<form:option value="avion">
+					<c:out value="Avion"></c:out>
+				</form:option>
+				<form:option value="avion+hotel">
+					<c:out value="Avion et Hotel"></c:out>
+				</form:option>
+				<form:option value="avion+voiture">
+					<c:out value="Avion et Voiture"></c:out>
+				</form:option>
+				<form:option value="avion+hotel+voiture">
+					<c:out value="Avion, Hotel et Voiture"></c:out>
+				</form:option>
+			</form:select>
 		</div>
-		<div class="form-group">
-			<form:label path="statut" cssClass="col-sm-2 control-label">Statut</form:label>
-			<div class="col-sm-5">
-				<form:input path="statut" type="text" class="form-control" />
+
+		<c:if test="prestation">
+			<div class="form-group">
+				<form:label path="prestation" class="col-sm-2 control-label">Prestation : </form:label>
+				<form:select path="prestation">
+					<form:option value="avion">
+						<c:out value="Avion"></c:out>
+					</form:option>
+					<form:option value="avion+hotel">
+						<c:out value="Avion et Hotel"></c:out>
+					</form:option>
+					<form:option value="avion+voiture">
+						<c:out value="Avion et Voiture"></c:out>
+					</form:option>
+					<form:option value="avion+hotel+voiture">
+						<c:out value="Avion, Hotel et Voiture"></c:out>
+					</form:option>
+				</form:select>
 			</div>
-		</div>
-		<div class="form-group">
-			<form:label path="voyage" cssClass="col-sm-2 control-label">Voyage</form:label>
-			<div class="col-sm-5">
-				<form:input path="voyage" cssClass="form-control" />
-			</div>
-		</div>
-		<div class="form-group">
-			<form:label path="assurance" cssClass="col-sm-2 control-label">Assurance</form:label>
-			<div class="col-sm-5">
-				<form:input path="assurance" cssClass="form-control" />
-			</div>
-		</div>
-		<div class="form-group">
-			<form:label path="listeClients" cssClass="col-sm-2 control-label">Nombre de clients</form:label>
-			<div class="col-sm-5">
-				<form:input path="listeClients" cssClass="form-control" />
-			</div>
-		</div>
-		<div class="form-group">
-			<form:label path="prixTotal" cssClass="col-sm-2 control-label">Prix Total</form:label>
-			<div class="col-sm-5">
-				<form:input path="prixTotal" cssClass="form-control" />
-			</div>
-		</div>
+		</c:if>
+
+		<br />
+		<br />
+		<br />
+
+		<!-- ajouter les voyageurs 1 à 1 -->
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">
 				<input type="submit" class="btn btn-success" value="Ajouter" />

@@ -26,26 +26,28 @@ public class DossierServiceImpl implements IDossierService {
 	@Override
 	public Dossier addDossier(Dossier dossier) {
 		double prixHotel;
-		if(dossier.getVoyage().getHotel().getNomFormule().equals("hebergement seul")){
+		if(dossier.getNomFormule().equals("hebergement seul")){
 			prixHotel = dossier.getVoyage().getHotel().getPrix();
-		}else if (dossier.getVoyage().getHotel().getNomFormule().equals("petit dejeuner")){
+		}else if (dossier.getNomFormule().equals("petit dejeuner")){
 			prixHotel= dossier.getVoyage().getHotel().getPrix()*(1+10/100);
-		}else if (dossier.getVoyage().getHotel().getNomFormule().equals("demi pension")){
+		}else if (dossier.getNomFormule().equals("demi pension")){
 			prixHotel= dossier.getVoyage().getHotel().getPrix()*(1+30/100);
-		}else{
+		}else if (dossier.getNomFormule().equals("pension complete")){
 			prixHotel= dossier.getVoyage().getHotel().getPrix()*(1+50/100);
+		} else {
+			prixHotel=0;
 		}
 		dossier.getVoyage().getHotel().setPrix(prixHotel);
 		double prixAssurance = 0;
 		for (Assurance assurance : dossier.getListeAssurances()) {
 			prixAssurance = prixAssurance + assurance.getPrix();
 		}
-		if (dossier.getVoyage().getPrestation().equals("avion")) {
+		if (dossier.getPrestation().equals("avion")) {
 			dossier.setPrixTotal(dossier.getVoyage().getPrixRemise() + prixAssurance);
-		} else if (dossier.getVoyage().getPrestation().equals("avion+hotel")) {
+		} else if (dossier.getPrestation().equals("avion+hotel")) {
 			dossier.setPrixTotal(
 					dossier.getVoyage().getPrixRemise() + prixAssurance + dossier.getVoyage().getHotel().getPrix());
-		} else if (dossier.getVoyage().getPrestation().equals("avion+hotel+voiture")) {
+		} else if (dossier.getPrestation().equals("avion+hotel+voiture")) {
 			dossier.setPrixTotal(dossier.getVoyage().getPrixRemise() + prixAssurance
 					+ dossier.getVoyage().getHotel().getPrix() + dossier.getVoyage().getVoiture().getPrix());
 		} else {
