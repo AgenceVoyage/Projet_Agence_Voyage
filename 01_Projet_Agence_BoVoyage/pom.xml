@@ -197,6 +197,13 @@
 			<artifactId>spring-security-taglibs</artifactId>
 			<version>3.2.10.RELEASE</version>
 		</dependency>
+		
+				<!-- MultiFile -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3.2</version>
+		</dependency>
 
 		<!-- 5 : Dépendance pour pdf et e-mail -->
 		<!-- commons codec -->
