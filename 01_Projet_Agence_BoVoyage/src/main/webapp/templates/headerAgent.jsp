@@ -84,13 +84,13 @@
 
 					<li class="dropdown"><a class="dropdown-toggle"
 						data-toggle="dropdown" href="#"
-						style="color: Teal; font-style: blod">Hotels <span
+						style="color: Teal; font-style: blod">Dossiers <span
 							class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a
-								href="${pageContext.request.contextPath}/dossiers/liste"
+								href="${pageContext.request.contextPath}/agent/liste"
 								style="color: Teal; font-style: blod">Afficher tous les
-									voyages</a></li>
+									dossiers</a></li>
 							
 						</ul></li>
 
