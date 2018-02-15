@@ -22,10 +22,9 @@
 </head>
 <body>
 
-	<div style="margin-left: 0%; width: 80%">
-		<div style="margin-left: 23%">
+	
 			<jsp:include page="../../templates/headerUtilisateur.jsp" />
-		</div>
+		
 
 		<div class="form-group" style="margin-left: 23%">
 			<form class="navbar-form inline-form">
@@ -56,6 +55,10 @@
 				</div>
 			</c:forEach>
 		</div>
-	</div>
+
+		<div>
+			<jsp:include page="../../templates/footer.jsp" />
+		</div>
+	
 </body>
 </html>

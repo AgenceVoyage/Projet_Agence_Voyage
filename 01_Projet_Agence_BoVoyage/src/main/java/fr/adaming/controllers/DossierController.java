@@ -35,10 +35,10 @@ public class DossierController {
 
 	@Autowired
 	private IDossierService dossierService;
-	
+
 	@Autowired
 	private IClientService clientService;
-	
+
 	@Autowired
 	private IVoyageService voyageService;
 
@@ -54,8 +54,6 @@ public class DossierController {
 		this.voyageService = voyageService;
 	}
 
-
-
 	/**
 	 * Methode permettant d'afficher la liste des dossiers
 	 * 
@@ -66,6 +64,15 @@ public class DossierController {
 		// Recupereration de la liste de la bd
 		List<Dossier> listeDossier = dossierService.getAllDossiers();
 		return new ModelAndView("listeDossier", "dossierListe", listeDossier);
+	}
+
+	@RequestMapping(value = "/client/listeDossier", method = RequestMethod.GET)
+	public ModelAndView afficheListeDossierClient() {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String mail = auth.getName();
+		Client c = clientService.getClientByMail(mail);
+		List<Dossier> listeDossier=c.getListeDossiers();
+		return new ModelAndView("listeDossierClient", "dossierListe", listeDossier);
 	}
 
 	/////////// -- Ajout d'un dossier-- /////////////
@@ -80,18 +87,18 @@ public class DossierController {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String mail = auth.getName();
 		Client c = clientService.getClientByMail(mail);
-		
+
 		List<Client> listClients = new ArrayList<Client>();
 		listClients.add(c);
-		
+
 		Dossier dossier = new Dossier();
 		dossier.setListeClients(listClients);
-		
+
 		Voyage voyage = voyageService.getVoyageById(idVoyage);
 		dossier.setVoyage(voyage);
-		
+
 		model.addAttribute("dossierAjout", dossier);
-		
+
 		return "ajoutDossier";
 	}
 
@@ -174,48 +181,51 @@ public class DossierController {
 		model.addAttribute("dossierModif", dOut);
 		return "modifierDossier";
 	}
-	
-	@RequestMapping(value="/soumettreModifLien", method= RequestMethod.POST)
-	public String soumettreModifier(@ModelAttribute ("dossierModif") Dossier dossier){
-		//Appel de la methode service
-	 dossierService.updateDossier(dossier);
-//		if(dmod != null){
-			return "redirect: liste";
-//		}else{
-//			return "redirect : modifLien";
-//		}
+
+	@RequestMapping(value = "/soumettreModifLien", method = RequestMethod.POST)
+	public String soumettreModifier(@ModelAttribute("dossierModif") Dossier dossier) {
+		// Appel de la methode service
+		dossierService.updateDossier(dossier);
+		// if(dmod != null){
+		return "redirect: liste";
+		// }else{
+		// return "redirect : modifLien";
+		// }
 	}
 
 	/////////// -- Recherche d'un dossier -- /////////////
 	/**
 	 * Methode pour afficher le formulaire de recherche
+	 * 
 	 * @param modele
 	 * @return
 	 */
-	@RequestMapping(value="/afficheRech", method=RequestMethod.GET)
-	public String afficherRecherche(Model modele){
+	@RequestMapping(value = "/afficheRech", method = RequestMethod.GET)
+	public String afficherRecherche(Model modele) {
 		modele.addAttribute("dossierRech", new Dossier());
 		modele.addAttribute("indice", false);
 		return "rechercheDossier";
 	}
-	
+
 	/**
 	 * Methode permettant de soumettre le formulaire de recherche d'un dossier
+	 * 
 	 * @param ra
 	 * @param modele
 	 * @param dossier
 	 * @return
 	 */
-	
-	@RequestMapping(value = "/soumettreRech",method=RequestMethod.POST)
-	public String soumettreRecherche(RedirectAttributes ra, Model modele, @ModelAttribute("dossierRech") Dossier dossier){
+
+	@RequestMapping(value = "/soumettreRech", method = RequestMethod.POST)
+	public String soumettreRecherche(RedirectAttributes ra, Model modele,
+			@ModelAttribute("dossierRech") Dossier dossier) {
 		Dossier dOut = dossierService.getDossierById(dossier.getId());
 		modele.addAttribute("dossierRech", dOut);
-		if(dOut!= null){
+		if (dOut != null) {
 			modele.addAttribute("dossierRech", dOut);
 			modele.addAttribute("indice", true);
 			return "rechercheDossier";
-		}else{
+		} else {
 			ra.addFlashAttribute("message", "Le dossier recherche n'existe pas!!");
 			return "redirect:afficheRech";
 		}

@@ -17,7 +17,7 @@
 </head>
 <body>
 
-		<jsp:include page="../../templates/headerAgent.jsp" />
+		<jsp:include page="../../templates/headerClient.jsp" />
 
 
 	<h1 style="color: Teal; text-align: center">Liste des Dossiers</h1>
