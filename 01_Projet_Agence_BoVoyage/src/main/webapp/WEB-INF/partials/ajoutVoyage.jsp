@@ -105,7 +105,7 @@
 				</div>
 			</div>
 			
-			<br/><br/>
+			<br/>    <br/>
 			
 			<div class="form-group">
 				<form:label path="dateDepart" cssClass="col-sm-2 control-label">Date de Depart</form:label>
