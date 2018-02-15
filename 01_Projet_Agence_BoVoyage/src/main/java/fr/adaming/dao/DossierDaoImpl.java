@@ -76,6 +76,7 @@ public class DossierDaoImpl implements IDossierDao {
 		return dossier;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Dossier> getAllDossiers() {
 		// Creation de la requete JPQL
@@ -85,17 +86,5 @@ public class DossierDaoImpl implements IDossierDao {
 		return query.getResultList();
 	}
 
-	@Override
-	public Dossier getDossierByClient(Client client) {
-		// Creation de la requete JPQL
-		String req = "select d from Dossier d where d.client.id=:pId";
-		// Creer le query
-		Query query = em.createQuery(req);
-		// Assigner les parametres du query
-		query.setParameter("pId", client.getId() );
-		//Envoyer la requete
-		Dossier dossier = (Dossier) query.getSingleResult();
-		return dossier;
-	}
 
 }

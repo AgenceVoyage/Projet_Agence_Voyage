@@ -3,6 +3,7 @@ package fr.adaming.service;
 import java.util.List;
 
 import fr.adaming.model.Client;
+import fr.adaming.model.Dossier;
 
 /**
  * Méthodes Service du client
@@ -66,5 +67,13 @@ public interface IClientService {
 	 * @return
 	 */
 	public Client getClientByMail(String mail);
+	
+	
+	/**
+	 * méthode pour récupérer le client à partir de son dossier de reservation
+	 * @param d
+	 * @return
+	 */
+	public Client getClientByDossier(Dossier d);
 
 }
