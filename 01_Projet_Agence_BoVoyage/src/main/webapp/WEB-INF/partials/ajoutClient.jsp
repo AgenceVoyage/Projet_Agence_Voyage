@@ -12,14 +12,15 @@
 
 <link rel="stylesheet"
 	href="<c:url value="/resources/boostrap/bootstrap.min.css"/>" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="<c:url value="/resources/boostrap/bootstrap.min.js"/>"></script>
 <link rel="stylesheet" href="<c:url value="/resources/css/log.css"/>" />
 </head>
 <body>
-	<div style="margin-left: 12%; margin-right: 12%">
 
-		<jsp:include page="../../templates/headerUtilisateur.jsp" />
+	<jsp:include page="../../templates/headerUtilisateur.jsp" />
 
-	</div>
 	<h1 style="color: Teal; margin-left: 37%">Formulaire d'inscription</h1>
 
 	<div style="margin-left: 25%">

@@ -58,7 +58,6 @@ public class VoyageController {
 	@RequestMapping(value = "/voyage/ajouter")
 	public ModelAndView afficheForm() {
 		Voyage v = new Voyage();
-		v.setCompagnieVoyage("TEST");
 		/*
 		 * v.setFile(null); model.addAttribute("vForm", v); // ajouter model
 		 * Voyage

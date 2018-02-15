@@ -6,7 +6,7 @@
 <title>Barre Menu</title>
 <head>
 <body>
-	<div style="margin-left: 13%; margin-right: 13%">
+	<div style="margin-left: 10%; margin-right: 10%">
 
 		<nav class="navbar navbar-inverse" style="background-color: #d6caa9">
 			<div class="container-fluid">

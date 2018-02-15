@@ -17,9 +17,9 @@
 </head>
 <body>
 
-		<jsp:include page="../../templates/headerClient.jsp" />
-		
-	<div style="margin-left:10%; width: 80%">
+	<jsp:include page="../../templates/headerClient.jsp" />
+
+	<div style="margin-left: 10%; width: 80%">
 
 		<div class="form-group">
 			<c:forEach var="v" items="${voyageList3}">
@@ -41,7 +41,7 @@
 				</div>
 			</c:forEach>
 		</div>
-		</div>
+	</div>
 	<div>
 		<jsp:include page="../../templates/footer.jsp" />
 	</div>

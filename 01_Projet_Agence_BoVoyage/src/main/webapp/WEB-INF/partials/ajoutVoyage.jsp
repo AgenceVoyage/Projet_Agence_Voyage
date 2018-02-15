@@ -9,138 +9,134 @@
 <title>Ajouter Voyage</title>
 <link rel="stylesheet"
 	href="<c:url value="/resources/boostrap/bootstrap.min.css"/>" />
-	<!-- ajout lib angular js -->
-<script type="text/javascript" src="<c:url value="/resources/angular/jquery-3.2.1.js"/>"></script>
-<script type="text/javascript" src="<c:url value="/resources/angular/angular.js"/>"></script>
-<script type="text/javascript" src="<c:url value="/resources/angular/angular-base64-upload.js"/>"></script>
-<script type="text/javascript" src="<c:url value="/resources/angular/gestionPhoto.js"/>"></script>
+<!-- ajout lib angular js -->
+<script type="text/javascript"
+	src="<c:url value="/resources/angular/jquery-3.2.1.js"/>"></script>
+<script type="text/javascript"
+	src="<c:url value="/resources/angular/angular.js"/>"></script>
+<script type="text/javascript"
+	src="<c:url value="/resources/angular/angular-base64-upload.js"/>"></script>
+<script type="text/javascript"
+	src="<c:url value="/resources/angular/gestionPhoto.js"/>"></script>
+
+<script src="<c:url value="/resources/boostrap/bootstrap.min.js"/>"></script>
+
+<link rel="stylesheet" href="<c:url value="/resources/css/log.css"/>" />
+
 </head>
-<body >
+<body>
 
+	<jsp:include page="../../templates/headerClient.jsp" />
 
+	<div style="margin-left: 25%">
 
-	<div class="col-sm-7 col-lg-offset-2"
-		style="position: relative; padding-top: 30px; padding-bottom: 30px; top: 50px; border-style: solid; border-width: 1px; border-color: grey; background-color: rgba(215, 215, 215, 0.8); border-radius: 25px;">
+		<form:form method="POST" action="soumettreAjoutVoyage"
+			modelAttribute="vForm" enctype="multipart/form-data"
+			cssClass="form-horizontal">
 
+			<div class="form-group">
+				<label for=nom class="col-sm-3 control-label">Nom du voyage</label>
+				<div class="col-sm-5 ">
+					<form:input type="text" path="nom" class="form-control" id="idNom"
+						placeholder="Nom du Voyage" />
+				</div>
+			</div>
 
-		<form:form method="POST" action="soumettreAjoutVoyage" modelAttribute="vForm" enctype="multipart/form-data">
-			
+			<div class="form-group">
+				<label for="reference" class="col-sm-3 control-label">Reference</label>
+				<div class="col-sm-5 ">
+					<form:input type="text" path="reference" class="form-control"
+						id="idReference" placeholder="Reference" />
+				</div>
+			</div>
+
 			<div class="form-group">
 				<label for="compagnieVoyage" class="col-sm-3 control-label">Compagnie
-					Voyage :</label>
+					Voyage</label>
 				<div class="col-sm-5 ">
-					<form:input type="text" path="compagnieVoyage" name="jfsqdfh"  class="form-control"
-						id="idCompagnieVoyage" placeholder="Compagnie Voyage"/>
-				</div>
-			</div>
-			
-			<br/><br/>
-			
-			<div class="form-group">
-				<label for=nom class="col-sm-3 control-label">Nom du voyage :</label>
-				<div class="col-sm-5 ">
-					<form:input type="text" path="nom"  class="form-control"
-						id="idNom" placeholder="Nom du Voyage"/>
+					<form:input type="text" path="compagnieVoyage" name="jfsqdfh"
+						class="form-control" id="idCompagnieVoyage"
+						placeholder="Compagnie Voyage" />
 				</div>
 			</div>
 
-			
-			<br/><br/>
-			
 			<div class="form-group">
-				<label for=continent class="col-sm-3 control-label">Continent :</label>
+				<label for=continent class="col-sm-3 control-label">Continent</label>
 				<div class="col-sm-5 ">
-					<form:input type="text" path="continent"  class="form-control"
-						id="idContinent" placeholder="Continent"/>
+					<form:input type="text" path="continent" class="form-control"
+						id="idContinent" placeholder="Continent" />
 				</div>
 			</div>
-			
-			<br/><br/>
 
 			<div class="form-group">
-				<label for="pays" class="col-sm-3 control-label">Pays :</label>
+				<label for="pays" class="col-sm-3 control-label">Pays</label>
 				<div class="col-sm-5 ">
-					<form:input type="text" path="pays"  class="form-control"
-						id="idPays" placeholder="Pays"/>
+					<form:input type="text" path="pays" class="form-control"
+						id="idPays" placeholder="Pays" />
 				</div>
 			</div>
-			
-			<br/><br/>
-			
+
 			<div class="form-group">
-				<label for="ville" class="col-sm-3 control-label">Ville :</label>
+				<label for="ville" class="col-sm-3 control-label">Ville</label>
 				<div class="col-sm-5 ">
-					<form:input type="text" path="ville"  class="form-control"
-						id="idVille" placeholder="ville"/>
+					<form:input type="text" path="ville" class="form-control"
+						id="idVille" placeholder="ville" />
 				</div>
 			</div>
-			
-			<br/><br/>
-			
+
 			<div class="form-group">
-				<label for="nbPlaces" class="col-sm-3 control-label">Nb Place :</label>
+				<label for="nbPlaces" class="col-sm-3 control-label">Nombre
+					de places disponibles Place</label>
 				<div class="col-sm-5 ">
-					<form:input type="number" path="nbPlaces"  class="form-control"
-						id="nbPlaces" placeholder="nb Places"/>
+					<form:input type="number" path="nbPlaces" class="form-control"
+						id="nbPlaces" placeholder="nb Places" />
 				</div>
 			</div>
-			
-			<br/><br/>
-			
+
+
 			<div class="form-group">
-				<label for="prixPublic" class="col-sm-3 control-label">Prix Initial :</label>
+				<label for="prixPublic" class="col-sm-3 control-label">Prix
+					Initial</label>
 				<div class="col-sm-5 ">
-					<form:input type="number" path="prixPublic"  class="form-control"
-						id="nbPrixPublic" placeholder="Prix Initial "/>
+					<form:input type="number" path="prixPublic" class="form-control"
+						id="nbPrixPublic" placeholder="Prix Initial " />
 				</div>
 			</div>
-			
-			<br/><br/>
-			
+
 			<div class="form-group">
-				<label for="prixRemise" class="col-sm-3 control-label">Prix Remise :</label>
+				<label for="prixRemise" class="col-sm-3 control-label">Remise</label>
 				<div class="col-sm-5 ">
-					<form:input type="number" path="prixRemise"  class="form-control"
-						id="nbPrixRemise" placeholder="Prix Remise "/>
+					<form:input type="number" path="prixRemise" class="form-control"
+						id="nbPrixRemise" placeholder="Prix Remise " />
 				</div>
 			</div>
-			
-			<br/>    <br/>
-			
+
 			<div class="form-group">
 				<form:label path="dateDepart" cssClass="col-sm-2 control-label">Date de Depart</form:label>
 				<div class="col-sm-5">
 					<form:input path="dateDepart" type="date" class="form-control" />
 				</div>
 			</div>
-			
-			<br/><br/>
-			
+
 			<div class="form-group">
-				<form:label path="dateArrivee" cssClass="col-sm-2 control-label">Date de naissance</form:label>
+				<form:label path="dateArrivee" cssClass="col-sm-2 control-label">Date d'arrivée</form:label>
 				<div class="col-sm-5">
 					<form:input path="dateArrivee" type="date" class="form-control" />
 				</div>
 			</div>
-			
-			<br/><br/>
-			
-			<input type="file" name="file">
-			
-			
-			
-			<br />
-			<br />
-			<br />
-			<br />
-			<input type="submit" value="Valider Voyage">
 
+			<input type="file" name="file">
+			<br />
+
+			<input type="submit" class="btn btn-info" value="Créer le Voyage">
 
 		</form:form>
 
 	</div>
 
-
+	<div>
+		<jsp:include page="../../templates/footer.jsp" />
+	</div>
 
 </body>
 </html>
