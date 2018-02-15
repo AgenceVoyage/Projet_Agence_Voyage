@@ -33,6 +33,7 @@ public class ClientServiceImpl implements IClientService {
 
 	@Override
 	public Client addClient(Client c) {
+		c.setClientResa(true);
 		c.setActive(true);
 		c.setRole(new Role(2, "ROLE_CL"));
 		return clientDao.addClient(c);
