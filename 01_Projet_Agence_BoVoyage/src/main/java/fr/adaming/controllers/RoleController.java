@@ -77,16 +77,21 @@ public class RoleController {
 		// Recuperer l'identifiant de l'utilisateur connecté
 		String mail = auth.getName();
 		model.addAttribute("msg", "Bonjour M.Client " + mail + "!" + " Vous etes dans votre espace client.");
+
+		// récupération de la liste de voyages de la BD
+		List<Voyage> listVoyages = voyageService.getAllVoyages();
+
+		// ajout de la liste dans le modele
+		model.addAttribute("voyageList3", listVoyages);
+
 		return "accueilClient";
 	}
-	
-	
 
 	// -----------------Méthode pour supprimer un voyage via un lien dans
 	// l'accueil agent
 	@RequestMapping(value = "/agent/supprimeLienVoyage", method = RequestMethod.GET)
 	public String supprVoyageByLien(@RequestParam("pId") int idVoyage) {
-		//appel de la méthode service
+		// appel de la méthode service
 		voyageService.deleteVoyage(idVoyage);
 		return "redirect:accueilAgent";
 	}
