@@ -15,42 +15,46 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="<c:url value="/resources/boostrap/bootstrap.min.js"/>"></script>
-
+<link rel="stylesheet"
+	href="<c:url value="/resources/css/utilisateur.css"/>" />
 </head>
 <body>
 	<div style="margin-left: 10%; width: 80%">
-
-		<h1 style="text-align: center; color: blue">Espace Agent</h1>
 		<jsp:include page="../../templates/headerAgent.jsp" />
 	</div>
 
 
-	<h1 style="color: red; text-align: center">Liste des Hotels
+	<h1 style="color: Teal; text-align: center">Liste des Hotels
 		référencés</h1>
-	<table class="table table-bordered">
-		<tr>
-			<th>ID</th>
-			<th>Nom de l'hôtel</th>
-			<th>Prix de base</th>
-			<th>Adresse</th>
-			<th>Opérations</th>
-		</tr>
-
-		<c:forEach var="h" items="${hotelListe}">
+	<div style="margin-left: 10%; margin-right: 10%">
+		<table class="table table-bordered fiche"
+			>
 			<tr>
-				<td>${h.id}</td>
-				<td>${h.nomHotel}</td>
-				<td>${h.prix}</td>
-				<td>${h.adresse.numero},${h.adresse.voirie},
-					${h.adresse.codePostal} ${h.adresse.ville}</td>
-				<td><a
-					href="${pageContext.request.contextPath}/hotels/modiflien?pId=${h.id}">Modifier</a>
-					| <a
-					href="${pageContext.request.contextPath}/hotels/suprimlien/${h.id}">Supprimer</a>
-				</td>
+				<th>ID</th>
+				<th>Nom de l'hôtel</th>
+				<th>Prix de base</th>
+				<th>Adresse</th>
+				<th>Opérations</th>
 			</tr>
-		</c:forEach>
-	</table>
 
+			<c:forEach var="h" items="${hotelListe}">
+				<tr>
+					<td>${h.id}</td>
+					<td>${h.nomHotel}</td>
+					<td>${h.prix}</td>
+					<td>${h.adresse.numero},${h.adresse.voirie},
+						${h.adresse.codePostal} ${h.adresse.ville}</td>
+					<td><a
+						href="${pageContext.request.contextPath}/hotels/modiflien?pId=${h.id}">Modifier</a>
+						| <a
+						href="${pageContext.request.contextPath}/hotels/suprimlien/${h.id}">Supprimer</a>
+					</td>
+				</tr>
+			</c:forEach>
+		</table>
+	</div>
+	<div>
+		<jsp:include page="../../templates/footer.jsp" />
+	</div>
 </body>
 </html>
