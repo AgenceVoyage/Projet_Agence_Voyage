@@ -11,17 +11,15 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="<c:url value="/resources/boostrap/bootstrap.min.js"/>"></script>
-
-<title>Insert title here</title>
+<link rel="stylesheet"
+	href="<c:url value="/resources/css/utilisateur.css"/>" />
+<title>Accueil Agent</title>
 
 </head>
 <body>
 	<div>
-
-		<h1 style="text-align: center; color: blue">Espace Agent</h1>
 		<jsp:include page="../../templates/headerAgent.jsp" />
 	</div>
-
 	<h2 style="color: red; text-align: center">Liste des voyages</h2>
 
 	<table class="table table-bordered">
@@ -76,7 +74,7 @@
 						<td>Non renseigne</td>
 					</c:otherwise>
 				</c:choose>
-				
+
 				<c:set var="voiture" value="${v.voiture}" />
 				<c:choose>
 					<c:when test="${not empty voiture}">
@@ -86,8 +84,8 @@
 						<td>Non renseigne</td>
 					</c:otherwise>
 				</c:choose>
-				
-				
+
+
 				<td><a
 					href="${pageContext.request.contextPath}/agent/supprimeLienVoyage?pId=${v.id}">Supprimer</a>
 					| <a
@@ -96,5 +94,9 @@
 		</c:forEach>
 	</table>
 
+
+	<div>
+		<jsp:include page="../../templates/footer.jsp" />
+	</div>
 </body>
 </html>

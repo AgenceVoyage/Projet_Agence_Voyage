@@ -13,7 +13,7 @@
 
 				<li><a
 					href="${pageContext.request.contextPath}/utilisateur/accueil"
-					style="color: Teal; font-style: blod"><img
+					style="color: Teal; font-style: bold"><img
 						src="${pageContext.request.contextPath}/resources/images/agenceLACEME2.png"
 						style="height: 50px" /></a></li>
 
@@ -24,7 +24,7 @@
 					<ul class="dropdown-menu">
 						<li><a
 							href="${pageContext.request.contextPath}/utilisateur/listeVoyageParCont?pContinent=All"
-							style="color: Teal; font-style: blod">Tous les voyages</a></li>
+							style="color: Teal; font-style: bold">Tous les voyages</a></li>
 							 <li role="separator" class="divider" style="color:grey"></li>
 						<li><a
 							href="${pageContext.request.contextPath}/utilisateur/listeVoyageParCont?pContinent=Europe"
