@@ -39,11 +39,11 @@ public class DossierController {
 	 * 
 	 * @return la page allDossier.jsp, la page affichant cette liste
 	 */
-	@RequestMapping(value = "/listeDossier", method = RequestMethod.GET)
+	@RequestMapping(value = "/liste", method = RequestMethod.GET)
 	public ModelAndView afficheListeDossier() {
 		// Recupereration de la liste de la bd
 		List<Dossier> listeDossier = dossierService.getAllDossiers();
-		return new ModelAndView("allDossier", "dossierListe", listeDossier);
+		return new ModelAndView("listeDossier", "dossierListe", listeDossier);
 	}
 
 	/////////// -- Ajout d'un dossier-- /////////////
@@ -68,7 +68,7 @@ public class DossierController {
 		// Appel de la methode service
 		Dossier dOut = dossierService.addDossier(dossier);
 		if (dOut.getId() != 0) {
-			return "redirect:listeDossier";
+			return "redirect:liste";
 		} else {
 			return "redirect:afficheAjoutDossier";
 		}
@@ -98,7 +98,7 @@ public class DossierController {
 		// Appel de la methode service
 		int verif = dossierService.deleteDossier(dossier);
 		if (verif != 0) {
-			return "redirect:listeDossier";
+			return "redirect:liste";
 		} else {
 			return "redirect:afficheSuppDossier";
 		}
@@ -116,7 +116,7 @@ public class DossierController {
 		Dossier d = new Dossier();
 		d.setId(id);
 		dossierService.deleteDossier(d);
-		return "redirect:listeDossier";
+		return "redirect:liste";
 	}
 
 	/////////// -- Modification d'un dossier avec un bouton-- /////////////
@@ -146,6 +146,7 @@ public class DossierController {
 	@RequestMapping(value="/afficheRech", method=RequestMethod.GET)
 	public String afficherRecherche(Model modele){
 		modele.addAttribute("dossierRech", new Dossier());
+		modele.addAttribute("indice", false);
 		return "rechercheDossier";
 	}
 	
@@ -163,6 +164,7 @@ public class DossierController {
 		modele.addAttribute("dossierRech", dOut);
 		if(dOut!= null){
 			modele.addAttribute("dossierRech", dOut);
+			modele.addAttribute("indice", true);
 			return "rechercheDossier";
 		}else{
 			ra.addFlashAttribute("message", "Le dossier recherche n'existe pas!!");
