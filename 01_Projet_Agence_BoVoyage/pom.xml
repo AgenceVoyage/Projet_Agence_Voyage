@@ -94,7 +94,7 @@
 			<version>4.1.9.RELEASE</version>
 		</dependency>
 
-		
+
 
 		<!-- spring-core -->
 		<dependency>
@@ -198,8 +198,8 @@
 			<version>3.2.10.RELEASE</version>
 		</dependency>
 
-	<!-- 5 : Dépendance pour pdf et e-mail -->
-	<!-- commons codec -->
+		<!-- 5 : Dépendance pour pdf et e-mail -->
+		<!-- commons codec -->
 		<dependency>
 			<groupId>commons-codec</groupId>
 			<artifactId>commons-codec</artifactId>
@@ -228,6 +228,13 @@
 			<groupId>javax.mail</groupId>
 			<artifactId>mail</artifactId>
 			<version>1.4.7</version>
+		</dependency>
+
+		<!-- PayPal -->
+		<dependency>
+			<groupId>com.paypal.sdk</groupId>
+			<artifactId>rest-api-sdk</artifactId>
+			<version>LATEST</version>
 		</dependency>
 	</dependencies>
 	<!-- Forcer Maven a compiler avec le compilateur de java8 -->
