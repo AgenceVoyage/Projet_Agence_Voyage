@@ -2,9 +2,6 @@ window.onload = function() {
 	httpGet();
 };
 
-var num = '4';
-var rue = 'Allee Brancas';
-var cp = '44000';
 var result;
 var vlat;
 var lng;
@@ -30,10 +27,6 @@ function httpGet(url, callback) {
 
 function initMap() {
 	// variable de localisation
-	var adaming = {
-		lat : 47.2134338,
-		lng : -1.5616846
-	};
 	var voyage = {
 		lat : vlat,
 		lng : vlng
@@ -46,14 +39,6 @@ function initMap() {
 	var contentString = '<div id="content">'
 			+ '<div id="siteNotice">'
 			+ '</div>'
-			+ '<h1 id="firstHeading" class="firstHeading">Agence LACEME</h1>'
-			+ '<div id="bodyContent">'
-			+ '<img src="assets/resources/images/logoAnanasImmo.png" alt="" style="height:120px"/>'
-			+ '<br/>' + '<br/>' + '<p>24 rue Crebillon</p>'
-			+ '<p>44000 Nantes</p>' + '<p>France</p>' + '</div>' + '</div>';
-	var contentString2 = '<div id="content">'
-			+ '<div id="siteNotice">'
-			+ '</div>'
 			+ '<h1 id="firstHeading" class="firstHeading">'
 			+ ville
 			+ '</h1>'
@@ -64,31 +49,14 @@ function initMap() {
 	var infowindow = new google.maps.InfoWindow({
 		content : contentString
 	});
-	var infowindow2 = new google.maps.InfoWindow({
-		content : contentString2
-	});
 	// ajout du marqueur
 	var marker = new google.maps.Marker({
-		position : adaming,
-		map : map,
-		title : 'Agence'
-	});
-	var markerV = new google.maps.Marker({
 		position : voyage,
 		map : map,
 		title : nom
 	});
 	// clic de l'info bulle
 	marker.addListener('click', function() {
-		if (infowindow2) {
-			infowindow2.close();
-		}
 		infowindow.open(map, marker);
-	});
-	markerV.addListener('click', function() {
-		if (infowindow) {
-			infowindow.close();
-		}
-		infowindow2.open(map, markerV);
 	});
 }
