@@ -33,11 +33,11 @@
      		 </li>
      		 
      		 <li class="dropdown">
-       			 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Voyage (Agent)
+       			 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Mes reservation
        			 <span class="caret"></span></a>
         		<ul class="dropdown-menu">
-         			 <li><a href="${pageContext.request.contextPath}/voyage/ajouter">Ajouter</a></li>
-         			 <li><a href="${pageContext.request.contextPath}/voyage/supprimer">Supprimer</a></li>
+         			 <li><a href="${pageContext.request.contextPath}/voyage/ajouter">Liste de mes dossiers</a></li>
+         			 <li><a href="${pageContext.request.contextPath}/voyage/supprimer">Listes de mes voyages</a></li>
         		</ul>
      		 </li>
      		 
