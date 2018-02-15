@@ -56,16 +56,6 @@
 					href="${pageContext.request.contextPath}/infosAgence?pNum=2"
 					style="color: Teal; font-style: blod">Notre agence</a></li>
 
-				<form class="navbar-form navbar-right inline-form">
-					<div class="form-group">
-						<input type="search" class="input-sm form-control"
-							placeholder="Recherche par pays">
-						<button type="submit" class="btn btn-primary btn-sm">
-							<span class="glyphicon glyphicon-eye-open"></span> Chercher
-						</button>
-					</div>
-				</form>
-
 			</ul>
 		</div>
 	</nav>
