@@ -11,18 +11,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.Transient;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.multipart.MultipartFile;
 
 /**
  * Classe model pour les voyages
@@ -31,26 +28,24 @@ import org.springframework.web.multipart.MultipartFile;
  *
  */
 @Entity
-@Table(name="voyages")
+@Table(name = "voyages")
 public class Voyage implements Serializable {
 
 	/**
 	 * attributs
 	 */
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id_voyage")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_voyage")
 	private int id;
 	private String nom;
 	private String reference;
 
 	@Temporal(TemporalType.DATE)
 	private Date dateDepart;
-	
 
 	@Temporal(TemporalType.DATE)
-	
-	@Lob
+
 	private Date dateArrivee;
 
 	private int nbPlaces;
@@ -62,30 +57,20 @@ public class Voyage implements Serializable {
 	private String ville;
 	private String continent;
 	private String compagnieVoyage;
-	private String prestation; // avion seul ou avion+voiture ou avion+hotel...
-	
-	@OneToMany(mappedBy="voyage", cascade=CascadeType.ALL)
+
+	@OneToMany(mappedBy = "voyage", cascade = CascadeType.ALL)
 	private List<Photo> listePhotos;
-	
+
 	@ManyToOne
-	@JoinColumn(name="voiture_id", referencedColumnName="id_voiture")
+	@JoinColumn(name = "voiture_id", referencedColumnName = "id_voiture")
 	private Voiture voiture;
-	
+
 	@ManyToOne
-	@JoinColumn(name="hotel_id", referencedColumnName="id_hotel")
+	@JoinColumn(name = "hotel_id", referencedColumnName = "id_hotel")
 	private Hotel hotel;
-	
-	@OneToMany(mappedBy="voyage", cascade=CascadeType.ALL)
+
+	@OneToMany(mappedBy = "voyage", cascade = CascadeType.ALL)
 	private List<Dossier> listeDossiers;
-	
-	@Transient
-	private MultipartFile file;
-	@Transient
-	private List<String> imageString;
-	@Transient
-	private int nbPhoto;
-	
-	private byte[] image;
 
 	/**
 	 * constructeurs
@@ -95,8 +80,7 @@ public class Voyage implements Serializable {
 	}
 
 	public Voyage(String nom, String reference, Date dateDepart, Date dateArrivee, int nbPlaces, double prixPublic,
-			double remise, String pays, String ville, String continent,
-			String compagnieVoyage,byte[] image) {
+			double remise, String pays, String ville, String continent, String compagnieVoyage) {
 		super();
 		this.nom = nom;
 		this.reference = reference;
@@ -109,31 +93,10 @@ public class Voyage implements Serializable {
 		this.ville = ville;
 		this.continent = continent;
 		this.compagnieVoyage = compagnieVoyage;
-		this.image=image;
-
-	}
-	
-	public Voyage(String nom, String reference, Date dateDepart, Date dateArrivee, int nbPlaces, double prixPublic,
-			double remise, String pays, String ville, String continent,
-			String compagnieVoyage) {
-		super();
-		this.nom = nom;
-		this.reference = reference;
-		this.dateDepart = dateDepart;
-		this.dateArrivee = dateArrivee;
-		this.nbPlaces = nbPlaces;
-		this.prixPublic = prixPublic;
-		this.remise = remise;
-		this.pays = pays;
-		this.ville = ville;
-		this.continent = continent;
-		this.compagnieVoyage = compagnieVoyage;
-
 	}
 
 	public Voyage(int id, String nom, String reference, Date dateDepart, Date dateArrivee, int nbPlaces,
-			double prixPublic, double remise, String pays, String ville,
-			String continent, String compagnieVoyage,byte[] image) {
+			double prixPublic, double remise, String pays, String ville, String continent, String compagnieVoyage) {
 		super();
 		this.id = id;
 		this.nom = nom;
@@ -147,11 +110,7 @@ public class Voyage implements Serializable {
 		this.ville = ville;
 		this.continent = continent;
 		this.compagnieVoyage = compagnieVoyage;
-		this.image=image;
-	
 	}
-	
-	
 
 	/**
 	 * getters et setters
@@ -189,7 +148,7 @@ public class Voyage implements Serializable {
 	public void setDateDepart(Date dateDepart) {
 		this.dateDepart = dateDepart;
 	}
-	
+
 	public Date getDateArrivee() {
 		return dateArrivee;
 	}
@@ -197,7 +156,6 @@ public class Voyage implements Serializable {
 	public void setDateArrivee(Date dateArrivee) {
 		this.dateArrivee = dateArrivee;
 	}
-	
 
 	public int getNbPlaces() {
 		return nbPlaces;
@@ -271,14 +229,6 @@ public class Voyage implements Serializable {
 		this.compagnieVoyage = compagnieVoyage;
 	}
 
-	public String getPrestation() {
-		return prestation;
-	}
-
-	public void setPrestation(String prestation) {
-		this.prestation = prestation;
-	}
-
 	public List<Photo> getListePhotos() {
 		return listePhotos;
 	}
@@ -310,39 +260,5 @@ public class Voyage implements Serializable {
 	public void setListeDossiers(List<Dossier> listeDossiers) {
 		this.listeDossiers = listeDossiers;
 	}
-
-	public MultipartFile getFile() {
-		return file;
-	}
-
-	public void setFile(MultipartFile file) {
-		this.file = file;
-	}
-
-	public List<String> getImageString() {
-		return imageString;
-	}
-
-	public void setImageString(List<String> imageString) {
-		this.imageString = imageString;
-	}
-
-	public byte[] getImage() {
-		return image;
-	}
-
-	public void setImage(byte[] image) {
-		this.image = image;
-	}
-
-	public int getNbPhoto() {
-		return nbPhoto;
-	}
-
-	public void setNbPhoto(int nbPhoto) {
-		this.nbPhoto = nbPhoto;
-	}
-	
-	
 
 }

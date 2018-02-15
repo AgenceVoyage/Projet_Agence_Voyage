@@ -65,7 +65,6 @@ public class HotelController {
 	public String soumettreAjoutHotel(ModelMap modele, TempB temp) {
 
 		Hotel v = new Hotel();
-		v.setNomFormule(temp.getNomFormule());
 		v.setAdresse(temp.getAdresse());
 		v.setPrix(temp.getPrix());
 		v.setNomHotel(temp.getNomHotel());
