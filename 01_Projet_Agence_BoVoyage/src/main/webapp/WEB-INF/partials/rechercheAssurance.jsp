@@ -8,24 +8,26 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-
 <link rel="stylesheet"
 	href="<c:url value="/resources/boostrap/bootstrap.min.css"/>" />
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="<c:url value="/resources/boostrap/bootstrap.min.js"/>"></script>
+<link rel="stylesheet"
+	href="<c:url value="/resources/css/utilisateur.css"/>" />
 
 <title>Insert title here</title>
 
 </head>
 <body>
-	<div style="margin-left: 10%; width: 80%">
 
-		<h1 style="text-align: center; color: blue">Espace Agent</h1>
-		<jsp:include page="../../templates/headerAgent.jsp" />
-	</div>
 
-	<h1 style="color: red; text-align: center">Formulaire de recherche</h1>
+
+	<jsp:include page="../../templates/headerAgent.jsp" />
+
+
+	<h1 style="color: Teal; text-align: center">Formulaire de
+		recherche</h1>
 
 	<form:form method="POST" action="soumettreRecherche"
 		modelAttribute="assuranceRecherche" cssClass="form-horizontal">
@@ -44,26 +46,28 @@
 	</form:form>
 
 	<c:if test="${indice==true}">
-			<h1 style="color: red; text-align: center">Assurance recherchée</h1>
-	<table class="table table-bordered">
-		<tr>
-			<th>ID</th>
-			<th>Type d'assurance</th>
-			<th>Prix de l'assurance</th>
-			<th>Opérations</th>
-		</tr>
+		<h1 style="color: teal; text-align: center">Assurance recherchée</h1>
+		<div style="margin-left: 10%; margin-right: 10%">
+			<table class="table table-bordered fiche">
+				<tr>
+					<th>ID</th>
+					<th>Type d'assurance</th>
+					<th>Prix de l'assurance</th>
+					<th>Opérations</th>
+				</tr>
 
-			<tr>
-				<td>${assuranceRecherche.id}</td>
-				<td>${assuranceRecherche.type}</td>
-				<td>${assuranceRecherche.prix}</td>
-				<td><a
-					href="${pageContext.request.contextPath}/assurances/modiflien?pId=${assuranceRecherche.id}">Modifier</a>
-					| <a
-					href="${pageContext.request.contextPath}/assurances/suprimlien/${assuranceRecherche.id}">Supprimer</a>
-				</td>
-			</tr>
-	</table>
+				<tr>
+					<td>${assuranceRecherche.id}</td>
+					<td>${assuranceRecherche.type}</td>
+					<td>${assuranceRecherche.prix}</td>
+					<td><a
+						href="${pageContext.request.contextPath}/assurances/modiflien?pId=${assuranceRecherche.id}">Modifier</a>
+						| <a
+						href="${pageContext.request.contextPath}/assurances/suprimlien/${assuranceRecherche.id}">Supprimer</a>
+					</td>
+				</tr>
+			</table>
+		</div>
 	</c:if>
 	<c:if test="${indice==false}">
 		<h1 style="color: red; text-align: center">L'assurance recherchée

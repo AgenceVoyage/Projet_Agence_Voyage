@@ -15,19 +15,20 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="<c:url value="/resources/boostrap/bootstrap.min.js"/>"></script>
+<link rel="stylesheet"
+	href="<c:url value="/resources/css/utilisateur.css"/>" />
 
 <title>Insert title here</title>
 
 </head>
 <body>
-	<div style="margin-left: 10%; width: 80%">
 
-		<h1 style="text-align: center; color: blue">Espace Agent</h1>
-		<jsp:include page="../../templates/headerAgent.jsp" />
-	</div>
+	<jsp:include page="../../templates/headerAgent.jsp" />
 
 
-	<h1 style="color: red; text-align: center">Formulaire de recherche</h1>
+
+	<h1 style="color: Teal; text-align: center">Formulaire de
+		recherche</h1>
 
 	<form:form method="POST" action="soumettreRecherche"
 		modelAttribute="voitureRecherche" cssClass="form-horizontal">
@@ -46,29 +47,31 @@
 	</form:form>
 
 	<c:if test="${indice==true}">
-			<h1 style="color: red; text-align: center">Voiture recherchée</h1>
-	<table class="table table-bordered">
-		<tr>
-			<th>ID</th>
-			<th>Catégorie</th>
-			<th>Loueur</th>
-			<th>Prix</th>
-			<th>Opérations</th>
-		</tr>
+		<h1 style="color: Teal; text-align: center">Voiture recherchée</h1>
+		<div style="margin-left: 10%; margin-right: 10%">
+			<table class="table table-bordered fiche">
+				<tr>
+					<th>ID</th>
+					<th>Catégorie</th>
+					<th>Loueur</th>
+					<th>Prix</th>
+					<th>Opérations</th>
+				</tr>
 
 
-			<tr>
-				<td>${voitureRecherche.id}</td>
-				<td>${voitureRecherche.categorie}</td>
-				<td>${voitureRecherche.loueur}</td>
-				<td>${voitureRecherche.prix}</td>
-				<td><a
-					href="${pageContext.request.contextPath}/voitures/modiflien?pId=${voitureRecherche.id}">Modifier</a>
-					| <a
-					href="${pageContext.request.contextPath}/voitures/suprimlien/${voitureRecherche.id}">Supprimer</a>
-				</td>
-			</tr>
-	</table>
+				<tr>
+					<td>${voitureRecherche.id}</td>
+					<td>${voitureRecherche.categorie}</td>
+					<td>${voitureRecherche.loueur}</td>
+					<td>${voitureRecherche.prix}</td>
+					<td><a
+						href="${pageContext.request.contextPath}/voitures/modiflien?pId=${voitureRecherche.id}">Modifier</a>
+						| <a
+						href="${pageContext.request.contextPath}/voitures/suprimlien/${voitureRecherche.id}">Supprimer</a>
+					</td>
+				</tr>
+			</table>
+		</div>
 	</c:if>
 	<c:if test="${indice==false}">
 		<h1 style="color: red; text-align: center">La voiture recherchée

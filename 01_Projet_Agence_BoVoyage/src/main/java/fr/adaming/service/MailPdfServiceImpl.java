@@ -212,7 +212,7 @@ public class MailPdfServiceImpl implements IMailPdfService {
 			// Creation du mail avec piece jointe
 			MultiPartEmail email = new MultiPartEmail();
 			email.setHostName("smtp.googlemail.com");
-			email.setSmtpPort(25);
+			email.setSmtpPort(587);
 			// Parametrage du compte
 			email.setAuthenticator(new DefaultAuthenticator("lacemevoyage@gmail.com", "adaming44"));
 			email.setSSLOnConnect(true);
@@ -331,6 +331,8 @@ public class MailPdfServiceImpl implements IMailPdfService {
 		Properties props = System.getProperties();
 		props.put("mail.smtps.host", "smtp.gmail.com");
 		props.put("mail.smtps.auth", "true");
+		props.put("mail.smtp.starttls.enable", "true");
+		props.put("mail.smtp.port", "587");
 		Session session = Session.getInstance(props, null);
 		Message msg = new MimeMessage(session);
 		try {
