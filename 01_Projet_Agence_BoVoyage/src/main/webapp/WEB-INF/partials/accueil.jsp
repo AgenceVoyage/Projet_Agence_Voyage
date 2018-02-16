@@ -82,7 +82,7 @@
 						</div>
 
 						<a
-							href="${pageContext.request.contextPath}/utilisateur/detailVoyage?pId=${v.id}">Voir
+							href="${pageContext.request.contextPath}/detailVoyage?pId=${v.id}">Voir
 							le détail</a>
 					</div>
 				</div>
