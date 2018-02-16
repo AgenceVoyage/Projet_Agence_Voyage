@@ -24,14 +24,12 @@
 <body>
 
 
-	<div style="margin-left: 12%; margin-right: 12%">
 
-		
 		<jsp:include page="../../templates/headerAgent.jsp" />
-	</div>
 
 
 	<h1 style="color: Teal; text-align: center">Liste des Voitures</h1>
+	<div style="margin-left: 10%; margin-right: 10%">
 	<table class="table table-bordered fiche">
 		<tr>
 			<th>ID</th>
@@ -55,6 +53,10 @@
 			</tr>
 		</c:forEach>
 	</table>
-
+	</div>
+	
+	<div>
+		<jsp:include page="../../templates/footer.jsp" />
+	</div>
 </body>
 </html>

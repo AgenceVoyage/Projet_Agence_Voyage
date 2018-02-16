@@ -18,6 +18,10 @@
 
 <link rel="stylesheet"
 	href="<c:url value="/resources/css/utilisateur.css"/>" />
+
+
+<script type="text/javascript"
+	src="<c:url value="/resources/js/slider.js"/>"></script>
 </head>
 <body>
 	<div style="margin-left: 12%; margin-right: 12%;">
@@ -31,12 +35,43 @@
 		</div>
 
 
-		<div class="form-group" style="margin-left: 23%">
+		<div class="form-group" style="margin-left: 15%">
 			<c:forEach var="v" items="${voyageList}">
-				<div class="col-sm-3">
-					<div class="thumbnail fiche">
-						<img src="..." alt="...">
+				<div class="col-sm-4 col-sm-offset-1" style="border-style: solid;border-width:1px;border-color:grey;background-color:rgba(215,215,215,0.8);width:350px;height:400px">
+					<div >
+						<%
+							int i = 0;
+						%>
+						<%
+							String display = "none";
+						%>
 
+						<div>${v.nbPhoto}</div>
+						<div style="height:200px">
+						<c:forEach begin="0" end="${v.nbPhoto}" varStatus="loop">
+							<c:if test="${loop.index < v.nbPhoto}">
+								<%
+										 display = "block";
+									%>
+								<c:if test="${loop.index > 0}">
+									<%
+										 display = "none";
+									%>
+								</c:if>
+								<img class="voyage_${v.id}"
+									src="${pageContext.request.contextPath}/utilisateur/accueilPhoto?idV=${v.id}&idP=${loop.index}"
+									width="300px" height="auto" style="display:<%=display %>" />
+
+							</c:if>
+
+						</c:forEach>
+						</div>
+						<c:if test="${v.nbPhoto >1 }">
+							<button class="w3-button w3-display-left"
+								onclick="plusDivs(-1,${v.id})">&#10094;</button>
+							<button style="margin-left:82%" class="w3-button w3-display-right"
+								onclick="plusDivs(+1,${v.id})">&#10095;</button>
+						</c:if>
 						<div class="caption">
 							<h3 class="fichetitle">${v.nom}</h3>
 							<p>

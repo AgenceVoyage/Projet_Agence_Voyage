@@ -13,6 +13,8 @@ import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.context.annotation.Scope;
 import org.springframework.expression.ParseException;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -27,9 +29,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-
+import fr.adaming.model.Client;
 import fr.adaming.model.Photo;
 import fr.adaming.model.Voyage;
+import fr.adaming.service.IClientService;
 import fr.adaming.service.IPhotoService;
 import fr.adaming.service.IVoyageService;
 
@@ -41,6 +44,8 @@ public class VoyageController {
 	IVoyageService voyageService;
 	@Autowired
 	IPhotoService photoService;
+	@Autowired
+	private IClientService clientService;
 
 	private Voyage voyage;
 
@@ -59,11 +64,12 @@ public class VoyageController {
 	@RequestMapping(value = "/voyage/ajouter")
 	public ModelAndView afficheForm() {
 		Voyage v = new Voyage();
-		v.setCompagnieVoyage("TEST");
-		/*v.setFile(null);
-		model.addAttribute("vForm", v); // ajouter model Voyage*/
-		//return "ajoutVoyage";
-		return new ModelAndView("ajoutVoyage","vForm",v);
+		/*
+		 * v.setFile(null); model.addAttribute("vForm", v); // ajouter model
+		 * Voyage
+		 */
+		// return "ajoutVoyage";
+		return new ModelAndView("ajoutVoyage", "vForm", v);
 	}
 
 	// @RequestParam("from") Date fromDate
@@ -72,17 +78,16 @@ public class VoyageController {
 		System.out.println("Ajout Voyage:" + v.getCompagnieVoyage());
 
 		voyage = v;
-		List<Photo> list_p=new ArrayList<Photo>();
-		Photo p=new Photo();
+		List<Photo> list_p = new ArrayList<Photo>();
+		Photo p = new Photo();
 		v.setImage(v.getFile().getBytes());
 		p.setPicture(v.getFile().getBytes());
 		list_p.add(p);
-		//v.setListePhotos(list_p);
+		// v.setListePhotos(list_p);
 		voyageService.addVoyage(v);
 		photoService.addPhoto(p, v);
 		return "accueil";
 	}
-	
 
 	// ***********************************************************************************************************************
 	// ******************** AJOUTER PHOTO
@@ -113,33 +118,36 @@ public class VoyageController {
 			return "modificationVoyageAgent";
 		}
 	}
-	
 
 	// ***********************************************************************************************************************
 	// ******************** Affiche Map
 
 	// ***********************************************************************************************************************
-	
+
 	@RequestMapping(value = "/voyage/afficheMap", method = RequestMethod.GET)
 	public String afficheMap() {
 
-			return "VoyageMapTest";
+		return "VoyageMapTest";
 
 	}
-	
 
-	@RequestMapping(value = "/utilisateur/listeVoyageParCont", method = RequestMethod.GET)
-	public String afficheListeVoyageCont(ModelMap model, @RequestParam("pContinent") String cont) {
+	@RequestMapping(value = "/listeVoyageParCont", method = RequestMethod.GET)
+	public String afficheListeVoyageCont(ModelMap model, @RequestParam("pContinent") String cont,
+			@RequestParam("pNum") int numRole) {
 		List<Voyage> listeVoyages = voyageService.getAllVoyages();
 		List<Voyage> listeVoyParCont = new ArrayList<>();
-		
+
 		for (Voyage voyage : listeVoyages) {
-			
+
 			if (voyage.getContinent().equals(cont)) {
+				listeVoyParCont.add(voyage);
+			}
+			if (cont.equals("All")) {
 				listeVoyParCont.add(voyage);
 			}
 		}
 		model.addAttribute("voyageListCont", listeVoyParCont);
+		model.addAttribute("role", numRole);
 		return "listeVoyParCont";
 	}
 
