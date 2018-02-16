@@ -25,20 +25,21 @@
 </script>
 <script src="<c:url value="/resources/js/googleMap.js"/>"></script>
 <title>Page de details d'un voyage</title>
+<link rel="stylesheet"
+	href="<c:url value="/resources/css/utilisateur.css"/>" />
 </head>
 <body>
 
-	<div style="margin-left: 10%; width: 80%">
+
 		<jsp:include page="../../templates/headerUtilisateur.jsp" />
-	</div>
 
 	<div class="row">
-		<div class="col-sm-12">
-			<div class="thumbnail">
+		<div class="col-sm-12"style="margin-left: 10%;margin-right: 10%; width: 80%">
+			<div class="thumbnail" style="background-color:#d6caa9">
 				<img src="..." alt="...">
 				<div class="caption">
-					<h3 style="text-align: center">${voyageDetail.nom}</h3>
-					<table class="table table-bordered">
+					<h3 style="text-align: center;color:Teal" ><b>${voyageDetail.nom}</b></h3>
+					<table class="table table-bordered fiche">
 						<tr>
 							<th>Reference</th>
 							<th>Date de depart</th>
