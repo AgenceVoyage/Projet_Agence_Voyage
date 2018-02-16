@@ -19,6 +19,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import fr.adaming.model.Client;
 import fr.adaming.model.Dossier;
 import fr.adaming.model.Voyage;
+import fr.adaming.model.Voyageur;
 import fr.adaming.service.IClientService;
 import fr.adaming.service.IDossierService;
 import fr.adaming.service.IVoyageService;
@@ -89,9 +90,10 @@ public class DossierController {
 	 * Methode pour afficher le formulaire d'ajout d'un dossier
 	 * 
 	 * @return la page ajoutDossier.jsp ou est présent le formulaire
+	 * @throws Exception 
 	 */
 	@RequestMapping(value = "/client/afficheAjoutDossier", method = RequestMethod.GET)
-	public String afficheAjout(Model model, @RequestParam("pId") int idVoyage) {
+	public String afficheAjout(Model model, @RequestParam("pId") int idVoyage) throws Exception {
 		System.out.println("coucou je suis là");
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String mail = auth.getName();
@@ -108,6 +110,13 @@ public class DossierController {
 		dossier.setVoyage(voyage);
 		
 		dossierService.addDossier(dossier);
+		int idClientResa = 0;
+		for (Voyageur voyageur : dossier.getListeClients()) {
+			if (voyageur.isClientResa()) {
+				idClientResa = voyageur.getId();
+			}
+		}
+		dossierService.confirmAddDossier(dossier, clientService.getClientById(idClientResa).getMail());
 
 		model.addAttribute("dossierAjout", dossier);
 
