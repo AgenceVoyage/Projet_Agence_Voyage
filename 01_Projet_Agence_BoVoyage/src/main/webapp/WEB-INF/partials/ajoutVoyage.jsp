@@ -106,7 +106,7 @@
 			<div class="form-group">
 				<label for="prixRemise" class="col-sm-3 control-label">Remise</label>
 				<div class="col-sm-5 ">
-					<form:input type="number" path="prixRemise" class="form-control"
+					<form:input type="number" path="remise" class="form-control"
 						id="nbPrixRemise" placeholder="Prix Remise " />
 				</div>
 			</div>
