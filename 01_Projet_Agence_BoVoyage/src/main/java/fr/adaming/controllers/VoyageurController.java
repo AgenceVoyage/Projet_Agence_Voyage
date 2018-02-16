@@ -2,6 +2,7 @@ package fr.adaming.controllers;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import fr.adaming.model.Client;
+import fr.adaming.model.Dossier;
 import fr.adaming.model.Voyageur;
 import fr.adaming.service.IDossierService;
 import fr.adaming.service.IVoyageurService;
@@ -70,13 +73,22 @@ public class VoyageurController {
 	@RequestMapping(value = "/soumettreFormAjoutVoyageur", method = RequestMethod.POST)
 	public String soumettreAjouterVoyageur(Model model, @ModelAttribute("vForm") Voyageur voyageur) {
 		voyageur.setClientResa(false);
+		
 		Voyageur vOut=voyageurService.addVoyageur(voyageur);
+		
+		Dossier dOut = dossierService.recupDernierDossier();
+		
+		List<Client> listClient = dOut.getListeClients();
+		listClient.add(vOut);
+		
 		if (vOut.getId() != 0) {
 			return "redirect:formAjouter";
 		} else
 			return "redirect:formAjouter";
 	}
 
+	
+	
 	// ***********************************************************************************************************************
 
 }
