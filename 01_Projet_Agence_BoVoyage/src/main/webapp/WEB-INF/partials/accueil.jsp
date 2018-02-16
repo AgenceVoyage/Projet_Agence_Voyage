@@ -36,10 +36,10 @@
 		</div>
 
 
-		<div class="form-group" style="margin-left: 15%">
+		<div class="form-group" style="margin-left: 5%">
 			<c:forEach var="v" items="${voyageList}">
 				<div class="col-sm-4 col-sm-offset-1"
-					style="width: 350px; height: 400px">
+					style="width: 420px; height: 440px">
 					<div
 						style="border-style: solid; border-width: 1px; border-color: grey; background-color: rgba(215, 215, 215, 0.8)">
 						<%
@@ -49,8 +49,9 @@
 							String display = "none";
 						%>
 
-						<div>${v.nbPhoto}</div>
-						<div style="height: 200px">
+	
+						<div style="height: 250px">
+	
 							<c:forEach begin="0" end="${v.nbPhoto}" varStatus="loop">
 								<c:if test="${loop.index < v.nbPhoto}">
 									<%
@@ -63,18 +64,20 @@
 									</c:if>
 									<img class="voyage_${v.id}"
 										src="${pageContext.request.contextPath}/utilisateur/accueilPhoto?idV=${v.id}&idP=${loop.index}"
-										width="300px" height="auto" style="display:<%=display %>" />
+										width="100%" height="auto" style="position:relative;text-align:center;max-height:250px;display:<%=display %>" />
 
 								</c:if>
 
 							</c:forEach>
 						</div>
 						<c:if test="${v.nbPhoto >1 }">
+						 <div style="position:relative;bottom:80px">
 							<button class="w3-button w3-display-left"
-								onclick="plusDivs(-1,${v.id})">&#10094;</button>
-							<button style="margin-left: 82%"
+								onclick="plusDivs(-1,${v.id})" style="position:relative;right:10px;width:30px;height:30px">&#10094;</button>
+							<button style="position:relative;left:340px;right:10px;width:30px;height:30px"
 								class="w3-button w3-display-right"
 								onclick="plusDivs(+1,${v.id})">&#10095;</button>
+							</div>
 						</c:if>
 						<div class="caption">
 							<h3 class="fichetitle">${v.nom}</h3>

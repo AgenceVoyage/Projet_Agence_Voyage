@@ -13,6 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import org.springframework.web.multipart.MultipartFile;
+
 /**
  * Classe model pour attribuer des photos à un voyage
  * @author Adaming44
@@ -34,6 +36,9 @@ public class Photo implements Serializable{
 	private byte[] picture;
 	
 	private String image;
+	
+	@Transient
+	private MultipartFile file;
 	
 	@ManyToOne
 	@JoinColumn(name="voyage_id", referencedColumnName="id_voyage")
@@ -94,5 +99,15 @@ public class Photo implements Serializable{
 	public void setVoyage(Voyage voyage) {
 		this.voyage = voyage;
 	}
+
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
+	
+	
 
 }
