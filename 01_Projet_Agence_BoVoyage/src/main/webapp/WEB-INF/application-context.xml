@@ -28,7 +28,6 @@
 		<property name="password" value="${jdbc.mdp}" />
 	</bean>
 
-
 	<!-- JPA -->
 
 	<tx:annotation-driven />
@@ -71,6 +70,7 @@
 	<tx:annotation-driven transaction-manager="transactionManager" />
 	
 	 
+
 
 
 </beans>
