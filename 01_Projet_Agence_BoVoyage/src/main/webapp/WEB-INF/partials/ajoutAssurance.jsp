@@ -22,7 +22,7 @@
 
 		<jsp:include page="../../templates/headerAgent.jsp" />
 
-	<h1 style="color: Teal; margin-left: 32%">Votre reservation a bien ete prise en compte. Un mail recapitulatif vient de vous etre envoye ! </h1>
+	
 
 	
 	<div>
