@@ -39,7 +39,7 @@ public class Assurance implements Serializable {
 	/**
 	 * Convertir les associations uml en java
 	 */
-	@ManyToMany(mappedBy="listeAssurances", fetch=FetchType.EAGER) 
+	@ManyToMany(mappedBy="listeAssurances") 
 	private List<Dossier> listeDossiers;
 	
 	public List<Dossier> getListeDossiers() {
