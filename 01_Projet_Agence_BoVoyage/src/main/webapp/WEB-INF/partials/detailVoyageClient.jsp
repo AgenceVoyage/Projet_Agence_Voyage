@@ -23,21 +23,26 @@
 	
 </script>
 <script src="<c:url value="/resources/js/googleMap.js"/>"></script>
+<link rel="stylesheet"
+	href="<c:url value="/resources/css/utilisateur.css"/>" />
 <title>Page de details d'un voyage</title>
 </head>
 <body>
 
-	<div style="margin-left: 10%; width: 80%">
-		<jsp:include page="../../templates/headerClient.jsp" />
-	</div>
+
+
+	<jsp:include page="../../templates/headerUtilisateur.jsp" />
 
 	<div class="row">
-		<div class="col-sm-12">
-			<div class="thumbnail">
+		<div class="col-sm-12"
+			style="margin-left: 10%; margin-right: 10%; width: 80%">
+			<div class="thumbnail" style="background-color: #d6caa9">
 				<img src="..." alt="...">
 				<div class="caption">
-					<h3 style="text-align: center">${voyageDetail.nom}</h3>
-					<table class="table table-bordered">
+					<h3 style="text-align: center; color: Teal">
+						<b>${voyageDetail.nom}</b>
+					</h3>
+					<table class="table table-bordered fiche">
 						<tr>
 							<th>Reference</th>
 							<th>Date de depart</th>
@@ -87,7 +92,9 @@
 
 					<div class="form-group">
 						<div class="col-sm-offset-2 col-sm-5">
-							<a href="${pageContext.request.contextPath}/client/afficheAjoutDossier?pId=${voyageDetail.id}"><input type="button" value="Reserver ce voyage" /></a>
+							<a
+								href="${pageContext.request.contextPath}/client/afficheAjoutDossier?pId=${voyageDetail.id}"><input
+								type="button" value="Reserver ce voyage" /></a>
 						</div>
 					</div>
 				</div>
@@ -104,5 +111,9 @@
 		console.log(pays);
 		var nom = '${voyageDetail.nom}';
 	</script>
+
+	<div>
+		<jsp:include page="../../templates/footer.jsp" />
+	</div>
 </body>
 </html>

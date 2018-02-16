@@ -17,9 +17,7 @@
 <title>Page d'accueil de l'espace client</title>
 </head>
 <body>
-	<div style="margin-left: 12%; margin-right: 12%;">
 		<jsp:include page="../../templates/headerClient.jsp" />
-	</div>
 
 	<div style="margin-left: 10%; width: 80%">
 

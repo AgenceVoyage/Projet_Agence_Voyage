@@ -31,14 +31,17 @@
 <body>
 
 
-		<jsp:include page="../../templates/headerUtilisateur.jsp" />
+	<jsp:include page="../../templates/headerUtilisateur.jsp" />
 
 	<div class="row">
-		<div class="col-sm-12"style="margin-left: 10%;margin-right: 10%; width: 80%">
-			<div class="thumbnail" style="background-color:#d6caa9">
+		<div class="col-sm-12"
+			style="margin-left: 10%; margin-right: 10%; width: 80%">
+			<div class="thumbnail" style="background-color: #d6caa9">
 				<img src="..." alt="...">
 				<div class="caption">
-					<h3 style="text-align: center;color:Teal" ><b>${voyageDetail.nom}</b></h3>
+					<h3 style="text-align: center; color: Teal">
+						<b>${voyageDetail.nom}</b>
+					</h3>
 					<table class="table table-bordered fiche">
 						<tr>
 							<th>Reference</th>
