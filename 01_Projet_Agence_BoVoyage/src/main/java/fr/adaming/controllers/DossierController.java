@@ -120,7 +120,7 @@ public class DossierController {
 		
 		Dossier dOut = dossierService.updateDossier(dossier);
 		if (dOut.getId() != 0) {
-			return "question";
+			return "redirect:formAjouter";
 		} else {
 			return "redirect:afficheAjoutDossier";
 		}
