@@ -13,6 +13,8 @@ import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.context.annotation.Scope;
 import org.springframework.expression.ParseException;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -27,8 +29,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import fr.adaming.model.Client;
 import fr.adaming.model.Photo;
 import fr.adaming.model.Voyage;
+import fr.adaming.service.IClientService;
 import fr.adaming.service.IPhotoService;
 import fr.adaming.service.IVoyageService;
 
@@ -40,6 +44,8 @@ public class VoyageController {
 	IVoyageService voyageService;
 	@Autowired
 	IPhotoService photoService;
+	@Autowired
+	private IClientService clientService;
 
 	private Voyage voyage;
 
@@ -142,5 +148,7 @@ public class VoyageController {
 		model.addAttribute("voyageListCont", listeVoyParCont);
 		return "listeVoyParCont";
 	}
+	
+	
 
 }

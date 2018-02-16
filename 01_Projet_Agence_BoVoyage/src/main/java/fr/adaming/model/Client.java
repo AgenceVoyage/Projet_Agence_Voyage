@@ -6,12 +6,16 @@ import java.util.List;
 
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 /**
  * Classe model pour les clients
@@ -41,7 +45,8 @@ public class Client extends Voyageur implements Serializable {
 	@JoinColumn(name = "role_id", referencedColumnName = "id_role")
 	private Role role;
 
-	@ManyToMany(mappedBy = "listeClients")
+
+	@ManyToMany(mappedBy = "listeClients",fetch = FetchType.EAGER)
 	private List<Dossier> listeDossiers;
 
 	/**

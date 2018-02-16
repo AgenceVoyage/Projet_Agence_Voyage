@@ -46,15 +46,15 @@
 						class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a
-							href="${pageContext.request.contextPath}/voyage/ajouter" style="color: Teal; font-style: blod">Liste
+							href="${pageContext.request.contextPath}/client/listeDossier" style="color: Teal; font-style: blod">Liste
 								de mes dossiers</a></li>
 						<li><a
-							href="${pageContext.request.contextPath}/voyage/supprimer" style="color: Teal; font-style: blod">Listes
+							href="${pageContext.request.contextPath}/client/listeVoyage" style="color: Teal; font-style: blod">Listes
 								de mes voyages</a></li>
 					</ul></li>
 
 				<li><a
-					href="${pageContext.request.contextPath}/client/afficheModif" style="color: Teal; font-style: blod">Mes
+					href="${pageContext.request.contextPath}/client/afficheModifClient" style="color: Teal; font-style: blod">Mes
 						infos</a></li>
 
 
