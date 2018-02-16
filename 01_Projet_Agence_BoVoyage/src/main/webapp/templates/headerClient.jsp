@@ -48,7 +48,7 @@
 					<li class="dropdown"><a class="dropdown-toggle"
 						data-toggle="dropdown" href="#"
 						style="color: Teal; font-style: blod">Mes reservations<span
-							class="caret"></span></a>
+							class="caret"></span></a> 
 						<ul class="dropdown-menu">
 							<li><a
 								href="${pageContext.request.contextPath}/client/listeDossier"
