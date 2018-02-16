@@ -64,6 +64,11 @@
 				</div>
 			</div>
 
+			<div>
+				<c:if test="${not empty msg}">${msg}
+				</c:if>
+			</div>
+
 			<div class="form-group" style="margin-left: 15%">
 				<div class="col-sm-offset-2 col-sm-10">
 					<input type="submit" class="btn btn-info" value="Valider" />
@@ -75,8 +80,7 @@
 
 	<div class="form-group">
 		<div class="col-sm-offset-2 col-sm-5">
-			<a
-				href="${pageContext.request.contextPath}/client/pageChoixAss"><input
+			<a href="${pageContext.request.contextPath}/client/pageChoixAss"><input
 				type="button" value="Valider reservation" /></a>
 		</div>
 	</div>

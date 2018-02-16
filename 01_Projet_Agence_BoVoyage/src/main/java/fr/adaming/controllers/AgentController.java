@@ -80,6 +80,7 @@ public class AgentController {
 			model.addAttribute("indice", true);
 			return "rechercheClient";
 		} else {
+			model.addAttribute("msg", "Le client recherché n'existe pas");
 			return "redirect:afficheRecherche";
 		}
 	}

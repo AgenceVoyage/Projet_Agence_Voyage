@@ -33,7 +33,7 @@
 	<jsp:include page="../../templates/headerClient.jsp" />
 
 	<h1 style="color: Teal; margin-left: 20%">Formulaire de
-				reservation du voyage ${dossierAjout.voyage.nom}</h1>
+		reservation du voyage ${dossierAjout.voyage.nom}</h1>
 	<br />
 
 	<div style="margin-left: 32%">
@@ -49,7 +49,10 @@
 			</div>
 
 			<div class="form-group">
-				<form:label path="prestation" class="col-sm-2 control-label" style="color:Teal"><b>Prestation </b></form:label>
+				<form:label path="prestation" class="col-sm-2 control-label"
+					style="color:Teal">
+					<b>Prestation </b>
+				</form:label>
 				<form:select path="prestation" onchange="affiche()" id="idPrest">
 					<form:option value="avion">
 						<c:out value="Avion"></c:out>
@@ -77,7 +80,8 @@
 
 			<div class="cacher" id="hotel">
 				<div class="form-group">
-					<form:label path="nomFormule" class="col-sm-2 control-label" style="color:Teal">Formule de l'hotel </form:label>
+					<form:label path="nomFormule" class="col-sm-2 control-label"
+						style="color:Teal">Formule de l'hotel </form:label>
 					<form:select path="nomFormule" onchange="affiche2()" id="idFormule">
 						<form:option value="hebergement seul">
 							<c:out value="Hebergement seul"></c:out>
@@ -135,6 +139,11 @@
 				euros</div>
 
 
+			<div>
+				<c:if test="${not empty msg}">${msg}
+				</c:if>
+			</div>
+
 			<div class="form-group" style="margin-left: 12%">
 				<div class="col-sm-offset-2 col-sm-10">
 					<input type="submit" class="btn btn-info" value="Continuer" />
@@ -142,7 +151,7 @@
 			</div>
 		</form:form>
 	</div>
-	
+
 
 	<div>
 		<jsp:include page="../../templates/footer.jsp" />

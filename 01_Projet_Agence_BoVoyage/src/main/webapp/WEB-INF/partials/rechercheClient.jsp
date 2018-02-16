@@ -76,9 +76,8 @@
 			</table>
 		</div>
 	</c:if>
-	<c:if test="${indice==false}">
-		<h1 style="color: red; text-align: center">Le client recherché
-			n'existe pas</h1>
+	<c:if test="${not empty msg}">
+		<h1 style="color: red; text-align: center">${msg}Test</h1>
 	</c:if>
 </body>
 </html>
