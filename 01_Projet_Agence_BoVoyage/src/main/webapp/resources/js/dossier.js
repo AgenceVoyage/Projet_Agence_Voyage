@@ -8,6 +8,7 @@ function affiche() {
 	$("#voiture").addClass("cacher");
 	$("#voiture1").addClass("cacher");
 	$("#hotel1").addClass("cacher2");
+	$("#tout1").addClass("cacher2");
 
 	if (prest == "avion") {
 		$("#avion").removeClass("cacher");
@@ -15,6 +16,7 @@ function affiche() {
 		$("#voiture").addClass("cacher");
 		$("#voiture1").addClass("cacher");
 		$("#hotel1").addClass("cacher2");
+		$("#tout1").addClass("cacher2");
 	}
 
 	if (prest == "avion+hotel") {
@@ -23,6 +25,7 @@ function affiche() {
 		$("#avion").addClass("cacher");
 		$("#voiture").addClass("cacher");
 		$("#voiture1").addClass("cacher");
+		$("#tout1").addClass("cacher2");
 	}
 
 	if (prest == "avion+voiture") {
@@ -32,11 +35,13 @@ function affiche() {
 		$("#hotel").addClass("cacher");
 		$("#avion").addClass("cacher");
 		$("#hotel1").addClass("cacher2");
+		$("#tout1").addClass("cacher2");
 	}
 
 	if (prest == "avion+hotel+voiture") {
 		$("#hotel").removeClass("cacher");
 		$("#voiture").removeClass("cacher");
+		$("#tout1").removeClass("cacher2");
 
 		$("#avion").addClass("cacher");
 		$("#hotel1").addClass("cacher2");
