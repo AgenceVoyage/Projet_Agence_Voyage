@@ -128,9 +128,10 @@ public class DossierController {
 	 * 
 	 * @param dossier
 	 * @return un dossier
+	 * @throws Exception 
 	 */
 	@RequestMapping(value = "/client/soumettreAjoutDossier", method = RequestMethod.POST)
-	public String soumettreAjout(@ModelAttribute("dossierAjout") Dossier dossier) {
+	public String soumettreAjout(@ModelAttribute("dossierAjout") Dossier dossier) throws Exception {
 		// Appel de la methode service
 		Dossier d = dossierService.getDossierById(dossier.getId());
 		dossier.setVoyage(d.getVoyage());
@@ -138,6 +139,15 @@ public class DossierController {
 		dossier.setStatut(d.getStatut());
 		
 		Dossier dOut = dossierService.updateDossier(dossier);
+		
+		int idClientResa = 0;
+		for (Voyageur voyageur : dossier.getListeClients()) {
+			if (voyageur.isClientResa()) {
+				idClientResa = voyageur.getId();
+			}
+		}
+		dossierService.confirmAddDossier(dossier, clientService.getClientById(idClientResa).getMail());
+		
 		if (dOut.getId() != 0) {
 			return "redirect:formAjouter";
 		} else {
