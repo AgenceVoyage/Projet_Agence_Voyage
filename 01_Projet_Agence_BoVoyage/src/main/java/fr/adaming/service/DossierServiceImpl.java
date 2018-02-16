@@ -64,24 +64,18 @@ public class DossierServiceImpl implements IDossierService {
 			dossier.getVoyage().getHotel().setPrix(prixHotel);
 		}
 
-		double prixAssurance = 0;
-		if (dossier.getListeAssurances() != null) {
-			for (Assurance assurance : dossier.getListeAssurances()) {
-				prixAssurance = prixAssurance + assurance.getPrix();
-			}
-		}
 
 		if (dossier.getPrestation().equals("avion")) {
-			dossier.setPrixTotal(dossier.getVoyage().getPrixRemise() + prixAssurance);
+			dossier.setPrixTotal(dossier.getVoyage().getPrixRemise());
 		} else if (dossier.getPrestation().equals("avion+hotel")) {
 			dossier.setPrixTotal(
-					dossier.getVoyage().getPrixRemise() + prixAssurance + dossier.getVoyage().getHotel().getPrix());
+					dossier.getVoyage().getPrixRemise() + dossier.getVoyage().getHotel().getPrix());
 		} else if (dossier.getPrestation().equals("avion+hotel+voiture")) {
-			dossier.setPrixTotal(dossier.getVoyage().getPrixRemise() + prixAssurance
+			dossier.setPrixTotal(dossier.getVoyage().getPrixRemise()
 					+ dossier.getVoyage().getHotel().getPrix() + dossier.getVoyage().getVoiture().getPrix());
 		} else {
 			dossier.setPrixTotal(
-					dossier.getVoyage().getPrixRemise() + prixAssurance + dossier.getVoyage().getVoiture().getPrix());
+					dossier.getVoyage().getPrixRemise() + dossier.getVoyage().getVoiture().getPrix());
 		}
 
 		return dossierDao.updateDossier(dossier);
