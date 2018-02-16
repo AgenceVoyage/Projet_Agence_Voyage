@@ -29,24 +29,18 @@
 				<th>Voyages</th>
 				<th>Prix Total</th>
 				<th>Statut</th>
-				<th>Nombres de voyageurs</th>
-				<th>Assurance</th>
+				
 			</tr>
 
 			<c:forEach var="d" items="${dossierListe}">
 				<tr>
 					<td>${d.id}</td>
 					<td>${d.numDossier}</td>
-					<td>${d.voyage}</td>
+					<td>${d.voyage.nom}</td>
 					<td>${d.prixTotal}</td>
 					<td>${d.statut}</td>
 					<%-- 				<td>${d.listeClients}</td> --%>
 					<%-- 				<td>${d.listeAssurances}</td> --%>
-					<td><a
-						href="${pageContext.request.contextPath}/dossiers/modifLien?pId=${d.id}">Modifier</a>
-						| <a
-						href="${pageContext.request.contextPath}/dossiers/suppLien?pId=${d.id}">Supprimer</a>
-					</td>
 				</tr>
 			</c:forEach>
 		</table>
