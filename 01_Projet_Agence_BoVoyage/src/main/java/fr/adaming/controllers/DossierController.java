@@ -72,16 +72,16 @@ public class DossierController {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String mail = auth.getName();
 		Client c = clientService.getClientByMail(mail);
-		List<Dossier> listeDossier=c.getListeDossiers();
+		List<Dossier> listeDossier = c.getListeDossiers();
 		return new ModelAndView("listeDossierClient", "dossierListe", listeDossier);
 	}
-	
+
 	@RequestMapping(value = "/client/listeVoyage", method = RequestMethod.GET)
 	public ModelAndView afficheListeVoyageClient() {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String mail = auth.getName();
 		Client c = clientService.getClientByMail(mail);
-		List<Dossier> listeDossier=c.getListeDossiers();
+		List<Dossier> listeDossier = c.getListeDossiers();
 		return new ModelAndView("listeVoyageClient", "dossierListe", listeDossier);
 	}
 
@@ -90,37 +90,46 @@ public class DossierController {
 	 * Methode pour afficher le formulaire d'ajout d'un dossier
 	 * 
 	 * @return la page ajoutDossier.jsp ou est présent le formulaire
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	@RequestMapping(value = "/client/afficheAjoutDossier", method = RequestMethod.GET)
 	public String afficheAjout(Model model, @RequestParam("pId") int idVoyage) throws Exception {
-		System.out.println("coucou je suis là");
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String mail = auth.getName();
 		Client c = clientService.getClientByMail(mail);
-		c.setClientResa(true);
-		Client cOut = clientService.updateClient(c);
-		List<Client> listClients = new ArrayList<Client>();
-		listClients.add(cOut);
-
-		Dossier dossier = new Dossier();
-		dossier.setListeClients(listClients);
 
 		Voyage voyage = voyageService.getVoyageById(idVoyage);
-		dossier.setVoyage(voyage);
-		
-		dossierService.addDossier(dossier);
-		int idClientResa = 0;
-		for (Voyageur voyageur : dossier.getListeClients()) {
-			if (voyageur.isClientResa()) {
-				idClientResa = voyageur.getId();
+
+		if (voyage.getNbPlaces() >= 1) {
+
+			c.setClientResa(true);
+			Client cOut = clientService.updateClient(c);
+			List<Client> listClients = new ArrayList<Client>();
+			listClients.add(cOut);
+
+			Dossier dossier = new Dossier();
+			dossier.setListeClients(listClients);
+
+			voyage.setNbPlaces(voyage.getNbPlaces()-1);
+			Voyage vOut = voyageService.updateVoyage(voyage);
+			dossier.setVoyage(vOut);
+
+			dossierService.addDossier(dossier);
+			int idClientResa = 0;
+			for (Voyageur voyageur : dossier.getListeClients()) {
+				if (voyageur.isClientResa()) {
+					idClientResa = voyageur.getId();
+				}
 			}
+			dossierService.confirmAddDossier(dossier, clientService.getClientById(idClientResa).getMail());
+
+			model.addAttribute("dossierAjout", dossier);
+
+			return "ajoutDossier";
+		} else {
+			model.addAttribute("msg", "Ce voyage ne contient pas assez de places !!");
+			return "redirection:afficheAjoutDossier";
 		}
-		dossierService.confirmAddDossier(dossier, clientService.getClientById(idClientResa).getMail());
-
-		model.addAttribute("dossierAjout", dossier);
-
-		return "ajoutDossier";
 	}
 
 	/**
@@ -128,7 +137,7 @@ public class DossierController {
 	 * 
 	 * @param dossier
 	 * @return un dossier
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	@RequestMapping(value = "/client/soumettreAjoutDossier", method = RequestMethod.POST)
 	public String soumettreAjout(@ModelAttribute("dossierAjout") Dossier dossier) throws Exception {
@@ -137,9 +146,9 @@ public class DossierController {
 		dossier.setVoyage(d.getVoyage());
 		dossier.setListeClients(d.getListeClients());
 		dossier.setStatut(d.getStatut());
-		
+
 		Dossier dOut = dossierService.updateDossier(dossier);
-		
+
 		int idClientResa = 0;
 		for (Voyageur voyageur : dossier.getListeClients()) {
 			if (voyageur.isClientResa()) {
@@ -147,7 +156,7 @@ public class DossierController {
 			}
 		}
 		dossierService.confirmAddDossier(dossier, clientService.getClientById(idClientResa).getMail());
-		
+
 		if (dOut.getId() != 0) {
 			return "redirect:formAjouter";
 		} else {

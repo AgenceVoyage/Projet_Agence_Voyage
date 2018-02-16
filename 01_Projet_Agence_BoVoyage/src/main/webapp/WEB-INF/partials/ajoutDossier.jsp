@@ -142,6 +142,7 @@
 			</div>
 		</form:form>
 	</div>
+	
 
 	<div>
 		<jsp:include page="../../templates/footer.jsp" />
