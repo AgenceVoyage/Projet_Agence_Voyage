@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import fr.adaming.model.Voyageur;
+import fr.adaming.service.IDossierService;
 import fr.adaming.service.IVoyageurService;
 
 @Controller
@@ -30,12 +31,24 @@ public class VoyageurController {
 	@Autowired
 	private IVoyageurService voyageurService;
 	
+	@Autowired
+	private IDossierService dossierService;
+	
 	public void setVoyageurService(IVoyageurService voyageurService) {
 		this.voyageurService = voyageurService;
+	}
+	
+	public void setDossierService(IDossierService dossierService) {
+		this.dossierService = dossierService;
 	}
 
 	
 	// *******************************PAGE ACCUEIL****************************************************************
+
+	
+
+
+
 
 	@RequestMapping(value = "/accueil")
 	public String affichageAccueil(Model model) {
@@ -57,10 +70,9 @@ public class VoyageurController {
 	@RequestMapping(value = "/soumettreFormAjoutVoyageur", method = RequestMethod.POST)
 	public String soumettreAjouterVoyageur(Model model, @ModelAttribute("vForm") Voyageur voyageur) {
 		voyageur.setClientResa(false);
-		System.out.println("DATE NAISSANCE" +voyageur.getDateNaissance());
 		Voyageur vOut=voyageurService.addVoyageur(voyageur);
 		if (vOut.getId() != 0) {
-			return "redirect:accueil";
+			return "redirect:formAjouter";
 		} else
 			return "redirect:formAjouter";
 	}

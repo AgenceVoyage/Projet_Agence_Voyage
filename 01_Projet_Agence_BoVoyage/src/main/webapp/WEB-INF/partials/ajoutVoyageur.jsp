@@ -8,7 +8,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Formulaire ajout Voyageur</title>
+
+<link rel="stylesheet"
+	href="<c:url value="/resources/boostrap/bootstrap.min.css"/>" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="<c:url value="/resources/boostrap/bootstrap.min.js"/>"></script>
+
+<link rel="stylesheet"
+	href="<c:url value="/resources/css/dossier.css"/>">
+
+<script type="text/javascript"
+	src="<c:url value="/resources/js/dossier.js"/>"></script>
+
 <link rel="stylesheet" href="<c:url value="/resources/css/log.css"/>" />
 
 </head>
@@ -24,7 +36,9 @@
 			modelAttribute="vForm" cssClass="form-horizontal">
 
 			<div class="form-group">
-				<form:select class="form-control" path="civilite">
+				<form:label path="civilite" class="col-sm-2 control-label">Civilite : </form:label>
+				<form:select class="form-control" cssClass="col-sm-2 control-label"
+					path="civilite">
 					<option value="false">Monsieur</option>
 					<option value="true">Madame</option>
 				</form:select>
@@ -52,7 +66,7 @@
 
 			<div class="form-group" style="margin-left: 15%">
 				<div class="col-sm-offset-2 col-sm-10">
-					<input type="submit" class="btn btn-info" value="Ajouter" />
+					<input type="submit" class="btn btn-info" value="Valider" />
 				</div>
 			</div>
 

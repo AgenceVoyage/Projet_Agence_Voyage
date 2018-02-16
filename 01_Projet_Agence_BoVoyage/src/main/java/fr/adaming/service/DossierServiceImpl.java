@@ -89,4 +89,13 @@ public class DossierServiceImpl implements IDossierService {
 	public List<Dossier> getAllDossiers() {
 		return dossierDao.getAllDossiers();
 	}
+
+	@Override
+	public Dossier recupDernierDossier() {
+		// récupération de tous les dossiers
+		List<Dossier> listOut = dossierDao.getAllDossiers();
+		
+		Dossier dOut = listOut.get(listOut.size()-1);
+		return dOut;
+	}
 }

@@ -46,4 +46,5 @@ public interface IDossierDao {
 	 * @return une liste de dossier
 	 */
 	public List<Dossier> getAllDossiers();
+	
 }

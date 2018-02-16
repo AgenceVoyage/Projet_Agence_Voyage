@@ -131,8 +131,9 @@ public class VoyageController {
 
 	}
 
-	@RequestMapping(value = "/utilisateur/listeVoyageParCont", method = RequestMethod.GET)
-	public String afficheListeVoyageCont(ModelMap model, @RequestParam("pContinent") String cont) {
+	@RequestMapping(value = "/listeVoyageParCont", method = RequestMethod.GET)
+	public String afficheListeVoyageCont(ModelMap model, @RequestParam("pContinent") String cont,
+			@RequestParam("pNum") int numRole) {
 		List<Voyage> listeVoyages = voyageService.getAllVoyages();
 		List<Voyage> listeVoyParCont = new ArrayList<>();
 
@@ -146,9 +147,8 @@ public class VoyageController {
 			}
 		}
 		model.addAttribute("voyageListCont", listeVoyParCont);
+		model.addAttribute("role", numRole);
 		return "listeVoyParCont";
 	}
-	
-	
 
 }

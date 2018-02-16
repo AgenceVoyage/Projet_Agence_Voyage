@@ -40,6 +40,8 @@ public interface IDossierService {
 	 * @return une liste de dossier
 	 */
 	public List<Dossier> getAllDossiers();
+	
+	public Dossier recupDernierDossier();
 
 
 	
