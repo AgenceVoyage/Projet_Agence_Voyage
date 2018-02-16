@@ -11,15 +11,21 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="<c:url value="/resources/boostrap/bootstrap.min.js"/>"></script>
+<link rel="stylesheet" href="<c:url value="/resources/css/carte.css"/>" />
 <link rel="stylesheet"
 	href="<c:url value="/resources/css/utilisateur.css"/>" />
 <title>Page d'accueil de l'espace client</title>
 </head>
 <body>
-
-	<jsp:include page="../../templates/headerClient.jsp" />
+	<div style="margin-left: 12%; margin-right: 12%;">
+		<jsp:include page="../../templates/headerClient.jsp" />
+	</div>
 
 	<div style="margin-left: 10%; width: 80%">
+
+		<div>
+			<jsp:include page="../../templates/carteClient.jsp" />
+		</div>
 
 		<div class="form-group">
 			<c:forEach var="v" items="${voyageList3}">
