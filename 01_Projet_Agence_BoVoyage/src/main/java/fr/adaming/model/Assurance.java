@@ -5,11 +5,15 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 /**
  * 
@@ -35,7 +39,7 @@ public class Assurance implements Serializable {
 	/**
 	 * Convertir les associations uml en java
 	 */
-	@ManyToMany(mappedBy="listeAssurances") 
+	@ManyToMany(mappedBy="listeAssurances", fetch=FetchType.EAGER) 
 	private List<Dossier> listeDossiers;
 	
 	public List<Dossier> getListeDossiers() {

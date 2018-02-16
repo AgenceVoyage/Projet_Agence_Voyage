@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,6 +13,10 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import javax.persistence.JoinColumn;
 
 /**
@@ -49,7 +54,8 @@ public class Dossier implements Serializable{
 	@JoinTable(name="assurance_dossier",joinColumns=@JoinColumn(name="assurance_id"),inverseJoinColumns=@JoinColumn(name="dossier_id"))
 	private List<Assurance> listeAssurances;
 	
-	@ManyToMany
+	
+	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(name="client_dossier",joinColumns=@JoinColumn(name="client_id"),inverseJoinColumns=@JoinColumn(name="dossier_id"))
 	private List<Client> listeClients;
 
@@ -90,8 +96,7 @@ public class Dossier implements Serializable{
 		super();
 	}	
 
-	public Dossier(int id, String numDossier, String statut, double prixTotal, String nomFormule, String prestation,
-			List<Assurance> listeAssurances, List<Client> listeClients, Voyage voyage) {
+	public Dossier(int id, String numDossier, String statut, double prixTotal, String nomFormule, String prestation) {
 		super();
 		this.id = id;
 		this.numDossier = numDossier;
@@ -99,22 +104,16 @@ public class Dossier implements Serializable{
 		this.prixTotal = prixTotal;
 		this.nomFormule = nomFormule;
 		this.prestation = prestation;
-		this.listeAssurances = listeAssurances;
-		this.listeClients = listeClients;
-		this.voyage = voyage;
+		
 	}
 
-	public Dossier(String numDossier, String statut, double prixTotal, String nomFormule, String prestation,
-			List<Assurance> listeAssurances, List<Client> listeClients, Voyage voyage) {
+	public Dossier(String numDossier, String statut, double prixTotal, String nomFormule, String prestation) {
 		super();
 		this.numDossier = numDossier;
 		this.statut = statut;
 		this.prixTotal = prixTotal;
 		this.nomFormule = nomFormule;
 		this.prestation = prestation;
-		this.listeAssurances = listeAssurances;
-		this.listeClients = listeClients;
-		this.voyage = voyage;
 	}
 	
 	
