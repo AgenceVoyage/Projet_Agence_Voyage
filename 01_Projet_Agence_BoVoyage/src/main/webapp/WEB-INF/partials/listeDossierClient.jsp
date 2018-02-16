@@ -20,7 +20,7 @@
 		<jsp:include page="../../templates/headerClient.jsp" />
 
 
-	<h1 style="color: Teal; text-align: center">Liste des Dossiers</h1>
+	<h1 style="color: Teal; text-align: center">Liste des Voyages</h1>
 	<div style="margin-left: 10%; margin-right: 10%">
 		<table class="table table-bordered fiche">
 			<tr>
@@ -29,8 +29,9 @@
 				<th>Destination</th>
 				<th>Date départ</th>
 				<th>Date arrivée</th>
-				<th>Formule</th>
 				<th>Compagnie</th>
+				<th>Formule</th>
+				<th>Prix</th>
 				
 			</tr>
 
@@ -42,6 +43,8 @@
 					<td>${d.voyage.dateDepart}</td>
 					<td>${d.voyage.dateArrivee}</td>
 					<td>${d.voyage.compagnieVoyage}</td>
+					<td>${d.nomFormule} ${d.prestation}</td>
+					<td>${d.prixTotal}</td>
 				</tr>
 			</c:forEach>
 		</table>
