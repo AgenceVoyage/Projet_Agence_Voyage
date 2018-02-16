@@ -21,8 +21,7 @@
 
 	<jsp:include page="../../templates/headerClient.jsp" />
 
-	<h1 style="color: Teal; margin-left: 34%">Formulaire d'ajout d'un
-		hotel</h1>
+	<h1 style="color: Teal;  text-align: center;">Formulaire de modification</h1>
 
 	<div style="margin-left: 25%">
 		<form:form method="POST" action="soumettreModifClient"
