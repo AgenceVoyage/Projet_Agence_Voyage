@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.adaming.model.Voyage;
+import fr.adaming.service.IPhotoService;
 import fr.adaming.service.IVoyageService;
 
 /**
@@ -39,6 +40,8 @@ public class RoleController {
 
 	@Autowired
 	IVoyageService voyageService;
+	@Autowired
+	IPhotoService photoService;
 
 	@InitBinder
 	public void dataBinding(WebDataBinder binder) {
@@ -92,7 +95,9 @@ public class RoleController {
 	@RequestMapping(value = "/agent/supprimeLienVoyage", method = RequestMethod.GET)
 	public String supprVoyageByLien(@RequestParam("pId") int idVoyage) {
 		// appel de la méthode service
+		if(photoService.deletePhoto(voyageService.getVoyageById(idVoyage))==1){
 		voyageService.deleteVoyage(idVoyage);
+		}
 		return "redirect:accueilAgent";
 	}
 
