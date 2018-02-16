@@ -103,7 +103,7 @@
 
 			<div class="form-group">
 				<label for="dateArrivee" class="col-sm-3 control-label">Date
-					d'arrivée:</label>
+					de retour :</label>
 				<div class="col-sm-5">
 					<form:input type="date" path="dateArrivee" id="idDate" class="form-control"
 						placeholder="Date d'arrivee" />

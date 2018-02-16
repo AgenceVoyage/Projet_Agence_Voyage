@@ -46,7 +46,7 @@
 						<tr>
 							<th>Reference</th>
 							<th>Date de depart</th>
-							<th>Date d'arrivee</th>
+							<th>Date de retour</th>
 							<th>Places restantes</th>
 							<th>Pays</th>
 							<th>Ville</th>

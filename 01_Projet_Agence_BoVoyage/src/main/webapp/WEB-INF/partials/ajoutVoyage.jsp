@@ -120,7 +120,7 @@
 				</div>
 
 				<div class="form-group">
-					<form:label path="dateArrivee" cssClass="col-sm-2 control-label">Date d'arrivée</form:label>
+					<form:label path="dateArrivee" cssClass="col-sm-2 control-label">Date de retour</form:label>
 					<div class="col-sm-5">
 						<form:input path="dateArrivee" type="date" class="form-control" />
 					</div>

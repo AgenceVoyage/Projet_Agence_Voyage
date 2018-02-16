@@ -49,7 +49,7 @@
 						<p>
 							<b>Prix : </b>${v.prixPublic}<br /> <b>Remise : </b>${v.remise}<br />
 							<b>Date de depart : </b>${v.dateDepart}<br /> <b>Date
-								d'arrivee : </b> ${v.dateArrivee}
+								de retour : </b> ${v.dateArrivee}
 						</p>
 					</div>
 					<a
