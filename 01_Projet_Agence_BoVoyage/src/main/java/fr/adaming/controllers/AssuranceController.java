@@ -1,5 +1,6 @@
 package fr.adaming.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +16,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import fr.adaming.model.Assurance;
+import fr.adaming.model.Client;
+import fr.adaming.model.Dossier;
 import fr.adaming.model.Hotel;
 import fr.adaming.service.IAssuranceService;
 
 @Controller
 @Scope("session")
-@RequestMapping("/assurances")
 public class AssuranceController {
 	
 	@Autowired
@@ -30,7 +32,7 @@ public class AssuranceController {
 		this.assuranceService = assuranceService;
 	}
 	
-	@RequestMapping(value = "/liste", method = RequestMethod.GET)
+	@RequestMapping(value = "/assurances/liste", method = RequestMethod.GET)
 	public ModelAndView afficheListe() {
 		List<Assurance> liste = assuranceService.getAllAssurances();
 
@@ -41,14 +43,14 @@ public class AssuranceController {
 	
 	//**********************************  AJOUT  ASSURANCE  **************************************
 
-	@RequestMapping(value = "/afficheAjoutAssurance", method = RequestMethod.GET)
+	@RequestMapping(value = "/assurances/afficheAjoutAssurance", method = RequestMethod.GET)
 	public String afficheFormAjoutAssurance(Model modele) {
 
 		modele.addAttribute("assurance", new Assurance());
 		return "ajoutAssurance";
 	}
 
-	@RequestMapping(value = "/soumettreAjoutAssurance", method = RequestMethod.POST)
+	@RequestMapping(value = "/assurances/soumettreAjoutAssurance", method = RequestMethod.POST)
 	public String soumettreAjoutAssurance(ModelMap modele, Assurance assurance) {
 
 		Assurance hOut = assuranceService.addAssurance(assurance);
@@ -62,7 +64,7 @@ public class AssuranceController {
 	
 	//**********************************  SUPPRIMER  ASSURANCE  **************************************
 
-	@RequestMapping(value = "/suprimlien/{pId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/assurances/suprimlien/{pId}", method = RequestMethod.GET)
 	public String deletLien(Model model, @PathVariable("pId") int id) {
 		assuranceService.deleteAssurance(id);
 		List<Assurance> liste = assuranceService.getAllAssurances();
@@ -72,14 +74,14 @@ public class AssuranceController {
 	
 	//**********************************  RECHERCHER  ASSURANCE  **************************************
 
-	@RequestMapping(value = "/afficheRecherche", method = RequestMethod.GET)
+	@RequestMapping(value = "/assurances/afficheRecherche", method = RequestMethod.GET)
 	public String afficheRechercher(Model modele) {
 		modele.addAttribute("assuranceRecherche", new Assurance());
 		modele.addAttribute("indice", false);
 		return "rechercheAssurance";
 	}
 
-	@RequestMapping(value = "/soumettreRecherche", method = RequestMethod.POST)
+	@RequestMapping(value = "/assurances/soumettreRecherche", method = RequestMethod.POST)
 	public String soumettreRechercher(Model model, @ModelAttribute("assuranceRecherche") Assurance h) {
 		Assurance hOut = assuranceService.getAssuranceById(h.getId());
 		if (hOut != null) {
@@ -94,21 +96,21 @@ public class AssuranceController {
 	//**********************************  MODIFIER  ASSURANCE  **************************************
 
 	
-	@RequestMapping(value = "/afficheModif", method = RequestMethod.GET)
+	@RequestMapping(value = "/assurances/afficheModif", method = RequestMethod.GET)
 	public String afficheModifier(ModelMap model, @RequestParam("pId") int id) {
 		Assurance v = assuranceService.getAssuranceById(id);
 		model.addAttribute("modifAssurance", v);
 		return "modifAssurance";
 	}
 
-	@RequestMapping(value = "/soumettreModif", method = RequestMethod.POST)
+	@RequestMapping(value = "/assurances/soumettreModif", method = RequestMethod.POST)
 	public String soumettreModifier(@ModelAttribute("modifAssurance") Assurance v) {
 		System.out.println(v);
 		assuranceService.updateAssurance(v);
 		return "redirect:liste";
 	}
 
-	@RequestMapping(value = "/modiflien", method = RequestMethod.GET)
+	@RequestMapping(value = "/assurances/modiflien", method = RequestMethod.GET)
 	public String updateLien(ModelMap model, @RequestParam("pId") int id) {
 		Assurance v = assuranceService.getAssuranceById(id);
 		model.addAttribute("modifAssurance", v);
@@ -116,5 +118,13 @@ public class AssuranceController {
 	}
 	
 	//********************* CHOISIR ASSURANCE RESERVATION
+	@RequestMapping(value="/client/pageChoixAss", method=RequestMethod.GET)
+	public String afficheChoixAssurance(Model model) {
+		
+		return "choixAssurance";
+	}
+	
+	
+	
 	
 }

@@ -76,8 +76,8 @@
 	<div class="form-group">
 		<div class="col-sm-offset-2 col-sm-5">
 			<a
-				href="${pageContext.request.contextPath}/client/detailVoyage?pId=${voyageDetail.id}"><input
-				type="button" value="Continuer" /></a>
+				href="${pageContext.request.contextPath}/client/pageChoixAss"><input
+				type="button" value="Valider reservation" /></a>
 		</div>
 	</div>
 

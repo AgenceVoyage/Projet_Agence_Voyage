@@ -15,50 +15,15 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="<c:url value="/resources/boostrap/bootstrap.min.js"/>"></script>
 
-<title>Ajout assurance</title>
+<title>Validation</title>
 <link rel="stylesheet" href="<c:url value="/resources/css/log.css"/>" />
 </head>
 <body>
 
 		<jsp:include page="../../templates/headerAgent.jsp" />
 
-	<h1 style="color: Teal; margin-left: 32%">Formulaire d'ajout
-		d'assurance</h1>
+	<h1 style="color: Teal; margin-left: 32%">Votre reservation a bien ete prise en compte. Un mail recapitulatif vient de vous etre envoye ! </h1>
 
-	<div style="margin-left: 25%">
-		<br /> <br />
-		<form:form method="POST" action="soumettreAjoutAssurance"
-			modelAttribute="assurance" cssClass="form-horizontal">
-
-			<div class="form-group">
-				<form:label path="type" class="col-sm-2 control-label">Type d'assurance</form:label>
-				<div class="col-sm-5">
-					<form:input path="type" cssClass="form-control" />
-				</div>
-			</div>
-
-			<br />
-
-			<div class="form-group">
-				<form:label path="prix" class="col-sm-2 control-label">Prix</form:label>
-				<div class="col-sm-5">
-					<form:input path="prix" cssClass="form-control" />
-				</div>
-			</div>
-			<br />
-
-
-			<div class="form-group" style="margin-left: 12%">
-				<div class="col-sm-offset-2 col-sm-10">
-					<input type="submit" class="btn btn-info"
-						value="Ajouter une Assurance" />
-				</div>
-			</div>
-
-
-
-		</form:form>
-	</div>
 	
 	<div>
 		<jsp:include page="../../templates/footer.jsp" />
