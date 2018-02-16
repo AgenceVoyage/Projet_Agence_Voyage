@@ -36,7 +36,7 @@
 								href="${pageContext.request.contextPath}/listeVoyageParCont?pContinent=Asie&pNum=2"
 								style="color: Teal; font-style: blod">Asie</a></li>
 							<li><a
-								href="${pageContext.request.contextPath}/listeVoyageParCont?pContinent=Australie&pNum=2"
+								href="${pageContext.request.contextPath}/listeVoyageParCont?pContinent=Oceanie&pNum=2"
 								style="color: Teal; font-style: blod">Oceanie</a></li>
 							<li><a
 								href="${pageContext.request.contextPath}/listeVoyageParCont?pContinent=Amerique&pNum=2"

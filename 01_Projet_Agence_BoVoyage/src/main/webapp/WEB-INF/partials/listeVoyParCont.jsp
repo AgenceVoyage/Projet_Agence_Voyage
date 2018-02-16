@@ -22,7 +22,7 @@
 </head>
 <body>
 
-	<div style="margin-left: 10%; width: 80%">
+	<div >
 		<c:if test="${role==1}">
 			<jsp:include page="../../templates/headerClient.jsp" /></c:if>
 		<c:if test="${role==2}">
