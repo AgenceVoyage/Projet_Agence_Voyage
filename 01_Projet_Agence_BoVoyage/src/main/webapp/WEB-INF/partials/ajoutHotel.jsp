@@ -25,7 +25,7 @@
 
 	<h1 style="color: Teal; margin-left: 34%">Formulaire d'ajout d'un
 		hotel</h1>
-
+	<br />
 	<div style="margin-left: 25%">
 		<form:form method="POST" action="soumettreAjoutHotel"
 			modelAttribute="temp" cssClass="form-horizontal">

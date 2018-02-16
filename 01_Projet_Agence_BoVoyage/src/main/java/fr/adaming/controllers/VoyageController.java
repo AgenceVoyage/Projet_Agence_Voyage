@@ -110,6 +110,10 @@ public class VoyageController {
 	public String modifierVoyage(@ModelAttribute("vModif") Voyage v) {
 		// appel de la méthode service pour modifier l'etudiant recupéré du
 		// formulaire de modif
+		
+		Voyage vModif = voyageService.getVoyageById(v.getId());
+		v.setVoiture(vModif.getVoiture());
+		v.setHotel(vModif.getHotel());
 		Voyage vOut = voyageService.updateVoyage(v);
 
 		if (vOut.getId() != 0) {

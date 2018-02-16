@@ -53,7 +53,7 @@ public class VoyageDaoImpl implements IVoyageDao {
 				+ "v.prixPublic=:pPrixPublic, v.remise=:pRemise,"
 				+ "v.prixRemise=:pPrixRemise, v.disponible=:pDisponible, "
 				+ "v.pays=:pPays, v.ville=:pVille,"
-				+ "v.voiture=:pVoiture, v.hotel=:pHotel where v.id=:pId";
+				+ "v.voiture=:pVoiture,v.compagnieVoyage=:pCompagnie,v.continent=:pContinent, v.hotel=:pHotel where v.id=:pId";
 		
 		//écriture d'un query
 		Query query = em.createQuery(req);
