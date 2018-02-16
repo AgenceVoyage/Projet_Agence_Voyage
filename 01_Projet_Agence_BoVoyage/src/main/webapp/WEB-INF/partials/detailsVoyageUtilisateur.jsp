@@ -108,6 +108,7 @@
 		var pays = '${voyageDetail.pays}';
 		console.log(pays);
 		var nom = '${voyageDetail.nom}';
+		var photo = '${voyageDetail.photo}';
 	</script>
 </body>
 </html>
