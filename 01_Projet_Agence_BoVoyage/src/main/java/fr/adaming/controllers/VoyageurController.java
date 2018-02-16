@@ -17,7 +17,7 @@ import fr.adaming.model.Voyageur;
 import fr.adaming.service.IVoyageurService;
 
 @Controller
-@RequestMapping("/voyageur")
+@RequestMapping("/client")
 public class VoyageurController {
 	
 	@InitBinder

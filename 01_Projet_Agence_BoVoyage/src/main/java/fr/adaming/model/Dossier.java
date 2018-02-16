@@ -50,7 +50,7 @@ public class Dossier implements Serializable{
 	private List<Assurance> listeAssurances;
 	
 	@ManyToMany
-	@JoinTable(name="client_dossier",joinColumns=@JoinColumn(name="dossier_id"),inverseJoinColumns=@JoinColumn(name="client_id"))
+	@JoinTable(name="client_dossier",joinColumns=@JoinColumn(name="client_id"),inverseJoinColumns=@JoinColumn(name="dossier_id"))
 	private List<Client> listeClients;
 
 	@ManyToOne
