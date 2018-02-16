@@ -38,8 +38,8 @@
 
 		<div class="form-group" style="margin-left: 15%">
 			<c:forEach var="v" items="${voyageList}">
-				<div class="col-sm-4 col-sm-offset-1" style="border-style: solid;border-width:1px;border-color:grey;background-color:rgba(215,215,215,0.8);width:350px;height:400px">
-					<div >
+				<div class="col-sm-4 col-sm-offset-1" style="width:350px;height:400px">
+					<div style="border-style: solid;border-width:1px;border-color:grey;background-color:rgba(215,215,215,0.8)">
 						<%
 							int i = 0;
 						%>
