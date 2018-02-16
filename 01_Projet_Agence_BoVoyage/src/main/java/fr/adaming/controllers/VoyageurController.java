@@ -75,11 +75,19 @@ public class VoyageurController {
 		voyageur.setClientResa(false);
 		
 		Voyageur vOut=voyageurService.addVoyageur(voyageur);
+		Client cOut = new Client();
+		cOut.setId(vOut.getId());
+		cOut.setDateNaissance(vOut.getDateNaissance());
+		cOut.setNom(vOut.getNom());
+		cOut.setCivilite(vOut.isCivilite());
+		cOut.setClientResa(vOut.isClientResa());
+		cOut.setPrenom(vOut.getPrenom());;
 		
 		Dossier dOut = dossierService.recupDernierDossier();
 		
 		List<Client> listClient = dOut.getListeClients();
-		listClient.add(vOut);
+		listClient.add(cOut);
+		dossierService.updateDossier(dOut);
 		
 		if (vOut.getId() != 0) {
 			return "redirect:formAjouter";
