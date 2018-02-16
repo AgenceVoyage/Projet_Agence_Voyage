@@ -38,8 +38,10 @@
 
 		<div class="form-group" style="margin-left: 15%">
 			<c:forEach var="v" items="${voyageList}">
-				<div class="col-sm-4 col-sm-offset-1" style="width:350px;height:400px">
-					<div style="border-style: solid;border-width:1px;border-color:grey;background-color:rgba(215,215,215,0.8)">
+				<div class="col-sm-4 col-sm-offset-1"
+					style="width: 350px; height: 400px">
+					<div
+						style="border-style: solid; border-width: 1px; border-color: grey; background-color: rgba(215, 215, 215, 0.8)">
 						<%
 							int i = 0;
 						%>
@@ -48,29 +50,30 @@
 						%>
 
 						<div>${v.nbPhoto}</div>
-						<div style="height:200px">
-						<c:forEach begin="0" end="${v.nbPhoto}" varStatus="loop">
-							<c:if test="${loop.index < v.nbPhoto}">
-								<%
-										 display = "block";
-									%>
-								<c:if test="${loop.index > 0}">
+						<div style="height: 200px">
+							<c:forEach begin="0" end="${v.nbPhoto}" varStatus="loop">
+								<c:if test="${loop.index < v.nbPhoto}">
 									<%
-										 display = "none";
+										display = "block";
 									%>
+									<c:if test="${loop.index > 0}">
+										<%
+											display = "none";
+										%>
+									</c:if>
+									<img class="voyage_${v.id}"
+										src="${pageContext.request.contextPath}/utilisateur/accueilPhoto?idV=${v.id}&idP=${loop.index}"
+										width="300px" height="auto" style="display:<%=display %>" />
+
 								</c:if>
-								<img class="voyage_${v.id}"
-									src="${pageContext.request.contextPath}/utilisateur/accueilPhoto?idV=${v.id}&idP=${loop.index}"
-									width="300px" height="auto" style="display:<%=display %>" />
 
-							</c:if>
-
-						</c:forEach>
+							</c:forEach>
 						</div>
 						<c:if test="${v.nbPhoto >1 }">
 							<button class="w3-button w3-display-left"
 								onclick="plusDivs(-1,${v.id})">&#10094;</button>
-							<button style="margin-left:82%" class="w3-button w3-display-right"
+							<button style="margin-left: 82%"
+								class="w3-button w3-display-right"
 								onclick="plusDivs(+1,${v.id})">&#10095;</button>
 						</c:if>
 						<div class="caption">
@@ -82,7 +85,7 @@
 						</div>
 
 						<a
-							href="${pageContext.request.contextPath}/detailVoyage?pId=${v.id}">Voir
+							href="${pageContext.request.contextPath}/utilisateur/detailVoyage?pId=${v.id}">Voir
 							le détail</a>
 					</div>
 				</div>
