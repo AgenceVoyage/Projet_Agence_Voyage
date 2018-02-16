@@ -52,10 +52,10 @@
 						<ul class="dropdown-menu">
 							<li><a
 								href="${pageContext.request.contextPath}/client/listeDossier"
-								style="color: Teal; font-style: blod">Liste de mes dossiers</a></li>
+								style="color: Teal; font-style: blod">Liste de mes voyages</a></li>
 							<li><a
 								href="${pageContext.request.contextPath}/client/listeVoyage"
-								style="color: Teal; font-style: blod">Listes de mes voyages</a></li>
+								style="color: Teal; font-style: blod">Listes de mes dossier</a></li>
 						</ul></li>
 
 					<li><a
