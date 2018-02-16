@@ -73,6 +73,14 @@
 		</form:form>
 	</div>
 
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-5">
+			<a
+				href="${pageContext.request.contextPath}/client/detailVoyage?pId=${voyageDetail.id}"><input
+				type="button" value="Continuer" /></a>
+		</div>
+	</div>
+
 
 </body>
 </html>

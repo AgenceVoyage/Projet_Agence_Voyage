@@ -66,30 +66,24 @@ public class VoyageurController {
 		
 	@RequestMapping(value = "/formAjouter", method = RequestMethod.GET)
 	public String afficheFormAjout(Model model) {
-		model.addAttribute("vForm", new Voyageur()); // ajouter model Voyage
+		model.addAttribute("vForm", new Client()); // ajouter model Voyage
 		return "ajoutVoyageur";
 	}
 		
 	@RequestMapping(value = "/soumettreFormAjoutVoyageur", method = RequestMethod.POST)
-	public String soumettreAjouterVoyageur(Model model, @ModelAttribute("vForm") Voyageur voyageur) {
+	public String soumettreAjouterVoyageur(Model model, @ModelAttribute("vForm") Client voyageur) {
 		voyageur.setClientResa(false);
 		
-		Voyageur vOut=voyageurService.addVoyageur(voyageur);
-		Client cOut = new Client();
-		cOut.setId(vOut.getId());
-		cOut.setDateNaissance(vOut.getDateNaissance());
-		cOut.setNom(vOut.getNom());
-		cOut.setCivilite(vOut.isCivilite());
-		cOut.setClientResa(vOut.isClientResa());
-		cOut.setPrenom(vOut.getPrenom());;
+		Client cOut=voyageurService.addVoyageur(voyageur);
 		
 		Dossier dOut = dossierService.recupDernierDossier();
 		
 		List<Client> listClient = dOut.getListeClients();
 		listClient.add(cOut);
+		dOut.setListeClients(listClient);
 		dossierService.updateDossier(dOut);
 		
-		if (vOut.getId() != 0) {
+		if (cOut.getId() != 0) {
 			return "redirect:formAjouter";
 		} else
 			return "redirect:formAjouter";

@@ -1,5 +1,6 @@
 package fr.adaming.service;
 
+import fr.adaming.model.Client;
 import fr.adaming.model.Voyageur;
 
 public interface IVoyageurService {
@@ -9,7 +10,7 @@ public interface IVoyageurService {
 	 * @param voyageur
 	 * @return
 	 */
-	public Voyageur addVoyageur(Voyageur voyageur);
+	public Client addVoyageur(Client voyageur);
 	
 	/**
 	 * Methode pour supprimer un voyageur

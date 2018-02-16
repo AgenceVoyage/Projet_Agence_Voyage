@@ -97,8 +97,9 @@ public class DossierController {
 		String mail = auth.getName();
 		Client c = clientService.getClientByMail(mail);
 		c.setClientResa(true);
+		Client cOut = clientService.updateClient(c);
 		List<Client> listClients = new ArrayList<Client>();
-		listClients.add(c);
+		listClients.add(cOut);
 
 		Dossier dossier = new Dossier();
 		dossier.setListeClients(listClients);

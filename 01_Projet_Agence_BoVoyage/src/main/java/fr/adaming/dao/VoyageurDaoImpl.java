@@ -24,7 +24,7 @@ public class VoyageurDaoImpl implements IVoyageurDao {
 	}
 
 	@Override
-	public Voyageur addVoyageur(Voyageur voyageur) {
+	public Client addVoyageur(Voyageur voyageur) {
 		Client client = new Client();
 		client.setDateNaissance(voyageur.getDateNaissance());
 		client.setCivilite(voyageur.isCivilite());

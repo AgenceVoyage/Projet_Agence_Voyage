@@ -114,4 +114,7 @@ public class AssuranceController {
 		model.addAttribute("modifAssurance", v);
 		return "modifAssurance";
 	}
+	
+	//********************* CHOISIR ASSURANCE RESERVATION
+	
 }

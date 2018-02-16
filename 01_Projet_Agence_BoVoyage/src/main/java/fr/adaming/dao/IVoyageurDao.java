@@ -2,6 +2,7 @@ package fr.adaming.dao;
 
 import java.util.List;
 
+import fr.adaming.model.Client;
 import fr.adaming.model.Voyageur;
 /**
  * interface des methodes CRD pour un voyageur
@@ -15,7 +16,7 @@ public interface IVoyageurDao {
 	 * @param voyageur
 	 * @return
 	 */
-	public Voyageur addVoyageur(Voyageur voyageur);
+	public Client addVoyageur(Voyageur voyageur);
 	
 	/**
 	 * Methode pour supprimer un voyageur

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import fr.adaming.dao.IVoyageurDao;
+import fr.adaming.model.Client;
 import fr.adaming.model.Voyageur;
 
 @Service
@@ -20,7 +21,7 @@ public class VoyageurServiceImpl implements IVoyageurService{
 	}
 	
 	@Override
-	public Voyageur addVoyageur(Voyageur voyageur) {
+	public Client addVoyageur(Client voyageur) {
 		return voyageurDao.addVoyageur(voyageur);
 	}
 
