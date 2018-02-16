@@ -54,11 +54,7 @@ public class VoyageController {
 	@RequestMapping(value = "/agent/ajouter")
 	public ModelAndView afficheForm() {
 		Voyage v = new Voyage();
-		/*
-		 * v.setFile(null); model.addAttribute("vForm", v); // ajouter model
-		 * Voyage
-		 */
-		// return "ajoutVoyage";
+
 		return new ModelAndView("ajoutVoyage", "vForm", v);
 	}
 
@@ -68,15 +64,28 @@ public class VoyageController {
 		System.out.println("Ajout Voyage:" + v.getCompagnieVoyage());
 
 		voyage = v;
-		List<Photo> list_p = new ArrayList<Photo>();
 		Photo p = new Photo();
 		v.setImage(v.getFile().getBytes());
 		p.setPicture(v.getFile().getBytes());
-		list_p.add(p);
-		// v.setListePhotos(list_p);
+
 		voyageService.addVoyage(v);
 		photoService.addPhoto(p, v);
+		//return "redirect:accueilAgent";
+		return "rajouterPhoto";
+	}
+	
+	@RequestMapping(value = "/agent/redirect", method = RequestMethod.POST)
+	public String redirect() throws IOException {
+		
 		return "redirect:accueilAgent";
+	}
+	@RequestMapping(value = "/agent/soumettreRajoutVoyage", method = RequestMethod.POST)
+	public String soumettreAjouterVoyage(@ModelAttribute("pForm") Photo pRecup) throws IOException {
+	
+		pRecup.setPicture(pRecup.getFile().getBytes());
+		photoService.addPhoto(pRecup, voyage);
+
+		return "rajouterPhoto";
 	}
 
 	// ***********************************************************************************************************************

@@ -12,12 +12,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.adaming.model.Voyage;
+import fr.adaming.service.IPhotoService;
 import fr.adaming.service.IVoyageService;
 
 /**
@@ -39,6 +39,8 @@ public class RoleController {
 
 	@Autowired
 	IVoyageService voyageService;
+	@Autowired
+	IPhotoService photoService;
 
 	@InitBinder
 	public void dataBinding(WebDataBinder binder) {
@@ -92,7 +94,9 @@ public class RoleController {
 	@RequestMapping(value = "/agent/supprimeLienVoyage", method = RequestMethod.GET)
 	public String supprVoyageByLien(@RequestParam("pId") int idVoyage) {
 		// appel de la méthode service
-		voyageService.deleteVoyage(idVoyage);
+		if (photoService.deletePhoto(voyageService.getVoyageById(idVoyage)) == 1) {
+			voyageService.deleteVoyage(idVoyage);
+		}
 		return "redirect:accueilAgent";
 	}
 
@@ -118,6 +122,18 @@ public class RoleController {
 		model.addAttribute("voyageDetail", voyage);
 
 		return "detailVoyageClient";
+	}
+
+	// méthode pour afficher un voyage : client
+	@RequestMapping(value = "/agent/detailVoyage", method = RequestMethod.GET)
+	public String getDetailVoyageAgent(Model model, @RequestParam("pId") int idVoyage) {
+		// appel de la méthode service pour récupérer un voyage par son id
+		Voyage voyage = voyageService.getVoyageById(idVoyage);
+
+		// ajout du voyage dans le modele
+		model.addAttribute("voyageDetail", voyage);
+
+		return "detailVoyageAgent";
 	}
 
 	@RequestMapping(value = "/infosAgence", method = RequestMethod.GET)
