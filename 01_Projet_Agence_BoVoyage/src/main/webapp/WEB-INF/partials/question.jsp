@@ -35,6 +35,7 @@
 	<h1 style="color: red; text-align: center">Formulaire de
 		reservation du voyage ${dossierAjout.voyage.nom}</h1>
 
+coucou jeune padawan
 
 </body>
 </html>

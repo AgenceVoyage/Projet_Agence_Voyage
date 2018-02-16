@@ -1,5 +1,6 @@
 package fr.adaming.service;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,23 +26,39 @@ public class DossierServiceImpl implements IDossierService {
 
 	@Override
 	public Dossier addDossier(Dossier dossier) {
+		dossier.setStatut("en attente");
+		return dossierDao.addDossier(dossier);
+	}
+
+	@Override
+	public Dossier updateDossier(Dossier dossier) {
+		DecimalFormat df = new DecimalFormat("#");
+		dossier.setNumDossier(dossier.getVoyage().getPays().substring(0, 3) + df.format(Math.random() * (1000 - 100))
+				+ dossier.getVoyage().getContinent().substring(0, 3));
+
 		double prixHotel;
-		if(dossier.getNomFormule().equals("hebergement seul")){
-			prixHotel = dossier.getVoyage().getHotel().getPrix();
-		}else if (dossier.getNomFormule().equals("petit dejeuner")){
-			prixHotel= dossier.getVoyage().getHotel().getPrix()*(1+10/100);
-		}else if (dossier.getNomFormule().equals("demi pension")){
-			prixHotel= dossier.getVoyage().getHotel().getPrix()*(1+30/100);
-		}else if (dossier.getNomFormule().equals("pension complete")){
-			prixHotel= dossier.getVoyage().getHotel().getPrix()*(1+50/100);
-		} else {
-			prixHotel=0;
+		if (dossier.getVoyage().getHotel() != null) {
+			if (dossier.getNomFormule().equals("hebergement seul")) {
+				prixHotel = dossier.getVoyage().getHotel().getPrix();
+			} else if (dossier.getNomFormule().equals("petit dejeuner")) {
+				prixHotel = dossier.getVoyage().getHotel().getPrix() * (1 + 10 / 100);
+			} else if (dossier.getNomFormule().equals("demi pension")) {
+				prixHotel = dossier.getVoyage().getHotel().getPrix() * (1 + 30 / 100);
+			} else if (dossier.getNomFormule().equals("pension complete")) {
+				prixHotel = dossier.getVoyage().getHotel().getPrix() * (1 + 50 / 100);
+			} else {
+				prixHotel = 0;
+			}
+			dossier.getVoyage().getHotel().setPrix(prixHotel);
 		}
-		dossier.getVoyage().getHotel().setPrix(prixHotel);
+
 		double prixAssurance = 0;
-		for (Assurance assurance : dossier.getListeAssurances()) {
-			prixAssurance = prixAssurance + assurance.getPrix();
+		if (dossier.getListeAssurances() != null) {
+			for (Assurance assurance : dossier.getListeAssurances()) {
+				prixAssurance = prixAssurance + assurance.getPrix();
+			}
 		}
+
 		if (dossier.getPrestation().equals("avion")) {
 			dossier.setPrixTotal(dossier.getVoyage().getPrixRemise() + prixAssurance);
 		} else if (dossier.getPrestation().equals("avion+hotel")) {
@@ -55,11 +72,6 @@ public class DossierServiceImpl implements IDossierService {
 					dossier.getVoyage().getPrixRemise() + prixAssurance + dossier.getVoyage().getVoiture().getPrix());
 		}
 
-		return dossierDao.addDossier(dossier);
-	}
-
-	@Override
-	public Dossier updateDossier(Dossier dossier) {
 		return dossierDao.updateDossier(dossier);
 	}
 

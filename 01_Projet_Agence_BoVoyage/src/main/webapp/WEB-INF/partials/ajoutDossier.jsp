@@ -32,11 +32,19 @@
 	<div style="margin-left: 10%; width: 80%">
 		<jsp:include page="../../templates/headerClient.jsp" />
 	</div>
-	<h1 style="color: red; text-align: center">Formulaire de
-		reservation du voyage ${dossierAjout.voyage.nom}</h1>
+	
 
-	<form:form method="POST" action="client/soumettreAjoutDossier"
+	<form:form method="POST" action="soumettreAjoutDossier"
 		modelAttribute="dossierAjout" cssClass="form-horizontal">
+		<h1 style="color: red; text-align: center">Formulaire de
+		reservation du voyage ${dossierAjout.voyage.nom}</h1>
+		
+		<div class="form-group" hidden="true">
+			<form:label path="id" cssClass="col-sm-2 control-label">Id</form:label>
+			<div class="col-sm-5">
+				<form:input path="id" cssClass="form-control" />
+			</div>
+		</div>
 
 		<div class="form-group">
 			<form:label path="prestation" class="col-sm-2 control-label">Prestation : </form:label>

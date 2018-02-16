@@ -96,6 +96,8 @@ public class DossierController {
 
 		Voyage voyage = voyageService.getVoyageById(idVoyage);
 		dossier.setVoyage(voyage);
+		
+		dossierService.addDossier(dossier);
 
 		model.addAttribute("dossierAjout", dossier);
 
@@ -111,9 +113,14 @@ public class DossierController {
 	@RequestMapping(value = "/client/soumettreAjoutDossier", method = RequestMethod.POST)
 	public String soumettreAjout(@ModelAttribute("dossierAjout") Dossier dossier) {
 		// Appel de la methode service
-		Dossier dOut = dossierService.addDossier(dossier);
+		Dossier d = dossierService.getDossierById(dossier.getId());
+		dossier.setVoyage(d.getVoyage());
+		dossier.setListeClients(d.getListeClients());
+		dossier.setStatut(d.getStatut());
+		
+		Dossier dOut = dossierService.updateDossier(dossier);
 		if (dOut.getId() != 0) {
-			return "redirect:liste";
+			return "question";
 		} else {
 			return "redirect:afficheAjoutDossier";
 		}
