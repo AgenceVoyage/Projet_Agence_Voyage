@@ -75,5 +75,7 @@ public interface IClientService {
 	 * @return
 	 */
 	public Client getClientByDossier(Dossier d);
+	
+	public void confirmAddClient(Client client,String mail) throws Exception;
 
 }

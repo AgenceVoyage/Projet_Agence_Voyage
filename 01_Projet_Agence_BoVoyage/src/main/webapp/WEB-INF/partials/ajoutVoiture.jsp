@@ -20,10 +20,9 @@
 
 </head>
 <body>
-	<div style="margin-left: 12%; margin-right: 12%">
 
 		<jsp:include page="../../templates/headerAgent.jsp" />
-	</div>
+		
 <h1 style="color: Teal; margin-left: 32%">Formulaire d'ajout d'une
 		voiture</h1>
 
@@ -68,6 +67,10 @@
 		</div>
 
 	</form:form>
+
+	<div>
+		<jsp:include page="../../templates/footer.jsp" />
+	</div>
 </div>
 </body>
 </html>

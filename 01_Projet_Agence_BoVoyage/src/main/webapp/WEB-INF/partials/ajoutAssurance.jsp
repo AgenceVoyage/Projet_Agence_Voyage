@@ -20,17 +20,13 @@
 </head>
 <body>
 
-	<div style="margin-left: 12%; margin-right: 12%;">
 		<jsp:include page="../../templates/headerAgent.jsp" />
-	</div>
 
 	<h1 style="color: Teal; margin-left: 32%">Formulaire d'ajout
 		d'assurance</h1>
 
 	<div style="margin-left: 25%">
-	<br />
-	
-			<br />
+		<br /> <br />
 		<form:form method="POST" action="soumettreAjoutAssurance"
 			modelAttribute="assurance" cssClass="form-horizontal">
 
@@ -58,11 +54,15 @@
 						value="Ajouter une Assurance" />
 				</div>
 			</div>
-		
+
 
 
 		</form:form>
-
 	</div>
+	
+	<div>
+		<jsp:include page="../../templates/footer.jsp" />
+	</div>
+
 </body>
 </html>

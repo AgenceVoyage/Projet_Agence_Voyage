@@ -14,10 +14,11 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="<c:url value="/resources/boostrap/bootstrap.min.js"/>"></script>
-<link rel="stylesheet" href="<c:url value="/resources/css/carte.css"/>" />
-
 <link rel="stylesheet"
 	href="<c:url value="/resources/css/utilisateur.css"/>" />
+	
+<link rel="stylesheet" href="<c:url value="/resources/css/carte.css"/>" />
+
 </head>
 <body>
 	<div style="margin-left: 12%; margin-right: 12%;">
