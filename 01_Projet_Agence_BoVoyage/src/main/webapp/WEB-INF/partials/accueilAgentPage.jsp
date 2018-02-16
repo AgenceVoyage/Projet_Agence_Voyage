@@ -30,7 +30,7 @@
 				<th>Nom</th>
 				<th>Date de depart</th>
 				<th>Date d'arrivee</th>
-				<th>Nombre de places restantes</th>
+				<th>Places restantes</th>
 				<th>Disponibilite</th>
 				<th>Pays</th>
 				<th>Ville</th>
@@ -43,7 +43,9 @@
 			</tr>
 			<c:forEach var="v" items="${voyageList2}">
 				<tr>
-					<td>${v.id}</td>
+					<td><a
+						href="${pageContext.request.contextPath}/agent/detailVoyage?pId=${v.id}">${v.id}</a>
+					</td>
 					<td>${v.reference}</td>
 					<td>${v.nom}</td>
 					<td>${v.dateDepart}</td>
@@ -88,9 +90,9 @@
 
 
 					<td><a
-						href="${pageContext.request.contextPath}/agent/supprimeLienVoyage?pId=${v.id}">Supprimer</a>
+						href="${pageContext.request.contextPath}/agent/modifLienVoyage?pId=${v.id}">Modifier</a>
 						| <a
-						href="${pageContext.request.contextPath}/agent/modifLienVoyage?pId=${v.id}">Modifier</a></td>
+						href="${pageContext.request.contextPath}/agent/supprimeLienVoyage?pId=${v.id}">Supprimer</a></td>
 				</tr>
 			</c:forEach>
 		</table>

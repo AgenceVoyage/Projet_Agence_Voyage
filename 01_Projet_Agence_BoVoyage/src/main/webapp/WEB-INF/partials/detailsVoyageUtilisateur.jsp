@@ -40,11 +40,10 @@
 					<h3 style="text-align: center">${voyageDetail.nom}</h3>
 					<table class="table table-bordered">
 						<tr>
-							<th>ID</th>
 							<th>Reference</th>
 							<th>Date de depart</th>
 							<th>Date d'arrivee</th>
-							<th>Nombre de places restantes</th>
+							<th>Places restantes</th>
 							<th>Pays</th>
 							<th>Ville</th>
 							<th>Continent</th>
@@ -55,7 +54,6 @@
 							<th>Voiture</th>
 						</tr>
 						<tr>
-							<td>${voyageDetail.id}</td>
 							<td>${voyageDetail.reference}</td>
 							<td>${voyageDetail.dateDepart}</td>
 							<td>${voyageDetail.dateArrivee}</td>
