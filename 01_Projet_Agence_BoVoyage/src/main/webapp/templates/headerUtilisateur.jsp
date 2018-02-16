@@ -23,26 +23,26 @@
 							class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a
-								href="${pageContext.request.contextPath}/listeVoyageParCont?pContinent=All?pNum=2"
+								href="${pageContext.request.contextPath}/listeVoyageParCont?pContinent=All&pNum=2"
 								style="color: Teal; font-style: bold">Tous les voyages</a></li>
 							<li role="separator" class="divider" style="color: grey"></li>
 							<li><a
-								href="${pageContext.request.contextPath}/listeVoyageParCont?pContinent=Europe?pNum=2"
+								href="${pageContext.request.contextPath}/listeVoyageParCont?pContinent=Europe&pNum=2"
 								style="color: Teal; font-style: blod">Europe</a></li>
 							<li><a
-								href="${pageContext.request.contextPath}/listeVoyageParCont?pContinent=Afrique?pNum=2"
+								href="${pageContext.request.contextPath}/listeVoyageParCont?pContinent=Afrique&pNum=2"
 								style="color: Teal; font-style: blod">Afrique</a></li>
 							<li><a
-								href="${pageContext.request.contextPath}/listeVoyageParCont?pContinent=Asie?pNum=2"
+								href="${pageContext.request.contextPath}/listeVoyageParCont?pContinent=Asie&pNum=2"
 								style="color: Teal; font-style: blod">Asie</a></li>
 							<li><a
-								href="${pageContext.request.contextPath}/listeVoyageParCont?pContinent=Australie?pNum=2"
+								href="${pageContext.request.contextPath}/listeVoyageParCont?pContinent=Australie&pNum=2"
 								style="color: Teal; font-style: blod">Oceanie</a></li>
 							<li><a
-								href="${pageContext.request.contextPath}/listeVoyageParCont?pContinent=Amerique?pNum=2"
+								href="${pageContext.request.contextPath}/listeVoyageParCont?pContinent=Amerique&pNum=2"
 								style="color: Teal; font-style: blod">Amerique</a></li>
 							<li><a
-								href=" ${pageContext.request.contextPath}/listeVoyageParCont?pContinent=Groenland?pNum=2"
+								href=" ${pageContext.request.contextPath}/listeVoyageParCont?pContinent=Groenland&pNum=2"
 								style="color: Teal; font-style: blod">Groenland</a></li>
 						</ul></li>
 
