@@ -22,43 +22,47 @@
 </head>
 <body>
 
-	
-			<jsp:include page="../../templates/headerUtilisateur.jsp" />
-		
+	<div style="margin-left: 10%; width: 80%">
+		<c:if test="${role==1}">
+			<jsp:include page="../../templates/headerClient.jsp" /></c:if>
+		<c:if test="${role==2}">
+			<jsp:include page="../../templates/headerUtilisateur.jsp" /></c:if>
+	</div>
 
-		<div class="form-group" style="margin-left: 12%;width:75%">
-			<form class="navbar-form inline-form">
-				<div class="form-group">
-					<input type="search" class="input-sm form-control"
-						placeholder="Recherche par pays" id="search"
-						onkeyup="searchField()">
-				</div>
-			</form>
-			<c:forEach var="v" items="${voyageListCont}">
-				<div class="col-sm-3">
-					<div class="thumbnail fiche">
-						<img src="..." alt="...">
 
-						<div class="caption ">
-							<h3 class="fichetitle">${v.nom}</h3>
-							<p class="pays">${v.pays}</p>
-							<p>
-								<b>Prix : </b>${v.prixPublic}<br /> <b>Remise : </b>${v.remise}<br />
-								<b>Date de depart : </b>${v.dateDepart}<br /> <b>Date
-									d'arrivee : </b> ${v.dateArrivee}
-							</p>
-						</div>
-						<a
-							href="${pageContext.request.contextPath}/utilisateur/detailVoyage?pId=${v.id}">Voir
-							le détail</a>
+	<div class="form-group" style="margin-left: 12%; width: 75%">
+		<form class="navbar-form inline-form">
+			<div class="form-group">
+				<input type="search" class="input-sm form-control"
+					placeholder="Recherche par pays" id="search"
+					onkeyup="searchField()">
+			</div>
+		</form>
+		<c:forEach var="v" items="${voyageListCont}">
+			<div class="col-sm-3">
+				<div class="thumbnail fiche">
+					<img src="..." alt="...">
+
+					<div class="caption ">
+						<h3 class="fichetitle">${v.nom}</h3>
+						<p class="pays">${v.pays}</p>
+						<p>
+							<b>Prix : </b>${v.prixPublic}<br /> <b>Remise : </b>${v.remise}<br />
+							<b>Date de depart : </b>${v.dateDepart}<br /> <b>Date
+								d'arrivee : </b> ${v.dateArrivee}
+						</p>
 					</div>
+					<a
+						href="${pageContext.request.contextPath}/utilisateur/detailVoyage?pId=${v.id}">Voir
+						le détail</a>
 				</div>
-			</c:forEach>
-		</div>
+			</div>
+		</c:forEach>
+	</div>
 
-		<div>
-			<jsp:include page="../../templates/footer.jsp" />
-		</div>
-	
+	<div>
+		<jsp:include page="../../templates/footer.jsp" />
+	</div>
+
 </body>
 </html>
