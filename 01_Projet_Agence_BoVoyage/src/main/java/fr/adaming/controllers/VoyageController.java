@@ -6,30 +6,20 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.context.annotation.Scope;
-import org.springframework.expression.ParseException;
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import fr.adaming.model.Client;
 import fr.adaming.model.Photo;
 import fr.adaming.model.Voyage;
 import fr.adaming.service.IClientService;
@@ -61,7 +51,7 @@ public class VoyageController {
 	// ******************** AJOUTER UN VOYAGE
 	// *****************************************************************************
 
-	@RequestMapping(value = "/voyage/ajouter")
+	@RequestMapping(value = "/agent/ajouter")
 	public ModelAndView afficheForm() {
 		Voyage v = new Voyage();
 		/*
@@ -73,7 +63,7 @@ public class VoyageController {
 	}
 
 	// @RequestParam("from") Date fromDate
-	@RequestMapping(value = "/voyage/soumettreAjoutVoyage", method = RequestMethod.POST)
+	@RequestMapping(value = "/agent/soumettreAjoutVoyage", method = RequestMethod.POST)
 	public String soumettreAjouterVoyage(@ModelAttribute("vForm") Voyage v) throws IOException {
 		System.out.println("Ajout Voyage:" + v.getCompagnieVoyage());
 
@@ -86,7 +76,7 @@ public class VoyageController {
 		// v.setListePhotos(list_p);
 		voyageService.addVoyage(v);
 		photoService.addPhoto(p, v);
-		return "accueil";
+		return "redirect:accueilAgent";
 	}
 
 	// ***********************************************************************************************************************
@@ -110,7 +100,7 @@ public class VoyageController {
 	public String modifierVoyage(@ModelAttribute("vModif") Voyage v) {
 		// appel de la méthode service pour modifier l'etudiant recupéré du
 		// formulaire de modif
-		
+
 		Voyage vModif = voyageService.getVoyageById(v.getId());
 		v.setVoiture(vModif.getVoiture());
 		v.setHotel(vModif.getHotel());

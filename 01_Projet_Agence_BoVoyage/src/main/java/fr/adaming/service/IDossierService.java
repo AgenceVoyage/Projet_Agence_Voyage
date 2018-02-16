@@ -42,6 +42,8 @@ public interface IDossierService {
 	public List<Dossier> getAllDossiers();
 	
 	public Dossier recupDernierDossier();
+	
+	public void confirmAddDossier(Dossier dossier,String mail) throws Exception;
 
 
 	

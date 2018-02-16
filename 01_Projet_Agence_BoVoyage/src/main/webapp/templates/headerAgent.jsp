@@ -23,7 +23,7 @@
 							class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a
-								href="${pageContext.request.contextPath}/voyage/ajouter"
+								href="${pageContext.request.contextPath}/agent/ajouter"
 								style="color: Teal; font-style: blod">Ajouter</a></li>
 							<li><a
 								href="${pageContext.request.contextPath}/voyage/supprimer"
