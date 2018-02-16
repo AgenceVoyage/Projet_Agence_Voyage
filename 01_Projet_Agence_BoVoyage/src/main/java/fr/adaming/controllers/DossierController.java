@@ -74,6 +74,15 @@ public class DossierController {
 		List<Dossier> listeDossier=c.getListeDossiers();
 		return new ModelAndView("listeDossierClient", "dossierListe", listeDossier);
 	}
+	
+	@RequestMapping(value = "/client/listeVoyage", method = RequestMethod.GET)
+	public ModelAndView afficheListeVoyageClient() {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String mail = auth.getName();
+		Client c = clientService.getClientByMail(mail);
+		List<Dossier> listeDossier=c.getListeDossiers();
+		return new ModelAndView("listeVoyageClient", "dossierListe", listeDossier);
+	}
 
 	/////////// -- Ajout d'un dossier-- /////////////
 	/**
@@ -87,7 +96,7 @@ public class DossierController {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String mail = auth.getName();
 		Client c = clientService.getClientByMail(mail);
-
+		c.setClientResa(true);
 		List<Client> listClients = new ArrayList<Client>();
 		listClients.add(c);
 

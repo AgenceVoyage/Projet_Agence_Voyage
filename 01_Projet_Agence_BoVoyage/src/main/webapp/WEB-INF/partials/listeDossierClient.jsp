@@ -24,23 +24,24 @@
 	<div style="margin-left: 10%; margin-right: 10%">
 		<table class="table table-bordered fiche">
 			<tr>
-				<th>ID</th>
 				<th>Numeros de Dossier</th>
 				<th>Voyages</th>
-				<th>Prix Total</th>
-				<th>Statut</th>
+				<th>Destination</th>
+				<th>Date départ</th>
+				<th>Date arrivée</th>
+				<th>Formule</th>
+				<th>Compagnie</th>
 				
 			</tr>
 
 			<c:forEach var="d" items="${dossierListe}">
 				<tr>
-					<td>${d.id}</td>
 					<td>${d.numDossier}</td>
 					<td>${d.voyage.nom}</td>
-					<td>${d.prixTotal}</td>
-					<td>${d.statut}</td>
-					<%-- 				<td>${d.listeClients}</td> --%>
-					<%-- 				<td>${d.listeAssurances}</td> --%>
+					<td>${d.voyage.ville} ${d.voyage.pays}</td>
+					<td>${d.voyage.dateDepart}</td>
+					<td>${d.voyage.dateArrivee}</td>
+					<td>${d.voyage.compagnieVoyage}</td>
 				</tr>
 			</c:forEach>
 		</table>
